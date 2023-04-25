@@ -39,24 +39,13 @@ int main ()
 
 	// Caja con linea
     auto * box_anchor   = geo.create_box (scene.get_gravity_physics_world(), b2_staticBody , 3, 3, 0.2f, 0.2f);
-    auto * box_platform = geo.create_box (scene.get_gravity_physics_world(), b2_dynamicBody, 4, 3, 1.1f, 0.1f);
+    auto * box_platform = geo.create_box (scene.get_gravity_physics_world(), b2_dynamicBody, 4, 3, 0.55f, 0.1f);
     auto * boxes_joint  = geo.create_revolute_joint (scene.get_gravity_physics_world(), box_anchor, box_platform, true);
 
     boxes_joint->SetMaxMotorTorque (75.f);
     boxes_joint->SetMotorSpeed (2.f);
 
 	//boxes_joint->EnableMotor(false);
-
-	auto* box_test = geo.create_box(scene.get_gravity_physics_world(), b2_dynamicBody, 4, 3, 2.9f, 0.1f);
-	box_test->SetTransform({ 5.f, 1.f }, 0);
-
-	/*
-	 	auto* box_test = scene.create_box(physics_world, b2_dynamicBody, 4, 3, 2.9f, 0.1f);
-		box_test->SetTransform({ 5.f, 1.f }, 0);
-
-		auto* box_test_2 = scene.create_box(physics_world, b2_dynamicBody, 4, 3, 2.f, 0.1f);
-		box_test->SetTransform({ 5.f, 1.5f }, 0);
-	*/
 
     const float physics_to_graphics_scale = 100.f;      // Escala para pasar de unidades de física a unidades de gráficos
 
@@ -70,41 +59,7 @@ int main ()
 
     Clock timer;
 
-    do
-    {
-        timer.restart ();
 
-        // Process window events:
-
-        exit = scene.process_events (window, scene.get_gravity_physics_world(), window_height, physics_to_graphics_scale);
-
-        // Update:
-
-		scene.get_gravity_physics_world().Step (delta_time, 8, 4);
-
-        // Render:
-
-        window.clear ();
-
-		geo.render (scene.get_gravity_physics_world(), window, physics_to_graphics_scale);
-
-        window.display ();
-
-        // Si resulta necesario se detiene la ejecución unos instantes para no exceder la tasa de
-        // fotogramas por segundo deseada:
-
-        float elapsed = timer.getElapsedTime ().asSeconds ();
-
-        if (elapsed < target_time)
-        {
-            sleep (seconds (target_time - elapsed));
-        }
-
-        // Se restablece la estimación de la duración del siguiente fotograma:
-
-        delta_time = timer.getElapsedTime ().asSeconds ();
-    }
-    while (!exit);
 
     return 0;
 }

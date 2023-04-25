@@ -21,6 +21,8 @@ class Scene
 {
 	Adapter adapter;
 
+	vector < Geometry > bodies;
+
 	// Esto configra la gravedad de la escena
 	b2World gravity_physics_world{ b2Vec2{ 0, -10.f } };
 
@@ -43,6 +45,49 @@ public:
 
 	// ------------------------------------------------------------------------------------------ //
 
+	void create_scene() 
+	{
+
+	}
+
+	void run() 
+	{
+		do
+		{
+			timer.restart();
+
+			// Process window events:
+
+			exit = scene.process_events(window, scene.get_gravity_physics_world(), window_height, physics_to_graphics_scale);
+
+			// Update:
+
+			scene.get_gravity_physics_world().Step(delta_time, 8, 4);
+
+			// Render:
+
+			window.clear();
+
+			geo.render(scene.get_gravity_physics_world(), window, physics_to_graphics_scale, Color::Blue);
+
+			window.display();
+
+			// Si resulta necesario se detiene la ejecución unos instantes para no exceder la tasa de
+			// fotogramas por segundo deseada:
+
+			float elapsed = timer.getElapsedTime().asSeconds();
+
+			if (elapsed < target_time)
+			{
+				sleep(seconds(target_time - elapsed));
+			}
+
+			// Se restablece la estimación de la duración del siguiente fotograma:
+
+			delta_time = timer.getElapsedTime().asSeconds();
+		} while (!exit);
+	}
+
 	bool process_events(Window& window, b2World& physics_world, float window_height, float scale)
 	{
 		Event event;
@@ -51,21 +96,26 @@ public:
 		{
 			switch (event.type)
 			{
-				case Event::MouseButtonPressed:
-				{
-					b2Vec2 center = adapter.sfml_position_to_box2d_position
-					(
-						{ float(event.mouseButton.x), float(event.mouseButton.y) }, window_height, scale
-					);
-
-					//create_circle(physics_world, b2_dynamicBody, center.x, center.y, .5f);
-
-					break;
-				}
-
 				case Event::Closed:
 				{
 					return true;
+				}
+
+				case Event::KeyPressed:
+				{
+					switch (event.key.code)
+					{
+						// Force inputs
+						case Keyboard::Key::A:
+							break;
+
+						case Keyboard::Key::D:
+							break;
+
+						// Jump imput
+						case Keyboard::Key::Space:
+							break;
+					}
 				}
 			}
 		}

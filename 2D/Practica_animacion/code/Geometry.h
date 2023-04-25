@@ -21,8 +21,14 @@ using namespace std;
 
 class Geometry 
 {
+
+protected:
+
 	Adapter adapter;
-	vector < b2Body* > bodies;
+	b2World& physics_world;
+	b2BodyType body_type; 
+	float x;
+	float y;
 
 public:
 
@@ -51,8 +57,6 @@ public:
 		body_fixture.friction = 0.50f;
 
 		body->CreateFixture(&body_fixture);
-
-		bodies.push_back(body);
 
 		return body;
 	}
@@ -84,8 +88,6 @@ public:
 		body_fixture.friction = 0.50f;
 
 		body->CreateFixture(&body_fixture);
-
-		bodies.push_back(body);
 
 		return body;
 	}
@@ -202,18 +204,19 @@ public:
 
 	void render_polygon
 	(
-		const b2Vec2* vertices,
+		const b2Vec2*		vertices,
 		int                 number_of_vertices,
-		const b2Transform& transform,
-		RenderWindow& renderer,
+		const b2Transform&	transform,
+		RenderWindow&		renderer,
 		float               window_height,
-		float               scale
+		float               scale,
+		Color				color
 	)
 	{
 		ConvexShape sfml_polygon;
 
 		sfml_polygon.setPointCount(number_of_vertices);
-		sfml_polygon.setFillColor(Color::Yellow);
+		sfml_polygon.setFillColor(color);
 
 		for (int index = 0; index < number_of_vertices; index++)
 		{
@@ -229,7 +232,7 @@ public:
 
 	// ------------------------------------------------------------------------------------------ //
 
-	void render(b2World& physics_world, RenderWindow& renderer, float scale)
+	void render(b2World& physics_world, RenderWindow& renderer, float scale, Color color)
 	{
 		// Se cachea el alto de la ventana en una variable local:
 
@@ -253,43 +256,43 @@ public:
 
 				switch (shape_type)
 				{
-				case b2Shape::e_circle:
-				{
-					// Se crea un CircleShape a partir de los atributos de la forma de la fixture y del body:
-					// En SFML el centro de un círculo no está en su position. Su position es la esquina superior izquierda
-					// del cuadrado en el que está inscrito. Por eso a position se le resta el radio tanto en X como en Y.
+					case b2Shape::e_circle:
+					{
+						// Se crea un CircleShape a partir de los atributos de la forma de la fixture y del body:
+						// En SFML el centro de un círculo no está en su position. Su position es la esquina superior izquierda
+						// del cuadrado en el que está inscrito. Por eso a position se le resta el radio tanto en X como en Y.
 
-					b2CircleShape* circle = dynamic_cast<b2CircleShape*>(fixture->GetShape());
+						b2CircleShape* circle = dynamic_cast<b2CircleShape*>(fixture->GetShape());
 
-					render_circle(circle->m_p, circle->m_radius, body_transform, renderer, window_height, scale);
+						render_circle(circle->m_p, circle->m_radius, body_transform, renderer, window_height, scale);
 
-					break;
-				}
-				case b2Shape::e_edge:
-				{
-					// Se toman los dos vértices del segmento y se ajusta su posición usando el transform del body.
-					// Los vértices resultantes se convierten y se ponen en un array para finalmente dibujar el segmento
-					// que los une usando la sobrecarga del método draw() que permite dibujar primitivas de OpenGL a
-					// partir de datos de vértices.
+						break;
+					}
+					case b2Shape::e_edge:
+					{
+						// Se toman los dos vértices del segmento y se ajusta su posición usando el transform del body.
+						// Los vértices resultantes se convierten y se ponen en un array para finalmente dibujar el segmento
+						// que los une usando la sobrecarga del método draw() que permite dibujar primitivas de OpenGL a
+						// partir de datos de vértices.
 
-					b2EdgeShape* edge = dynamic_cast<b2EdgeShape*>(fixture->GetShape());
+						b2EdgeShape* edge = dynamic_cast<b2EdgeShape*>(fixture->GetShape());
 
-					render_segment(edge->m_vertex1, edge->m_vertex2, body_transform, renderer, window_height, scale);
+						render_segment(edge->m_vertex1, edge->m_vertex2, body_transform, renderer, window_height, scale);
 
-					break;
-				}
+						break;
+					}
 
-				case b2Shape::e_polygon:
-				{
-					// Se toma la forma poligonal de Box2D (siempre es convexa) y se crea a partir de sus vértices un
-					// ConvexShape de SFML. Cada vértice de Box2D hay que transformarlo usando el transform del body.
+					case b2Shape::e_polygon:
+					{
+						// Se toma la forma poligonal de Box2D (siempre es convexa) y se crea a partir de sus vértices un
+						// ConvexShape de SFML. Cada vértice de Box2D hay que transformarlo usando el transform del body.
 
-					b2PolygonShape* box2d_polygon = dynamic_cast<b2PolygonShape*>(fixture->GetShape());
+						b2PolygonShape* box2d_polygon = dynamic_cast<b2PolygonShape*>(fixture->GetShape());
 
-					render_polygon(box2d_polygon->m_vertices, box2d_polygon->m_count, body_transform, renderer, window_height, scale);
+						render_polygon(box2d_polygon->m_vertices, box2d_polygon->m_count, body_transform, renderer, window_height, scale, color);
 
-					break;
-				}
+						break;
+					}
 				}
 			}
 		}

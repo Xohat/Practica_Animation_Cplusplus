@@ -1,3 +1,13 @@
+//
+// Este código es de dominio público.
+// angel.rodriguez@esne.edu
+// 2021.03+
+//
+// Controles:
+//
+//   Click: crear nuevo objeto.
+//
+
 #pragma once
 
 #include <Box2D/Box2D.h>
