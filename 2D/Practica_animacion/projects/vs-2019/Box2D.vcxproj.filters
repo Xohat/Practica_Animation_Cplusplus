@@ -23,7 +23,10 @@
     <ClInclude Include="..\..\code\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Handler.h">
+    <ClInclude Include="..\..\code\Geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\Adapter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

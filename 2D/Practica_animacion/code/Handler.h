@@ -8,5 +8,4 @@
 //   Click: crear nuevo objeto.
 //
 
-
 #pragma once
