@@ -29,13 +29,19 @@
     <ClInclude Include="..\..\code\Geometry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Square.h">
+    <ClInclude Include="..\..\code\Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\code\Circle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\Segment.h">
+    <ClInclude Include="..\..\code\Borders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\Rectangle_platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\Basket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,45 @@
+﻿  main.cpp
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(15,19): error C2871: 'sf': no existe ningún espacio de nombres con este nombre
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(22,8): error C2143: error de sintaxis: falta ';' delante de '*'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(22,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(22,18): error C2238: símbolos (token) inesperados delante de ';'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23,14): error C2653: 'sf': no es un nombre de clase o espacio de nombres
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23,18): error C2065: 'Shape': identificador no declarado
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23,2): error C2923: 'std::unique_ptr': 'Shape' no es un argumento de tipo de plantilla válido para el parámetro '_Ty'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23): message : vea la declaración de 'Shape'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23,2): error C2976: 'std::unique_ptr': no hay suficientes argumentos de plantilla
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(3123): message : vea la declaración de 'std::unique_ptr'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(25,7): error C2143: error de sintaxis: falta ';' delante de '*'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(25,7): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(25,14): error C2238: símbolos (token) inesperados delante de ';'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(29,11): error C2061: error de sintaxis: identificador 'Scene'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(34,22): error C2061: error de sintaxis: identificador 'RenderWindow'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(29,10): error C2512: 'std::unique_ptr': no hay disponible un constructor predeterminado adecuado
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(3123,18): message : vea la declaración de 'std::unique_ptr'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(31,3): error C2065: 'scene': identificador no declarado
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(31,12): error C2065: 'given_scene': identificador no declarado
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Scene.h(76,1): error C2660: 'Geometry::render': la función no acepta 1 argumentos
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(34,15): message : vea la declaración de 'Geometry::render'
+  Scene.cpp
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(15,19): error C2871: 'sf': no existe ningún espacio de nombres con este nombre
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(22,8): error C2143: error de sintaxis: falta ';' delante de '*'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(22,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(22,18): error C2238: símbolos (token) inesperados delante de ';'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23,14): error C2653: 'sf': no es un nombre de clase o espacio de nombres
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23,18): error C2065: 'Shape': identificador no declarado
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23,2): error C2923: 'std::unique_ptr': 'Shape' no es un argumento de tipo de plantilla válido para el parámetro '_Ty'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23): message : vea la declaración de 'Shape'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(23,2): error C2976: 'std::unique_ptr': no hay suficientes argumentos de plantilla
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(3123): message : vea la declaración de 'std::unique_ptr'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(25,7): error C2143: error de sintaxis: falta ';' delante de '*'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(25,7): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(25,14): error C2238: símbolos (token) inesperados delante de ';'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(29,11): error C2061: error de sintaxis: identificador 'Scene'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(34,22): error C2061: error de sintaxis: identificador 'RenderWindow'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(29,10): error C2512: 'std::unique_ptr': no hay disponible un constructor predeterminado adecuado
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(3123,18): message : vea la declaración de 'std::unique_ptr'
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(31,3): error C2065: 'scene': identificador no declarado
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(31,12): error C2065: 'given_scene': identificador no declarado
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Scene.h(76,1): error C2660: 'Geometry::render': la función no acepta 1 argumentos
+E:\UnityProyectsGeneral\Practica_Animation_Cplusplus\2D\Practica_animacion\code\Geometry.h(34,15): message : vea la declaración de 'Geometry::render'
+  Generando código...
