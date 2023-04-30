@@ -35,7 +35,7 @@ int main ()
 	scene.create_edge (scene.get_gravity_physics_world(), b2_staticBody, left,  top,    right, top   );
 	scene.create_edge (scene.get_gravity_physics_world(), b2_staticBody, right, bottom, right, top   );
 
-	// Caja con linea
+	// Caja con linea (Motor)
     auto * box_anchor   = scene.create_box (scene.get_gravity_physics_world(), b2_staticBody , 3, 3, 0.2f, 0.2f);
     auto * box_platform = scene.create_box (scene.get_gravity_physics_world(), b2_dynamicBody, 4, 3, 1.1f, 0.1f);
     auto * boxes_joint  = scene.create_revolute_joint (scene.get_gravity_physics_world(), box_anchor, box_platform, true);
@@ -45,7 +45,7 @@ int main ()
 
 	//boxes_joint->EnableMotor(false);
 
-	auto* box_test = scene.create_box(scene.get_gravity_physics_world(), b2_dynamicBody, 4, 3, 2.9f, 0.1f);
+	auto* box_test = scene.create_box(scene.get_gravity_physics_world(), b2_staticBody, 4, 3, 2.9f, 0.1f);
 	box_test->SetTransform({ 5.f, 1.f }, 0);
 
 	/*
