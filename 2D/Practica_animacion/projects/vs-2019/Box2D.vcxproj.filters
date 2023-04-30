@@ -18,15 +18,15 @@
     <ClCompile Include="..\..\code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\code\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\code\Geometry.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\code\Adapter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\code\Square.h">

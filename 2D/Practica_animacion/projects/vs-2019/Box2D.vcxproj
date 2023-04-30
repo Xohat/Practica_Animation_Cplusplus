@@ -87,9 +87,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\main.cpp" />
+    <ClCompile Include="..\..\code\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\Adapter.h" />
     <ClInclude Include="..\..\code\Circle.h" />
     <ClInclude Include="..\..\code\Geometry.h" />
     <ClInclude Include="..\..\code\Scene.h" />
