@@ -1,6 +1,0 @@
-https://www.iforce2d.net/b2dtut/bodies
-
-Que librerias se pueden eliminar (Todas menos sfml y box2d)
-
-
-

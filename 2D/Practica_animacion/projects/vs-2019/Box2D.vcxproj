@@ -93,10 +93,11 @@
     <ClInclude Include="..\..\code\Basket.h" />
     <ClInclude Include="..\..\code\Circle.h" />
     <ClInclude Include="..\..\code\Geometry.h" />
+    <ClInclude Include="..\..\code\Player.h" />
+    <ClInclude Include="..\..\code\PlayerController.h" />
+    <ClInclude Include="..\..\code\Rectangle.h" />
     <ClInclude Include="..\..\code\Rectangle_platform.h" />
     <ClInclude Include="..\..\code\Scene.h" />
-    <ClInclude Include="..\..\code\Borders.h" />
-    <ClInclude Include="..\..\code\Rectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

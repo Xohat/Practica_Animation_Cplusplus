@@ -1,38 +1,79 @@
 //
 // Este código es de dominio público.
-// angel.rodriguez@esne.edu
-// 2021.03+
-//
-// Controles:
-//
-//   Click: crear nuevo objeto.
-//
-// Este código es de dominio público.
-// angel.rodriguez@esne.edu
-// 2021.03+
-//
-// Controles:
-//
-//   Click: crear nuevo objeto.
-//
+// Copyright (C) 2023
+// Hecho por Arturo Vilar Carretero
+// 2023.4+
 
 #pragma once
 
 #include "Geometry.h"
 
+/// <summary>
+/// Hija de Geometry, se encarga de crear circulos en la escena
+/// </summary>
 class Circle : public Geometry
 {
-	float radius;
-	float density;
+
+private:
+
+	//KINEMATIC
+	Circle(Scene *given_scene) : Geometry(*given_scene)
+	{
+	}
 
 public:
 
-	Circle(float given_radius, float given_density) : Geometry(*scene)	
+	/// <summary>
+	/// Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues
+	/// </summary>
+	/// <param name="body_type"></param>
+	/// <param name="x"></param>
+	/// <param name="y"></param>
+	/// <returns></returns>
+	static shared_ptr< Geometry > create(b2BodyType body_type, float x, float y, float radius, float density, Scene *scene)
 	{
-		radius = given_radius;
-		density = given_density;
+		shared_ptr< Circle > circle(new Circle (scene));
+
+		// Se crea el body def:
+		b2BodyDef body_def;
+
+		body_def.type = body_type;
+		body_def.position.Set(x, y);                            // Posición inicial absoluta
+
+		// Se crea el body:
+
+		circle->body = circle->scene->get_world().CreateBody(&body_def);
+
+		// Se añande una shape:
+
+		b2CircleShape body_shape;
+
+		body_shape.m_radius = radius;
+
+		// Se añande una fixture:
+
+		b2FixtureDef body_fixture;
+
+		body_fixture.shape = &body_shape;
+		body_fixture.density = 0.10f;
+		body_fixture.restitution = 0.75f;
+		body_fixture.friction = 0.50f;
+		//body_fixture.isSensor = true;
+
+		//std::string userData_name = "player";
+		//circle->body_fixture.userData = userData_name.c_str();
+
+		circle->body->CreateFixture(&body_fixture);
+
+		circle->shape = make_unique<sf::CircleShape>(radius * scene->get_physics_to_graphics_scale());
+
+		return circle;
 	}
 
+	/// <summary>
+	/// Metodo de render
+	/// </summary>
+	/// <param name="renderer"></param>
 	void render(RenderWindow& renderer) override
 	{
 		// coger el transform de body
@@ -41,7 +82,8 @@ public:
 
 		b2CircleShape* body_circle = dynamic_cast<b2CircleShape*>(body->GetFixtureList()->GetShape());
 
-		auto center = body_circle->m_p;
+		float radius = body_circle->m_radius * scene->get_physics_to_graphics_scale();
+		auto  center = body_circle->m_p;
 
 		sf::CircleShape* circle = dynamic_cast<sf::CircleShape*>(shape.get());
 
@@ -52,6 +94,6 @@ public:
 
 		circle->setFillColor(Color::Magenta);
 
-		renderer.draw(*circle);
+		renderer.draw(*circle);		
 	}
 };

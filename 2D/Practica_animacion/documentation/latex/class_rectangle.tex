@@ -1,0 +1,138 @@
+\hypertarget{class_rectangle}{}\doxysection{Rectangle Class Reference}
+\label{class_rectangle}\index{Rectangle@{Rectangle}}
+
+
+Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear rectangulos en la escena.  
+
+
+
+
+{\ttfamily \#include $<$Rectangle.\+h$>$}
+
+Inheritance diagram for Rectangle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rectangle}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rectangle_a78c9a48bb9ca9ad6786f9ee12ce0ca70}{Rectangle}} (float given\+\_\+width, float given\+\_\+height)
+\item 
+b2\+Body $\ast$ \mbox{\hyperlink{class_rectangle_a678c967f9d2e612980f49f7397628ff4}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y)
+\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rectangle_a77c5cf12241b6e82abf32466f053d4d7}{render}} (Render\+Window \&renderer) override
+\begin{DoxyCompactList}\small\item\em Metodo de render. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
+\begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
+\begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_rectangle_adbe8ae69919acc459e7ab155a69bc8ff}{width}}
+\item 
+float \mbox{\hyperlink{class_rectangle_a080c1530eb46073e9880b01d14c341fd}{height}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Body $\ast$ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}} = NULL
+\item 
+b2\+Body\+Def $\ast$ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\+\_\+def}} = NULL
+\item 
+b2\+Fixture\+Def \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\+\_\+fixture}}
+\item 
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ \mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}
+\item 
+int \mbox{\hyperlink{class_geometry_afe13f453b638d013261bbd263fb21c71}{name\+\_\+offset}} = 0
+\item 
+\mbox{\hyperlink{class_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear rectangulos en la escena. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_rectangle_a78c9a48bb9ca9ad6786f9ee12ce0ca70}\label{class_rectangle_a78c9a48bb9ca9ad6786f9ee12ce0ca70}} 
+\index{Rectangle@{Rectangle}!Rectangle@{Rectangle}}
+\index{Rectangle@{Rectangle}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{Rectangle()}{Rectangle()}}
+{\footnotesize\ttfamily Rectangle\+::\+Rectangle (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+width,  }\item[{float}]{given\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_rectangle_a678c967f9d2e612980f49f7397628ff4}\label{class_rectangle_a678c967f9d2e612980f49f7397628ff4}} 
+\index{Rectangle@{Rectangle}!create@{create}}
+\index{create@{create}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily b2\+Body $\ast$ Rectangle\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\+\_\+type} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_rectangle_a77c5cf12241b6e82abf32466f053d4d7}\label{class_rectangle_a77c5cf12241b6e82abf32466f053d4d7}} 
+\index{Rectangle@{Rectangle}!render@{render}}
+\index{render@{render}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Rectangle\+::render (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Metodo de render. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{Geometry}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_rectangle_a080c1530eb46073e9880b01d14c341fd}\label{class_rectangle_a080c1530eb46073e9880b01d14c341fd}} 
+\index{Rectangle@{Rectangle}!height@{height}}
+\index{height@{height}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily float Rectangle\+::height\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_rectangle_adbe8ae69919acc459e7ab155a69bc8ff}\label{class_rectangle_adbe8ae69919acc459e7ab155a69bc8ff}} 
+\index{Rectangle@{Rectangle}!width@{width}}
+\index{width@{width}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily float Rectangle\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rectangle_8h}{Rectangle.\+h}}\end{DoxyCompactItemize}

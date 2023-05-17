@@ -1,20 +1,20 @@
-//
-// Este c√≥digo es de dominio p√∫blico.
-// angel.rodriguez@esne.edu
-// 2021.03+
-//
-// Controles:
-//
-//   Click: crear nuevo objeto.
-//
+// Copyright (C) 2023
+// Hecho por Arturo Vilar Carretero
+// 2023.4+
 
 #include "Scene.h"
-#include "Geometry.h"
 #include <SFML/Window.hpp>
 
 int main()
 {
-	RenderWindow window;
+	// Se define como de grande es la pantalla
+	constexpr auto window_width = 800u;
+	constexpr auto window_height = 600u;
+
+	RenderWindow window(sf::VideoMode(window_width, window_height), "Pr·ctica de animaciÛn", sf::Style::Default, ContextSettings(32));
+
+	window.setVerticalSyncEnabled(true);
+
 	Scene scene (window);
 
 	scene.run();

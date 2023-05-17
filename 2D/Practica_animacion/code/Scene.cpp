@@ -1,14 +1,9 @@
-//
-// Este código es de dominio público.
-// angel.rodriguez@esne.edu
-// 2021.03+
-//
-// Controles:
-//
-//   Click: crear nuevo objeto.
-//
+// Copyright (C) 2023
+// Hecho por Arturo Vilar Carretero
+// 2023.4+
 
 #include "Scene.h"
+#include "Circle.h"
 
 void Scene::process_events() 
 {
@@ -20,6 +15,7 @@ void Scene::process_events()
 		{
 			case Event::Closed:
 			{
+				exit = true;
 				break;
 			}
 
@@ -40,5 +36,21 @@ void Scene::process_events()
 				}
 			}
 		}
+	}
+}
+
+void Scene::create_scene() 
+{
+	//Aqui irian todos los creates en base al mapa creadoo en el .h
+
+	//b2BodyType body_type, float x, float y, float radius, float density, Scene *scene
+	geometries["Circle"] = Circle::create(b2_dynamicBody, 10.f, 10.f, 5.f, 2.f, this);
+}
+
+void Scene::render() 
+{
+	for (auto& geometry : geometries)
+	{
+		geometry.second->render(*window);
 	}
 }
