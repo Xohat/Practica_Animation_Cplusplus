@@ -59,6 +59,6 @@ public:
 			case MS_JUMP:
 				vel.y = 5; break;
 		}
-		player.get_body().SetLinearVelocity(vel);
+		//player.get_body().SetLinearVelocity(vel);
 	}
 };
