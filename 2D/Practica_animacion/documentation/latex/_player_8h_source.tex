@@ -1,0 +1,40 @@
+\hypertarget{_player_8h_source}{}\doxysection{Player.\+h}
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (C)\ 2023}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Hecho\ por\ Arturo\ Vilar\ Carretero}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ 2023.4+}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <Box2D/Box2D.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }sf;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ }
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ b2Body*\ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}};}
+\DoxyCodeLine{00021\ \ \ \ \ b2BodyDef*\ \mbox{\hyperlink{class_player_aab7f1bf591a6562290a17afa26439f1f}{bodyDef}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_player_a5915b1131aa6716585a1fb1616f782e2}{Player}}(b2World\&\ given\_world)\ }
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}}\ =\ given\_world.CreateBody(\mbox{\hyperlink{class_player_aab7f1bf591a6562290a17afa26439f1f}{bodyDef}});}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a9025c84cfd3b6ceac239a52b8bfb3387}{set\_position}}()\ }
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}};}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ b2Body*\ \mbox{\hyperlink{class_player_aec61ad870080c459de0ae292648b0865}{get\_body}}()}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}};}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,114 @@
+\hypertarget{_rectangle__platform_8h_source}{}\doxysection{Rectangle\+\_\+platform.\+h}
+\mbox{\hyperlink{_rectangle__platform_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (C)\ 2023}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Hecho\ por\ Arturo\ Vilar\ Carretero}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ 2023.4+}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rectangle___platform}{Rectangle\_Platform}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_geometry}{Geometry}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_contact_listener}{ContactListener}}\ \mbox{\hyperlink{class_rectangle___platform_ae0819d1655b63266ef14ca19e076eb83}{listener}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}{width}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}{height}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//KINEMATIC}}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_rectangle___platform_a470d885b7c123f6172d5ff0f733e4764}{Rectangle\_Platform}}(\textcolor{keywordtype}{float}\ given\_width,\ \textcolor{keywordtype}{float}\ given\_height)\ :\ \mbox{\hyperlink{class_geometry}{Geometry}}(*\mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}})}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}{width}}\ =\ given\_width;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}{height}}\ =\ given\_height;}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00035\ \ \ \ \ b2Body*\ \mbox{\hyperlink{class_rectangle___platform_a9e11c8c1cd36743bd570c7f4f315dd9b}{create}}(b2BodyType\ body\_type,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body:}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\_def}}-\/>type\ =\ body\_type;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\_def}}-\/>position.Set(0.f,\ 0.f);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Posición inicial\ absoluta}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ b2Body*\ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}\ =\ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}-\/>\mbox{\hyperlink{class_scene_a14369368788674ac9efe829c397bca79}{get\_world}}().CreateBody(\mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\_def}});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ fixture:}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ b2PolygonShape\ body\_shape;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ body\_shape.SetAsBox(\mbox{\hyperlink{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}{width}},\ \mbox{\hyperlink{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}{height}});}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ b2FixtureDef\ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.shape\ =\ \&body\_shape;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.density\ =\ 1.00f;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.restitution\ =\ 0.50f;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.friction\ =\ 0.50f;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::string\ userData\_name\ =\ \textcolor{stringliteral}{"{}platform"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.userData\ =\ userData\_name.c\_str();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>CreateFixture(\&\mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}};}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}{render}}(RenderWindow\&\ renderer)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00070\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coger\ el\ transform\ de\ body}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ aplicárselo\ a\ shape\ ajustándolo\ para\ SFML}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dibujar\ shape}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ b2PolygonShape*\ body\_circle\ =\ \textcolor{keyword}{dynamic\_cast<}b2PolygonShape*\textcolor{keyword}{>}(\mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>GetFixtureList()-\/>GetShape());}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ sf::RectangleShape*\ rectangle\ =\ \textcolor{keyword}{dynamic\_cast<}sf::RectangleShape*\textcolor{keyword}{>}(\mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}.get());}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ b2Transform\&\ body\_transform\ =\ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>GetTransform();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ rectangle-\/>setPosition(\mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}-\/>\mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\_position\_to\_sfml\_position}}(body\_transform.p));}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ rectangle-\/>setFillColor(Color::Green);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ renderer.draw(*rectangle);}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rectangle___platform_a23dc9196d03d829d5dfc0bf4ae614acd}{update\_movement}}(\textcolor{keywordtype}{float}\ time\_step)}
+\DoxyCodeLine{00093\ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obtener\ la\ posición actual\ del\ cuerpo\ rígido}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ b2Vec2\&\ current\_pos\ =\ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>GetPosition();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calcular\ la\ nueva\ posición en\ función del\ tiempo\ transcurrido\ y\ de\ la\ velocidad\ deseada}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ speed\ =\ 2.0f;\ \textcolor{comment}{//\ velocidad\ en\ unidades\ por\ segundo}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ distance\ =\ 2.0f;\ \textcolor{comment}{//\ distancia\ en\ unidades\ que\ se\ moverá hacia\ arriba\ y\ hacia\ abajo}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ b2Vec2\ new\_pos\ =\ current\_pos\ +\ b2Vec2(0.0f,\ distance\ *\ sin(speed\ *\ 2.0f\ *\ b2\_pi\ *\ time\_step))}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ b2Mul(\mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>GetTransform().q,\ b2Vec2(0.0f,\ \mbox{\hyperlink{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}{height}}\ /\ 2.0f));}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Establecer\ la\ nueva\ posición del\ cuerpo\ rígido}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>SetTransform(new\_pos,\ 0.0f);}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_contact_listener}{ContactListener}}\ :\ \textcolor{keyword}{public}\ b2ContactListener}
+\DoxyCodeLine{00114\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contact_listener_af83946c54271cbf9d8ee273587ed1791}{BeginContact}}(b2Contact*\ contact)\ }
+\DoxyCodeLine{00120\ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obtén los\ fixtures\ involucrados\ en\ la\ colisión}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ b2Fixture*\ fixture\_a\ =\ contact-\/>GetFixtureA();}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ b2Fixture*\ fixture\_b\ =\ contact-\/>GetFixtureB();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ fixture\_a-\/>GetUserData();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comprueba\ si\ la\ colisión es\ entre\ la\ plataforma\ y\ el\ jugador}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fixture\_a-\/>GetUserData()\ ==\ \textcolor{stringliteral}{"{}platform"{}}\ \&\&\ fixture\_b-\/>GetUserData()\ ==\ \textcolor{stringliteral}{"{}player"{}})\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ plataforma\ está colisionando\ con\ el\ jugador,\ haz\ que\ se\ mueva\ hacia\ arriba}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_rectangle___platform}{Rectangle\_Platform}}*\ platform\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_rectangle___platform}{Rectangle\_Platform}}*\textcolor{keyword}{>}(fixture\_a-\/>GetBody()-\/>GetUserData());}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ platform-\/>\mbox{\hyperlink{class_rectangle___platform_a23dc9196d03d829d5dfc0bf4ae614acd}{update\_movement}}(0.016f);\ \textcolor{comment}{//\ La\ plataforma\ se\ moverá hacia\ arriba\ durante\ 1/60\ segundos\ (60\ fps)}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \};}
+
+\end{DoxyCode}

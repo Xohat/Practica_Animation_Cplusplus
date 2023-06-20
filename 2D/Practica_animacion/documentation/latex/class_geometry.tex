@@ -1,0 +1,177 @@
+\hypertarget{class_geometry}{}\doxysection{Geometry Class Reference}
+\label{class_geometry}\index{Geometry@{Geometry}}
+
+
+Clase encargada de proporcionar los datos a todos sus hijos que son todas las formas geométricas.  
+
+
+
+
+{\ttfamily \#include $<$Geometry.\+h$>$}
+
+Inheritance diagram for Geometry\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_geometry}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
+\begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
+\begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Body $\ast$ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}} = NULL
+\item 
+b2\+Body\+Def $\ast$ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\+\_\+def}} = NULL
+\item 
+b2\+Fixture\+Def \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\+\_\+fixture}}
+\item 
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ \mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}
+\item 
+int \mbox{\hyperlink{class_geometry_afe13f453b638d013261bbd263fb21c71}{name\+\_\+offset}} = 0
+\item 
+\mbox{\hyperlink{class_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de proporcionar los datos a todos sus hijos que son todas las formas geométricas. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}\label{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}} 
+\index{Geometry@{Geometry}!Geometry@{Geometry}}
+\index{Geometry@{Geometry}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{Geometry()}{Geometry()}}
+{\footnotesize\ttfamily Geometry\+::\+Geometry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_scene}{Scene}} \&}]{given\+\_\+scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+\_\+scene} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_geometry_abf795148b678bca9bfde1f5669d5125f}\label{class_geometry_abf795148b678bca9bfde1f5669d5125f}} 
+\index{Geometry@{Geometry}!get\_position@{get\_position}}
+\index{get\_position@{get\_position}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
+{\footnotesize\ttfamily b2\+Vec2 Geometry\+::get\+\_\+position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter de position. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_geometry_a0e8b573107bd44845fb681029ac3cb16}\label{class_geometry_a0e8b573107bd44845fb681029ac3cb16}} 
+\index{Geometry@{Geometry}!render@{render}}
+\index{render@{render}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily virtual void Geometry\+::render (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Metodo virtual de render para todos los hijos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_basket_a58b0da4b32a2709fb909237927ea39d3}{Basket}}, \mbox{\hyperlink{class_circle_a848b197b8019441a78ec17a15633468a}{Circle}}, \mbox{\hyperlink{class_rectangle_a77c5cf12241b6e82abf32466f053d4d7}{Rectangle}}, and \mbox{\hyperlink{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}{Rectangle\+\_\+\+Platform}}.
+
+\mbox{\Hypertarget{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}\label{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}} 
+\index{Geometry@{Geometry}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Geometry\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{b2\+Vec2}]{new\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter de position sin angulo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}\label{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}} 
+\index{Geometry@{Geometry}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Geometry\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{b2\+Vec2}]{new\+\_\+position,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter de position con angulo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+position} & \\
+\hline
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_geometry_a49f2312ec8148f9cf65ec207ad681942}\label{class_geometry_a49f2312ec8148f9cf65ec207ad681942}} 
+\index{Geometry@{Geometry}!body@{body}}
+\index{body@{body}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily b2\+Body$\ast$ Geometry\+::body = NULL\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}\label{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}} 
+\index{Geometry@{Geometry}!body\_def@{body\_def}}
+\index{body\_def@{body\_def}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{body\_def}{body\_def}}
+{\footnotesize\ttfamily b2\+Body\+Def$\ast$ Geometry\+::body\+\_\+def = NULL\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}\label{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}} 
+\index{Geometry@{Geometry}!body\_fixture@{body\_fixture}}
+\index{body\_fixture@{body\_fixture}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{body\_fixture}{body\_fixture}}
+{\footnotesize\ttfamily b2\+Fixture\+Def Geometry\+::body\+\_\+fixture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_geometry_afe13f453b638d013261bbd263fb21c71}\label{class_geometry_afe13f453b638d013261bbd263fb21c71}} 
+\index{Geometry@{Geometry}!name\_offset@{name\_offset}}
+\index{name\_offset@{name\_offset}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{name\_offset}{name\_offset}}
+{\footnotesize\ttfamily int Geometry\+::name\+\_\+offset = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_geometry_a56d15d98f4be1a91d4221978f3476d62}\label{class_geometry_a56d15d98f4be1a91d4221978f3476d62}} 
+\index{Geometry@{Geometry}!scene@{scene}}
+\index{scene@{scene}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{scene}{scene}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_scene}{Scene}}$\ast$ Geometry\+::scene\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_geometry_a84f067eddc61f4380f7761d560afb958}\label{class_geometry_a84f067eddc61f4380f7761d560afb958}} 
+\index{Geometry@{Geometry}!shape@{shape}}
+\index{shape@{shape}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{shape}{shape}}
+{\footnotesize\ttfamily unique\+\_\+ptr$<$ sf\+::\+Shape $>$ Geometry\+::shape\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_geometry_8h}{Geometry.\+h}}\end{DoxyCompactItemize}

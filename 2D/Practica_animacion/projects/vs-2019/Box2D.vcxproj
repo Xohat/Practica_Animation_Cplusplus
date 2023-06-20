@@ -21,13 +21,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -87,9 +87,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\main.cpp" />
+    <ClCompile Include="..\..\code\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\Handler.h" />
+    <ClInclude Include="..\..\code\Basket.h" />
+    <ClInclude Include="..\..\code\Circle.h" />
+    <ClInclude Include="..\..\code\ContactListener.h" />
+    <ClInclude Include="..\..\code\Geometry.h" />
+    <ClInclude Include="..\..\code\Player.h" />
+    <ClInclude Include="..\..\code\PlayerController.h" />
+    <ClInclude Include="..\..\code\Rectangle.h" />
+    <ClInclude Include="..\..\code\Rectangle_platform.h" />
     <ClInclude Include="..\..\code\Scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

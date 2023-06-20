@@ -1,0 +1,163 @@
+\hypertarget{class_rectangle___platform}{}\doxysection{Rectangle\+\_\+\+Platform Class Reference}
+\label{class_rectangle___platform}\index{Rectangle\_Platform@{Rectangle\_Platform}}
+
+
+Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear plataformas rectangulares en la escena.  
+
+
+
+
+{\ttfamily \#include $<$Rectangle\+\_\+platform.\+h$>$}
+
+Inheritance diagram for Rectangle\+\_\+\+Platform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rectangle___platform}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rectangle___platform_a470d885b7c123f6172d5ff0f733e4764}{Rectangle\+\_\+\+Platform}} (float given\+\_\+width, float given\+\_\+height)
+\item 
+b2\+Body $\ast$ \mbox{\hyperlink{class_rectangle___platform_a9e11c8c1cd36743bd570c7f4f315dd9b}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y)
+\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}{render}} (Render\+Window \&renderer) override
+\begin{DoxyCompactList}\small\item\em Metodo de render. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rectangle___platform_a23dc9196d03d829d5dfc0bf4ae614acd}{update\+\_\+movement}} (float time\+\_\+step)
+\begin{DoxyCompactList}\small\item\em Se encarga de mover la plataforma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
+\begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
+\begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_contact_listener}{Contact\+Listener}} \mbox{\hyperlink{class_rectangle___platform_ae0819d1655b63266ef14ca19e076eb83}{listener}}
+\item 
+float \mbox{\hyperlink{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}{width}}
+\item 
+float \mbox{\hyperlink{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}{height}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Body $\ast$ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}} = NULL
+\item 
+b2\+Body\+Def $\ast$ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\+\_\+def}} = NULL
+\item 
+b2\+Fixture\+Def \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\+\_\+fixture}}
+\item 
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ \mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}
+\item 
+int \mbox{\hyperlink{class_geometry_afe13f453b638d013261bbd263fb21c71}{name\+\_\+offset}} = 0
+\item 
+\mbox{\hyperlink{class_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear plataformas rectangulares en la escena. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_rectangle___platform_a470d885b7c123f6172d5ff0f733e4764}\label{class_rectangle___platform_a470d885b7c123f6172d5ff0f733e4764}} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!Rectangle\_Platform@{Rectangle\_Platform}}
+\index{Rectangle\_Platform@{Rectangle\_Platform}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{Rectangle\_Platform()}{Rectangle\_Platform()}}
+{\footnotesize\ttfamily Rectangle\+\_\+\+Platform\+::\+Rectangle\+\_\+\+Platform (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+width,  }\item[{float}]{given\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_rectangle___platform_a9e11c8c1cd36743bd570c7f4f315dd9b}\label{class_rectangle___platform_a9e11c8c1cd36743bd570c7f4f315dd9b}} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!create@{create}}
+\index{create@{create}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily b2\+Body $\ast$ Rectangle\+\_\+\+Platform\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\+\_\+type} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}\label{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!render@{render}}
+\index{render@{render}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Rectangle\+\_\+\+Platform\+::render (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Metodo de render. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{Geometry}}.
+
+\mbox{\Hypertarget{class_rectangle___platform_a23dc9196d03d829d5dfc0bf4ae614acd}\label{class_rectangle___platform_a23dc9196d03d829d5dfc0bf4ae614acd}} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!update\_movement@{update\_movement}}
+\index{update\_movement@{update\_movement}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{update\_movement()}{update\_movement()}}
+{\footnotesize\ttfamily void Rectangle\+\_\+\+Platform\+::update\+\_\+movement (\begin{DoxyParamCaption}\item[{float}]{time\+\_\+step }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Se encarga de mover la plataforma. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}\label{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!height@{height}}
+\index{height@{height}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily float Rectangle\+\_\+\+Platform\+::height\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_rectangle___platform_ae0819d1655b63266ef14ca19e076eb83}\label{class_rectangle___platform_ae0819d1655b63266ef14ca19e076eb83}} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!listener@{listener}}
+\index{listener@{listener}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{listener}{listener}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_contact_listener}{Contact\+Listener}} Rectangle\+\_\+\+Platform\+::listener\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}\label{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!width@{width}}
+\index{width@{width}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily float Rectangle\+\_\+\+Platform\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rectangle__platform_8h}{Rectangle\+\_\+platform.\+h}}\end{DoxyCompactItemize}

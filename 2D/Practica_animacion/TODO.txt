@@ -1,8 +1,0 @@
-https://www.iforce2d.net/b2dtut/bodies
-
-Como hago un cuerpo dinamico en Box2D estático, usando C++ puro
-
-Como cambio los colores de los cuerpos en Box2D, usando C++ puro
-
-Que librerias se pueden eliminar
-
