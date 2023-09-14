@@ -1,5 +1,5 @@
-\hypertarget{class_contact_listener}{}\doxysection{Contact\+Listener Class Reference}
-\label{class_contact_listener}\index{ContactListener@{ContactListener}}
+\doxysection{Contact\+Listener Class Reference}
+\hypertarget{class_contact_listener}{}\label{class_contact_listener}\index{ContactListener@{ContactListener}}
 
 
 Detector de colisiones.  
@@ -7,7 +7,7 @@ Detector de colisiones.
 
 
 
-{\ttfamily \#include $<$Rectangle\+\_\+platform.\+h$>$}
+{\ttfamily \#include $<$Contact\+Listener.\+h$>$}
 
 Inheritance diagram for Contact\+Listener\+:\begin{figure}[H]
 \begin{center}
@@ -15,11 +15,13 @@ Inheritance diagram for Contact\+Listener\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_contact_listener}
 \end{center}
 \end{figure}
-\doxysubsection*{Private Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_contact_listener_af83946c54271cbf9d8ee273587ed1791}{Begin\+Contact}} (b2\+Contact $\ast$contact)
-\begin{DoxyCompactList}\small\item\em Detecta la colisión en base al user data proporcionado en el create de las dos partes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_contact_listener_af83946c54271cbf9d8ee273587ed1791}{Begin\+Contact}} (b2\+Contact \texorpdfstring{$\ast$}{*}contact)
+\begin{DoxyCompactList}\small\item\em Detecta la colisión en base al user data proporcionado en el create de las dos partes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contact_listener_a92df01f2f60983f4f1dd74b5e845188d}{End\+Contact}} (b2\+Contact \texorpdfstring{$\ast$}{*}contact)
+\begin{DoxyCompactList}\small\item\em Activada al acabar el contacto, resettea la posición de la plataforma asociada al sensor que era partícipe antes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -33,11 +35,11 @@ Detector de colisiones.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_contact_listener_af83946c54271cbf9d8ee273587ed1791}\label{class_contact_listener_af83946c54271cbf9d8ee273587ed1791}} 
+\Hypertarget{class_contact_listener_af83946c54271cbf9d8ee273587ed1791}\label{class_contact_listener_af83946c54271cbf9d8ee273587ed1791} 
 \index{ContactListener@{ContactListener}!BeginContact@{BeginContact}}
 \index{BeginContact@{BeginContact}!ContactListener@{ContactListener}}
 \doxysubsubsection{\texorpdfstring{BeginContact()}{BeginContact()}}
-{\footnotesize\ttfamily void Contact\+Listener\+::\+Begin\+Contact (\begin{DoxyParamCaption}\item[{b2\+Contact $\ast$}]{contact }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily void Contact\+Listener\+::\+Begin\+Contact (\begin{DoxyParamCaption}\item[{b2\+Contact \texorpdfstring{$\ast$}{*}}]{contact }\end{DoxyParamCaption})}
 
 
 
@@ -48,8 +50,24 @@ Detecta la colisión en base al user data proporcionado en el create de las dos p
 {\em contact} & \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_contact_listener_a92df01f2f60983f4f1dd74b5e845188d}\label{class_contact_listener_a92df01f2f60983f4f1dd74b5e845188d} 
+\index{ContactListener@{ContactListener}!EndContact@{EndContact}}
+\index{EndContact@{EndContact}!ContactListener@{ContactListener}}
+\doxysubsubsection{\texorpdfstring{EndContact()}{EndContact()}}
+{\footnotesize\ttfamily void Contact\+Listener\+::\+End\+Contact (\begin{DoxyParamCaption}\item[{b2\+Contact \texorpdfstring{$\ast$}{*}}]{contact }\end{DoxyParamCaption})}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+
+Activada al acabar el contacto, resettea la posición de la plataforma asociada al sensor que era partícipe antes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contact} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_rectangle__platform_8h}{Rectangle\+\_\+platform.\+h}}\end{DoxyCompactItemize}
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_contact_listener_8h}{Contact\+Listener.\+h}}\item 
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/Contact\+Listener.\+cpp\end{DoxyCompactItemize}

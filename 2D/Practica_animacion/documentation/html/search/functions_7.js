@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['update_5fmovement_0',['update_movement',['../class_rectangle___platform.html#a23dc9196d03d829d5dfc0bf4ae614acd',1,'Rectangle_Platform']]]
+  ['update_0',['update',['../class_basket.html#a7f658f1ed64485269f24030b965e1e18',1,'Basket::update()'],['../class_circle.html#aa978eeba0712d29dfae842733bf6c2c7',1,'Circle::update()'],['../class_collision___sensor.html#ae35e126ec17faacfdd71275ae5ac56c1',1,'Collision_Sensor::update()'],['../class_fire.html#a561d4b6f691b9350dfbe83782e4152a2',1,'Fire::update()'],['../class_geometry.html#a92fab86ccfaf75ce6f37ef02819f80a3',1,'Geometry::update()'],['../class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4',1,'Player::update()'],['../class_rectangle.html#ab92d1def505d300873233d525638ea19',1,'Rectangle::update()'],['../class_rectangle___platform.html#a162aa9f269dc251ffa67499d7a96e805',1,'Rectangle_Platform::update()'],['../class_scene.html#aa24c7e636c10e4e42650c1374b90bb80',1,'Scene::update()'],['../class_spin___rectangle.html#a5ef4da31bdc010ff540867c42055a8a4',1,'Spin_Rectangle::update()']]],
+  ['update_5fmovement_1',['update_movement',['../class_rectangle___platform.html#a7957fa77fadaae57dc822324dac3216c',1,'Rectangle_Platform']]]
 ];

@@ -1,0 +1,55 @@
+\doxysection{Scene.\+h}
+\hypertarget{_scene_8h_source}{}\label{_scene_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/Scene.h@{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/Scene.h}}
+\mbox{\hyperlink{_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <Light.hpp>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <Model.hpp>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <OpenGL.hpp>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <Model\_Obj.hpp>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <Render\_Node.hpp>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <btBulletDynamicsCommon.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{using\ namespace\ }glt;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_scene}{Scene}}\ }
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ shared\_ptr<\ Render\_Node\ >\ visual\_scene;}
+\DoxyCodeLine{00035\ \ \ \ \ shared\_ptr<\ Camera\ \ \ \ \ \ >\ visual\_camera;}
+\DoxyCodeLine{00036\ \ \ \ \ shared\_ptr<\ Light\ \ \ \ \ \ \ >\ visual\_light;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ GLsizei\ width;}
+\DoxyCodeLine{00039\ \ \ \ \ GLsizei\ height;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ configure\_visual\_scene(Render\_Node\&\ scene)}
+\DoxyCodeLine{00042\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ scene[\textcolor{stringliteral}{"{}light"{}}]-\/>translate(Vector3(10.f,\ 10.f,\ 10.f));}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ scene[\textcolor{stringliteral}{"{}camera"{}}]-\/>translate(Vector3(0.f,\ 0.f,\ 5.f));}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ reset\_visual\_viewport(\textcolor{keyword}{const}\ sf::Window\&\ window,\ Render\_Node\&\ scene)}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ GLsizei\ width\ =\ GLsizei(window.getSize().x);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ GLsizei\ height\ =\ GLsizei(window.getSize().y);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ scene.get\_active\_camera()-\/>set\_aspect\_ratio(\textcolor{keywordtype}{float}(width)\ /\ height);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ glViewport(0,\ 0,\ width,\ height);}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \};}
+
+\end{DoxyCode}

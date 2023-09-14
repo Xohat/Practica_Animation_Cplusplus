@@ -1,0 +1,59 @@
+\doxysection{Joints.\+h}
+\hypertarget{_joints_8h_source}{}\label{_joints_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Joints.h@{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Joints.h}}
+\mbox{\hyperlink{_joints_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_joints}{Joints}}\ }
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ //}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ b2RevoluteJoint*\ create\_revolute\_joint(b2World\&\ physics\_world,\ b2Body*\ body\_a,\ b2Body*\ body\_b,\ \textcolor{keywordtype}{bool}\ enable\_motor\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ b2RevoluteJointDef\ joint\_def;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ joint\_def.bodyA\ =\ body\_a;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ joint\_def.bodyB\ =\ body\_b;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ joint\_def.enableMotor\ =\ enable\_motor;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ joint\_def.collideConnected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{dynamic\_cast<}b2RevoluteJoint*\textcolor{keyword}{>}(physics\_world.CreateJoint(\&joint\_def));}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ b2RevoluteJoint*\ create\_revolute\_joint(b2World\&\ physics\_world,\ b2Body*\ body\_a,\ b2Body*\ body\_b,\ b2Vec2\ localAnchorA,\ b2Vec2\ localAnchorB,\ \textcolor{keywordtype}{bool}\ enable\_motor\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ b2RevoluteJointDef\ joint\_def;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ joint\_def.bodyA\ =\ body\_a;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ joint\_def.bodyB\ =\ body\_b;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ joint\_def.enableMotor\ =\ enable\_motor;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ joint\_def.collideConnected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ joint\_def.localAnchorA\ =\ localAnchorA;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ joint\_def.localAnchorB\ =\ localAnchorB;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{dynamic\_cast<}b2RevoluteJoint*\textcolor{keyword}{>}(physics\_world.CreateJoint(\&joint\_def));}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ b2WeldJoint*\ create\_weld\_joint(b2World\&\ physics\_world,\ b2Body*\ body\_a,\ b2Body*\ body\_b,\ b2Vec2\ localAnchorA,\ b2Vec2\ localAnchorB)}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ b2WeldJointDef\ joint\_def;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ joint\_def.bodyA\ =\ body\_a;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ joint\_def.bodyB\ =\ body\_b;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ joint\_def.collideConnected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ joint\_def.localAnchorA\ =\ localAnchorA;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ joint\_def.localAnchorB\ =\ localAnchorB;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{dynamic\_cast<}b2WeldJoint*\textcolor{keyword}{>}(physics\_world.CreateJoint(\&joint\_def));}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \};}
+
+\end{DoxyCode}

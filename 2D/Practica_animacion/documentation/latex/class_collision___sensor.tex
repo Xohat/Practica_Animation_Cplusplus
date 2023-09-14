@@ -1,0 +1,201 @@
+\doxysection{Collision\+\_\+\+Sensor Class Reference}
+\hypertarget{class_collision___sensor}{}\label{class_collision___sensor}\index{Collision\_Sensor@{Collision\_Sensor}}
+
+
+Hija de \doxylink{class_geometry}{Geometry}, crea un rectángulo pero carece de colisiones físicas, solo actúa comno un sensor.  
+
+
+
+
+{\ttfamily \#include $<$Collision\+\_\+sensor.\+h$>$}
+
+Inheritance diagram for Collision\+\_\+\+Sensor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_collision___sensor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_collision___sensor_a8f174734bfcd4da09404fb376ade9bc8}{Collision\+\_\+\+Sensor}} (float given\+\_\+width, float given\+\_\+height, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}given\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em Constructor de Collision Sensor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision___sensor_ac8826f4886ec47e4ad7dae473276fb56}{set\+\_\+platform}} (\mbox{\hyperlink{class_rectangle___platform}{Rectangle\+\_\+\+Platform}} \texorpdfstring{$\ast$}{*}new\+\_\+platform)
+\begin{DoxyCompactList}\small\item\em Configura cual es la plataforma hija para luego al hacer la colisión poder cambiarle la variable de triggered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision___sensor_ae35e126ec17faacfdd71275ae5ac56c1}{update}} ()
+\begin{DoxyCompactList}\small\item\em Método update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_collision___sensor_a737bae1d484f25e8af5b64ba4d5f6643}{get\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collision___sensor_ab31aa5dda96897e96ac59db382a367ed}{render}} (Render\+Window \&renderer) override
+\begin{DoxyCompactList}\small\item\em Renderizas el objeto, método override ya que se define en \doxylink{_geometry_8h}{Geometry.\+h}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \doxylink{class_geometry}{Geometry} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
+\begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{get\+\_\+type}} () const =0
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resettea la posición de los elementos a su posición inicial guardada en la construcción de los mismos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_a1f874348e383952fb9ece548c07b6131}{set\+\_\+body}} (b2\+Body \texorpdfstring{$\ast$}{*}new\+\_\+body)
+\begin{DoxyCompactList}\small\item\em Configura cual es el body de box2D. \end{DoxyCompactList}\item 
+b2\+Body \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_geometry_a54fb20240119b2b6047233c30a5eebfa}{get\+\_\+body}} ()
+\begin{DoxyCompactList}\small\item\em Getter de body de box2D. \end{DoxyCompactList}\item 
+b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
+\begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ \mbox{\hyperlink{class_collision___sensor_a9c76d02a07b202534cf59151efcdb8a9}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y, float width, float height, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Body \texorpdfstring{$\ast$}{*} {\bfseries body} = nullptr
+\item 
+bool {\bfseries damage} = false
+\item 
+bool {\bfseries triggered} = false
+\item 
+bool {\bfseries player} = false
+\item 
+bool {\bfseries dead} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ {\bfseries shape}
+\item 
+\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+b2\+Vec2 {\bfseries initial\+\_\+position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hija de \doxylink{class_geometry}{Geometry}, crea un rectángulo pero carece de colisiones físicas, solo actúa comno un sensor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_collision___sensor_a8f174734bfcd4da09404fb376ade9bc8}\label{class_collision___sensor_a8f174734bfcd4da09404fb376ade9bc8} 
+\index{Collision\_Sensor@{Collision\_Sensor}!Collision\_Sensor@{Collision\_Sensor}}
+\index{Collision\_Sensor@{Collision\_Sensor}!Collision\_Sensor@{Collision\_Sensor}}
+\doxysubsubsection{\texorpdfstring{Collision\_Sensor()}{Collision\_Sensor()}}
+{\footnotesize\ttfamily Collision\+\_\+\+Sensor\+::\+Collision\+\_\+\+Sensor (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+width,  }\item[{float}]{given\+\_\+height,  }\item[{\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}}]{given\+\_\+scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de Collision Sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+\_\+width} & \\
+\hline
+{\em given\+\_\+height} & \\
+\hline
+{\em given\+\_\+scene} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_collision___sensor_a9c76d02a07b202534cf59151efcdb8a9}\label{class_collision___sensor_a9c76d02a07b202534cf59151efcdb8a9} 
+\index{Collision\_Sensor@{Collision\_Sensor}!create@{create}}
+\index{create@{create}!Collision\_Sensor@{Collision\_Sensor}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ Collision\+\_\+\+Sensor\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\+\_\+type} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_collision___sensor_a737bae1d484f25e8af5b64ba4d5f6643}\label{class_collision___sensor_a737bae1d484f25e8af5b64ba4d5f6643} 
+\index{Collision\_Sensor@{Collision\_Sensor}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Collision\_Sensor@{Collision\_Sensor}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Collision\+\_\+\+Sensor\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtienes el tipo de la geometria. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{Geometry}}.
+
+\Hypertarget{class_collision___sensor_ab31aa5dda96897e96ac59db382a367ed}\label{class_collision___sensor_ab31aa5dda96897e96ac59db382a367ed} 
+\index{Collision\_Sensor@{Collision\_Sensor}!render@{render}}
+\index{render@{render}!Collision\_Sensor@{Collision\_Sensor}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Collision\+\_\+\+Sensor\+::render (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderizas el objeto, método override ya que se define en \doxylink{_geometry_8h}{Geometry.\+h}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{Geometry}}.
+
+\Hypertarget{class_collision___sensor_ac8826f4886ec47e4ad7dae473276fb56}\label{class_collision___sensor_ac8826f4886ec47e4ad7dae473276fb56} 
+\index{Collision\_Sensor@{Collision\_Sensor}!set\_platform@{set\_platform}}
+\index{set\_platform@{set\_platform}!Collision\_Sensor@{Collision\_Sensor}}
+\doxysubsubsection{\texorpdfstring{set\_platform()}{set\_platform()}}
+{\footnotesize\ttfamily void Collision\+\_\+\+Sensor\+::set\+\_\+platform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rectangle___platform}{Rectangle\+\_\+\+Platform}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+platform }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Configura cual es la plataforma hija para luego al hacer la colisión poder cambiarle la variable de triggered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+platform} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_collision___sensor_ae35e126ec17faacfdd71275ae5ac56c1}\label{class_collision___sensor_ae35e126ec17faacfdd71275ae5ac56c1} 
+\index{Collision\_Sensor@{Collision\_Sensor}!update@{update}}
+\index{update@{update}!Collision\_Sensor@{Collision\_Sensor}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Collision\+\_\+\+Sensor\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Método update en caso de necesitarlo por alguna razón. 
+
+
+
+Implements \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{Geometry}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_collision__sensor_8h}{Collision\+\_\+sensor.\+h}}\end{DoxyCompactItemize}

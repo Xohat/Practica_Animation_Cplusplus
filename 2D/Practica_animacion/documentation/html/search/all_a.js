@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['physics_5fto_5fgraphics_5fscale_0',['physics_to_graphics_scale',['../class_scene.html#a9080a8b0417d5fa8cda20ea51332dc1a',1,'Scene']]],
-  ['player_1',['Player',['../class_player.html',1,'']]],
-  ['player_2',['player',['../class_player_controller.html#a01b6bbf3dea5e2ad01da19f0950b9094',1,'PlayerController']]],
-  ['player_3',['Player',['../class_player.html#a5915b1131aa6716585a1fb1616f782e2',1,'Player']]],
-  ['player_2eh_4',['Player.h',['../_player_8h.html',1,'']]],
-  ['playercontroller_5',['PlayerController',['../class_player_controller.html',1,'PlayerController'],['../class_player_controller.html#a57e95cb161a5cfbb1ad1f17a4e20b8e8',1,'PlayerController::PlayerController()']]],
-  ['playercontroller_2eh_6',['PlayerController.h',['../_player_controller_8h.html',1,'']]],
-  ['process_5fevents_7',['process_events',['../class_scene.html#a58842dd71be52028f2adcb8993161963',1,'Scene']]]
+  ['update_0',['update',['../class_basket.html#a7f658f1ed64485269f24030b965e1e18',1,'Basket::update()'],['../class_circle.html#aa978eeba0712d29dfae842733bf6c2c7',1,'Circle::update()'],['../class_collision___sensor.html#ae35e126ec17faacfdd71275ae5ac56c1',1,'Collision_Sensor::update()'],['../class_fire.html#a561d4b6f691b9350dfbe83782e4152a2',1,'Fire::update()'],['../class_geometry.html#a92fab86ccfaf75ce6f37ef02819f80a3',1,'Geometry::update()'],['../class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4',1,'Player::update()'],['../class_rectangle.html#ab92d1def505d300873233d525638ea19',1,'Rectangle::update()'],['../class_rectangle___platform.html#a162aa9f269dc251ffa67499d7a96e805',1,'Rectangle_Platform::update()'],['../class_scene.html#aa24c7e636c10e4e42650c1374b90bb80',1,'Scene::update()'],['../class_spin___rectangle.html#a5ef4da31bdc010ff540867c42055a8a4',1,'Spin_Rectangle::update()']]],
+  ['update_5fmovement_1',['update_movement',['../class_rectangle___platform.html#a7957fa77fadaae57dc822324dac3216c',1,'Rectangle_Platform']]]
 ];

@@ -1,13 +1,19 @@
-// Copyright (C) 2023
-// Hecho por Arturo Vilar Carretero
-// 2023.4+
+/**
+* @file Rectangle.h
+* @brief Hija de Geometry, se encarga de crear rectángulos
+* @author Arturo Vilar Carretero
+*/
+
+// Copyright (c) 2023 Arturo / Xohat
+// arturovilarc@gmail.com / xohatlatte@gmail.com
+// 2023.03 - 2023.04
 
 #pragma once
 
 #include "Geometry.h"
 
 /// <summary>
-/// Hija de Geometry, se encarga de crear rectangulos en la escena
+/// Hija de Geometry, se encarga de crear rectángulos
 /// </summary>
 class Rectangle : public Geometry
 {
@@ -49,7 +55,7 @@ public:
 
 		b2PolygonShape body_shape;
 
-		body_shape.SetAsBox(width, height);
+		body_shape.SetAsBox(width, 0);
 
 		// Se añande una fixture:
 
@@ -64,7 +70,29 @@ public:
 
 		rectangle->shape = make_unique<sf::RectangleShape>(Vector2f(width * scene->get_physics_to_graphics_scale(), height * scene->get_physics_to_graphics_scale()));
 
+		rectangle->initial_position = { x , y };
+
+		uintptr_t entityPtr = reinterpret_cast<uintptr_t>(rectangle.get());
+
 		return rectangle;
+	}
+
+	/// <summary>
+	/// Obtienes el tipo de la geometria
+	/// </summary>
+	/// <returns></returns>
+	void update()
+	{
+
+	}
+
+	/// <summary>
+	/// Obtienes el tipo de la geometria
+	/// </summary>
+	/// <returns></returns>
+	std::string get_type() const
+	{
+		return "Rectangle_geo";
 	}
 
 	/// <summary>
@@ -73,10 +101,6 @@ public:
 	/// <param name="renderer"></param>
 	void render(RenderWindow& renderer) override
 	{
-		// coger el transform de body
-		// aplicárselo a shape ajustándolo para SFML
-		// dibujar shape
-
 		b2PolygonShape* body_rectangle = dynamic_cast<b2PolygonShape*>(body->GetFixtureList()->GetShape());
 
 		sf::RectangleShape* rectangle = dynamic_cast<sf::RectangleShape*>(shape.get());

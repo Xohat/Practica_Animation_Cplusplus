@@ -1,8 +1,12 @@
-//
-// Este código es de dominio público.
-// Copyright (C) 2023
-// Hecho por Arturo Vilar Carretero
-// 2023.4+
+/**
+* @file Circle.h
+* @brief Hija de Geometry, se encarga de crear circulos en la escena
+* @author Arturo Vilar Carretero
+*/
+
+// Copyright (c) 2023 Arturo / Xohat
+// arturovilarc@gmail.com / xohatlatte@gmail.com
+// 2023.03 - 2023.04
 
 #pragma once
 
@@ -13,6 +17,7 @@
 /// </summary>
 class Circle : public Geometry
 {
+	b2Vec2 initial_position;
 
 private:
 
@@ -56,22 +61,38 @@ public:
 
 		body_fixture.shape = &body_shape;
 		body_fixture.density = 0.10f;
-		body_fixture.restitution = 0.75f;
+		body_fixture.restitution = 0.0f;
 		body_fixture.friction = 0.50f;
-		//body_fixture.isSensor = true;
-
-		//std::string userData_name = "player";
-		//circle->body_fixture.userData = userData_name.c_str();
 
 		circle->body->CreateFixture(&body_fixture);
 
 		circle->shape = make_unique<sf::CircleShape>(radius * scene->get_physics_to_graphics_scale());
 
+		circle->initial_position = { x , y };
+
+		uintptr_t entityPtr = reinterpret_cast<uintptr_t>(circle.get());
+
 		return circle;
 	}
 
 	/// <summary>
-	/// Metodo de render
+	/// Método update en caso de necesitarlo por alguna razón
+	/// </summary>
+	void update()
+	{
+
+	}
+
+	/// <summary>
+	/// Resetteas la posición
+	/// </summary>
+	std::string get_type() const
+	{
+		return "Circle_geo";
+	}
+
+	/// <summary>
+	/// Renderizas el objeto, método override ya que se define en Geometry.h
 	/// </summary>
 	/// <param name="renderer"></param>
 	void render(RenderWindow& renderer) override

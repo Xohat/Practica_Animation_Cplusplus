@@ -1,0 +1,192 @@
+\doxysection{Rigid\+Body\+\_\+\+Builder.\+h}
+\hypertarget{_rigid_body___builder_8h_source}{}\label{_rigid_body___builder_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/RigidBody\_Builder.h@{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/RigidBody\_Builder.h}}
+\mbox{\hyperlink{_rigid_body___builder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <Light.hpp>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <Model.hpp>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <OpenGL.hpp>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <Model\_Obj.hpp>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <Render\_Node.hpp>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <btBulletDynamicsCommon.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{using\ namespace\ }glt;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rigid_body___builder}{RigidBody\_Builder}}\ }
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr<\ btRigidBody\ >\ create\_ground}
+\DoxyCodeLine{00038\ \ \ \ \ (}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btRigidBody\ \ \ \ \ \ \ \ \ \ >\ >\&\ rigidBodies,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btDefaultMotionState\ >\ >\&\ motionStates,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btCollisionShape\ \ \ \ \ >\ >\&\ collisionShapes,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ shared\_ptr<\ btDiscreteDynamicsWorld\ >\&\ dynamicsWorld,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ btVector3\ scale}
+\DoxyCodeLine{00044\ \ \ \ \ )}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ shared\_ptr<\ btCollisionShape\ >\ shape(\textcolor{keyword}{new}\ btBoxShape(btVector3(0.1f,\ 1.f,\ 0.f)));}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ btTransform\ transform;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ transform.setIdentity();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ transform.setOrigin(btVector3(0,\ -\/4,\ 0));}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Using\ motionstate\ is\ optional\ for\ static\ objects.-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ shared\_ptr<\ btDefaultMotionState\ >\ \ \ \ \ \ \ state(\textcolor{keyword}{new}\ btDefaultMotionState(transform));}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ btRigidBody::btRigidBodyConstructionInfo\ info(0,\ state.get(),\ shape.get());}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ shared\_ptr<\ btRigidBody\ >\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ body(\textcolor{keyword}{new}\ btRigidBody(info));}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ body-\/>setRestitution(0.7f);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ body-\/>setDeactivationTime(10000000);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ body-\/>setActivationState(DISABLE\_DEACTIVATION);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ body-\/>setAngularFactor(btVector3(0.0,\ 0.0,\ 0.0));}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ body-\/>setGravity(btVector3(0,\ 0,\ 0));}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Add\ the\ body\ to\ the\ dynamics\ world.-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ dynamicsWorld-\/>addRigidBody(body.get());}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Save\ the\ smart\ pointers\ for\ automatic\ cleanup.-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ rigidBodies.push\_back(body);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ motionStates.push\_back(state);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ collisionShapes.push\_back(shape);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ body;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/CREA\ LOS\ CUERPOS\ FÍSICOS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr<\ btRigidBody\ >\ create\_box}
+\DoxyCodeLine{00083\ \ \ \ \ (}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btRigidBody\ \ \ \ \ \ \ \ \ \ >\ >\&\ rigidBodies,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btDefaultMotionState\ >\ >\&\ motionStates,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btCollisionShape\ \ \ \ \ >\ >\&\ collisionShapes,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ shared\_ptr<\ btDiscreteDynamicsWorld\ >\ \ \ \ \ \ \ \&\ dynamicsWorld,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ btVector3\ scale}
+\DoxyCodeLine{00089\ \ \ \ \ )}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ shared\_ptr<btRigidBody>\ cube\_body;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ la\ forma}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ shared\_ptr<btCollisionShape>\ shape(\textcolor{keyword}{new}\ btBoxShape(scale));}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ su\ transform}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ btTransform\ transform;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ transform.setIdentity();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ transform.setOrigin(btVector3(0.,\ 5.,\ 0.));}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Su\ masa\ e\ inercia}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ btScalar\ mass\ =\ 1000000.f;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ btVector3\ localInertia(0.,\ 0.,\ 0.);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>calculateLocalInertia(mass,\ localInertia);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ settean\ los\ limites\ físicos\ de\ la\ forma}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ shared\_ptr<btDefaultMotionState>\ state(\textcolor{keyword}{new}\ btDefaultMotionState(transform));}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ btRigidBody::btRigidBodyConstructionInfo\ info(mass,\ state.get(),\ shape.get(),\ localInertia);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ cube\_body.reset(\textcolor{keyword}{new}\ btRigidBody(info));}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ cube\_body-\/>setRestitution(0.5);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ impide\ que\ se\ quede\ sin\ recibir\ movimiento\ si\ se\ para\ durante\ un\ rato}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ cube\_body-\/>setDeactivationTime(10000000);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ cube\_body-\/>setActivationState(DISABLE\_DEACTIVATION);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ cube\_body-\/>setAngularFactor(btVector3(0.0,\ 0.0,\ 0.0));}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Add\ the\ body\ to\ the\ dynamics\ world.-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ dynamicsWorld-\/>addRigidBody(cube\_body.get());}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Guardar\ los\ smart\ pointers\ para\ la\ limpieza\ automática.-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ rigidBodies.push\_back(cube\_body);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ motionStates.push\_back(state);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ collisionShapes.push\_back(shape);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cube\_body;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr<\ btRigidBody\ >\ create\_physic\_sphere}
+\DoxyCodeLine{00137\ \ \ \ \ (}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btRigidBody\ \ \ \ \ \ \ \ \ \ >\ >\&\ rigidBodies,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btDefaultMotionState\ >\ >\&\ motionStates,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ vector<\ shared\_ptr<\ btCollisionShape\ \ \ \ \ >\ >\&\ collisionShapes,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ shared\_ptr<\ btDiscreteDynamicsWorld\ >\ \ \ \ \ \ \ \&\ dynamicsWorld,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ btVector3\ scale}
+\DoxyCodeLine{00143\ \ \ \ \ )\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/DYNAMIC\ OBJECT\ SPHERE-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ shared\_ptr<\ btRigidBody\ >\ sphere\_body;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ la\ forma}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ shared\_ptr<\ btCollisionShape\ >\ shape(\textcolor{keyword}{new}\ btSphereShape(btScalar(1.f)));}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ su\ transform}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ btTransform\ transform;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ transform.setIdentity();}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ transform.setOrigin(btVector3(0,\ 10,\ 0));}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Su\ masa\ e\ inercia}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ btScalar\ \ mass\ =\ 1.f;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ btVector3\ localInertia(0,\ 0,\ 0);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>calculateLocalInertia(mass,\ localInertia);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Using\ motionstate\ is\ recommended,\ it\ provides\ interpolation\ capabilities,\ and\ only\ synchronizes\ 'active'\ objects}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ settean\ los\ limites\ físicos\ de\ la\ forma}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ shared\_ptr<\ btDefaultMotionState\ >\ \ \ \ \ \ \ state(\textcolor{keyword}{new}\ btDefaultMotionState(transform));}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ btRigidBody::btRigidBodyConstructionInfo\ info(mass,\ state.get(),\ shape.get(),\ localInertia);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ sphere\_body.reset(\textcolor{keyword}{new}\ btRigidBody(info));}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ sphere\_body-\/>setRestitution(1.0);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ impide\ que\ se\ quede\ sin\ recibir\ movimiento\ si\ se\ para\ durante\ un\ rato}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ sphere\_body-\/>setDeactivationTime(10000000);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ sphere\_body-\/>setActivationState(DISABLE\_DEACTIVATION);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ sphere\_body-\/>setAngularFactor(btVector3(0.0,\ 0.0,\ 0.0));}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//sphere\_body-\/>setGravity(btVector3(0,\ -\/10,\ 0));}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añade\ el\ cuerpo\ al\ dynamic\ world}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ dynamicsWorld-\/>addRigidBody(sphere\_body.get());}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Guardar\ los\ smart\ pointers\ para\ la\ limpieza\ automática.-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ rigidBodies.push\_back(sphere\_body);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ motionStates.push\_back(state);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ collisionShapes.push\_back(shape);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sphere\_body;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \};}
+
+\end{DoxyCode}

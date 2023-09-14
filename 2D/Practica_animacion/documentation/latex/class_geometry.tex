@@ -1,8 +1,8 @@
-\hypertarget{class_geometry}{}\doxysection{Geometry Class Reference}
-\label{class_geometry}\index{Geometry@{Geometry}}
+\doxysection{Geometry Class Reference}
+\hypertarget{class_geometry}{}\label{class_geometry}\index{Geometry@{Geometry}}
 
 
-Clase encargada de proporcionar los datos a todos sus hijos que son todas las formas geométricas.  
+Clase encargada de proporcionar los datos a todos sus hijos que son todas las formas geométricas de la escena.  
 
 
 
@@ -12,44 +12,70 @@ Clase encargada de proporcionar los datos a todos sus hijos que son todas las fo
 Inheritance diagram for Geometry\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_geometry}
+\includegraphics[height=9.000000cm]{class_geometry}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
-\begin{DoxyCompactList}\small\item\em Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \doxylink{class_geometry}{Geometry} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
 \begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{get\+\_\+type}} () const =0
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+\Hypertarget{class_geometry_aa1caf84c505270690138db7667e06c83}\label{class_geometry_aa1caf84c505270690138db7667e06c83} 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resettea la posición de los elementos a su posición inicial guardada en la construcción de los mismos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_a1f874348e383952fb9ece548c07b6131}{set\+\_\+body}} (b2\+Body \texorpdfstring{$\ast$}{*}new\+\_\+body)
+\begin{DoxyCompactList}\small\item\em Configura cual es el body de box2D. \end{DoxyCompactList}\item 
+b2\+Body \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_geometry_a54fb20240119b2b6047233c30a5eebfa}{get\+\_\+body}} ()
+\begin{DoxyCompactList}\small\item\em Getter de body de box2D. \end{DoxyCompactList}\item 
 b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
 \begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
 \begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
 \begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}} = NULL
+\Hypertarget{class_geometry_a49f2312ec8148f9cf65ec207ad681942}\label{class_geometry_a49f2312ec8148f9cf65ec207ad681942} 
+b2\+Body \texorpdfstring{$\ast$}{*} {\bfseries body} = nullptr
 \item 
-b2\+Body\+Def $\ast$ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\+\_\+def}} = NULL
+\Hypertarget{class_geometry_ad00735ca74f050ac4f161188f3984fff}\label{class_geometry_ad00735ca74f050ac4f161188f3984fff} 
+bool {\bfseries damage} = false
 \item 
-b2\+Fixture\+Def \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\+\_\+fixture}}
+\Hypertarget{class_geometry_a6def3f1211139a9c9ecea02195aae3d2}\label{class_geometry_a6def3f1211139a9c9ecea02195aae3d2} 
+bool {\bfseries triggered} = false
 \item 
-unique\+\_\+ptr$<$ sf\+::\+Shape $>$ \mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}
+\Hypertarget{class_geometry_a492e1035469b73d055b764ef2d189118}\label{class_geometry_a492e1035469b73d055b764ef2d189118} 
+bool {\bfseries player} = false
 \item 
-int \mbox{\hyperlink{class_geometry_afe13f453b638d013261bbd263fb21c71}{name\+\_\+offset}} = 0
+\Hypertarget{class_geometry_a2a6b91f18114cd2d4d2bdf64c24c77f9}\label{class_geometry_a2a6b91f18114cd2d4d2bdf64c24c77f9} 
+bool {\bfseries dead} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}
+\Hypertarget{class_geometry_a84f067eddc61f4380f7761d560afb958}\label{class_geometry_a84f067eddc61f4380f7761d560afb958} 
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ {\bfseries shape}
+\item 
+\Hypertarget{class_geometry_a56d15d98f4be1a91d4221978f3476d62}\label{class_geometry_a56d15d98f4be1a91d4221978f3476d62} 
+\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+\Hypertarget{class_geometry_a715cc0e0d66cff0a374386a7537720c9}\label{class_geometry_a715cc0e0d66cff0a374386a7537720c9} 
+b2\+Vec2 {\bfseries initial\+\_\+position}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Clase encargada de proporcionar los datos a todos sus hijos que son todas las formas geométricas. 
+Clase encargada de proporcionar los datos a todos sus hijos que son todas las formas geométricas de la escena. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}\label{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}} 
+\Hypertarget{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}\label{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2} 
 \index{Geometry@{Geometry}!Geometry@{Geometry}}
 \index{Geometry@{Geometry}!Geometry@{Geometry}}
 \doxysubsubsection{\texorpdfstring{Geometry()}{Geometry()}}
@@ -57,7 +83,7 @@ Clase encargada de proporcionar los datos a todos sus hijos que son todas las fo
 
 
 
-Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. 
+Lo unico que necesita \doxylink{class_geometry}{Geometry} es una escena para que luego los objetos puedan pintarse correctamente. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -67,7 +93,20 @@ Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_geometry_abf795148b678bca9bfde1f5669d5125f}\label{class_geometry_abf795148b678bca9bfde1f5669d5125f}} 
+\Hypertarget{class_geometry_a54fb20240119b2b6047233c30a5eebfa}\label{class_geometry_a54fb20240119b2b6047233c30a5eebfa} 
+\index{Geometry@{Geometry}!get\_body@{get\_body}}
+\index{get\_body@{get\_body}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{get\_body()}{get\_body()}}
+{\footnotesize\ttfamily b2\+Body \texorpdfstring{$\ast$}{*} Geometry\+::get\+\_\+body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter de body de box2D. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_geometry_abf795148b678bca9bfde1f5669d5125f}\label{class_geometry_abf795148b678bca9bfde1f5669d5125f} 
 \index{Geometry@{Geometry}!get\_position@{get\_position}}
 \index{get\_position@{get\_position}!Geometry@{Geometry}}
 \doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
@@ -80,7 +119,24 @@ Getter de position.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_geometry_a0e8b573107bd44845fb681029ac3cb16}\label{class_geometry_a0e8b573107bd44845fb681029ac3cb16}} 
+\Hypertarget{class_geometry_a25eaf5ba321723492562892c3d5d0df1}\label{class_geometry_a25eaf5ba321723492562892c3d5d0df1} 
+\index{Geometry@{Geometry}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily virtual std\+::string Geometry\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obtienes el tipo de la geometria. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_basket_acdb4a267aacefdb0d45c98e24bb3720f}{Basket}}, \mbox{\hyperlink{class_circle_a65a09df8b90711439960942e200aba20}{Circle}}, \mbox{\hyperlink{class_collision___sensor_a737bae1d484f25e8af5b64ba4d5f6643}{Collision\+\_\+\+Sensor}}, \mbox{\hyperlink{class_fire_a8df9aa83e4b4722b6bc8af67c544d344}{Fire}}, \mbox{\hyperlink{class_player_a95fa74e88bdea812dfcb292924ed72a4}{Player}}, \mbox{\hyperlink{class_rectangle_a421d8a4f8cea6ce8dd39dfa05d9196d6}{Rectangle}}, \mbox{\hyperlink{class_rectangle___platform_a28bf753f68acb3bf79c655a7ce2e63a1}{Rectangle\+\_\+\+Platform}}, and \mbox{\hyperlink{class_spin___rectangle_a411bb56fc4191bf706b2a44541541647}{Spin\+\_\+\+Rectangle}}.
+
+\Hypertarget{class_geometry_a0e8b573107bd44845fb681029ac3cb16}\label{class_geometry_a0e8b573107bd44845fb681029ac3cb16} 
 \index{Geometry@{Geometry}!render@{render}}
 \index{render@{render}!Geometry@{Geometry}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
@@ -97,9 +153,24 @@ Metodo virtual de render para todos los hijos.
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_basket_a58b0da4b32a2709fb909237927ea39d3}{Basket}}, \mbox{\hyperlink{class_circle_a848b197b8019441a78ec17a15633468a}{Circle}}, \mbox{\hyperlink{class_rectangle_a77c5cf12241b6e82abf32466f053d4d7}{Rectangle}}, and \mbox{\hyperlink{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}{Rectangle\+\_\+\+Platform}}.
+Implemented in \mbox{\hyperlink{class_basket_a58b0da4b32a2709fb909237927ea39d3}{Basket}}, \mbox{\hyperlink{class_circle_a848b197b8019441a78ec17a15633468a}{Circle}}, \mbox{\hyperlink{class_collision___sensor_ab31aa5dda96897e96ac59db382a367ed}{Collision\+\_\+\+Sensor}}, \mbox{\hyperlink{class_fire_a022df8929c98a56d66b21682d0b3207b}{Fire}}, \mbox{\hyperlink{class_player_a399abc22983e2823d948b07a1226c5f3}{Player}}, \mbox{\hyperlink{class_rectangle_a77c5cf12241b6e82abf32466f053d4d7}{Rectangle}}, \mbox{\hyperlink{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}{Rectangle\+\_\+\+Platform}}, and \mbox{\hyperlink{class_spin___rectangle_a481cbe5ca5f70c911eebc399b8fbc4e5}{Spin\+\_\+\+Rectangle}}.
 
-\mbox{\Hypertarget{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}\label{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}} 
+\Hypertarget{class_geometry_a1f874348e383952fb9ece548c07b6131}\label{class_geometry_a1f874348e383952fb9ece548c07b6131} 
+\index{Geometry@{Geometry}!set\_body@{set\_body}}
+\index{set\_body@{set\_body}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{set\_body()}{set\_body()}}
+{\footnotesize\ttfamily void Geometry\+::set\+\_\+body (\begin{DoxyParamCaption}\item[{b2\+Body \texorpdfstring{$\ast$}{*}}]{new\+\_\+body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Configura cual es el body de box2D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+body} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}\label{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53} 
 \index{Geometry@{Geometry}!set\_position@{set\_position}}
 \index{set\_position@{set\_position}!Geometry@{Geometry}}
 \doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -114,7 +185,7 @@ Setter de position sin angulo.
 {\em new\+\_\+position} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}\label{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}} 
+\Hypertarget{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}\label{class_geometry_ab540a160bfeb081e06c5f2a615957c3f} 
 \index{Geometry@{Geometry}!set\_position@{set\_position}}
 \index{set\_position@{set\_position}!Geometry@{Geometry}}
 \doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -131,47 +202,22 @@ Setter de position con angulo.
 {\em angle} & \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}\label{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3} 
+\index{Geometry@{Geometry}!update@{update}}
+\index{update@{update}!Geometry@{Geometry}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Geometry\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_geometry_a49f2312ec8148f9cf65ec207ad681942}\label{class_geometry_a49f2312ec8148f9cf65ec207ad681942}} 
-\index{Geometry@{Geometry}!body@{body}}
-\index{body@{body}!Geometry@{Geometry}}
-\doxysubsubsection{\texorpdfstring{body}{body}}
-{\footnotesize\ttfamily b2\+Body$\ast$ Geometry\+::body = NULL\hspace{0.3cm}{\ttfamily [protected]}}
 
-\mbox{\Hypertarget{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}\label{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}} 
-\index{Geometry@{Geometry}!body\_def@{body\_def}}
-\index{body\_def@{body\_def}!Geometry@{Geometry}}
-\doxysubsubsection{\texorpdfstring{body\_def}{body\_def}}
-{\footnotesize\ttfamily b2\+Body\+Def$\ast$ Geometry\+::body\+\_\+def = NULL\hspace{0.3cm}{\ttfamily [protected]}}
+Método virtual update en caso de necesitarlo por alguna razón. 
 
-\mbox{\Hypertarget{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}\label{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}} 
-\index{Geometry@{Geometry}!body\_fixture@{body\_fixture}}
-\index{body\_fixture@{body\_fixture}!Geometry@{Geometry}}
-\doxysubsubsection{\texorpdfstring{body\_fixture}{body\_fixture}}
-{\footnotesize\ttfamily b2\+Fixture\+Def Geometry\+::body\+\_\+fixture\hspace{0.3cm}{\ttfamily [protected]}}
 
-\mbox{\Hypertarget{class_geometry_afe13f453b638d013261bbd263fb21c71}\label{class_geometry_afe13f453b638d013261bbd263fb21c71}} 
-\index{Geometry@{Geometry}!name\_offset@{name\_offset}}
-\index{name\_offset@{name\_offset}!Geometry@{Geometry}}
-\doxysubsubsection{\texorpdfstring{name\_offset}{name\_offset}}
-{\footnotesize\ttfamily int Geometry\+::name\+\_\+offset = 0\hspace{0.3cm}{\ttfamily [protected]}}
 
-\mbox{\Hypertarget{class_geometry_a56d15d98f4be1a91d4221978f3476d62}\label{class_geometry_a56d15d98f4be1a91d4221978f3476d62}} 
-\index{Geometry@{Geometry}!scene@{scene}}
-\index{scene@{scene}!Geometry@{Geometry}}
-\doxysubsubsection{\texorpdfstring{scene}{scene}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_scene}{Scene}}$\ast$ Geometry\+::scene\hspace{0.3cm}{\ttfamily [protected]}}
-
-\mbox{\Hypertarget{class_geometry_a84f067eddc61f4380f7761d560afb958}\label{class_geometry_a84f067eddc61f4380f7761d560afb958}} 
-\index{Geometry@{Geometry}!shape@{shape}}
-\index{shape@{shape}!Geometry@{Geometry}}
-\doxysubsubsection{\texorpdfstring{shape}{shape}}
-{\footnotesize\ttfamily unique\+\_\+ptr$<$ sf\+::\+Shape $>$ Geometry\+::shape\hspace{0.3cm}{\ttfamily [protected]}}
+Implemented in \mbox{\hyperlink{class_basket_a7f658f1ed64485269f24030b965e1e18}{Basket}}, \mbox{\hyperlink{class_circle_aa978eeba0712d29dfae842733bf6c2c7}{Circle}}, \mbox{\hyperlink{class_collision___sensor_ae35e126ec17faacfdd71275ae5ac56c1}{Collision\+\_\+\+Sensor}}, \mbox{\hyperlink{class_fire_a561d4b6f691b9350dfbe83782e4152a2}{Fire}}, \mbox{\hyperlink{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4}{Player}}, \mbox{\hyperlink{class_rectangle_ab92d1def505d300873233d525638ea19}{Rectangle}}, \mbox{\hyperlink{class_rectangle___platform_a162aa9f269dc251ffa67499d7a96e805}{Rectangle\+\_\+\+Platform}}, and \mbox{\hyperlink{class_spin___rectangle_a5ef4da31bdc010ff540867c42055a8a4}{Spin\+\_\+\+Rectangle}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_geometry_8h}{Geometry.\+h}}\end{DoxyCompactItemize}
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_geometry_8h}{Geometry.\+h}}\end{DoxyCompactItemize}

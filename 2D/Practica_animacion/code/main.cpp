@@ -11,12 +11,15 @@ int main()
 	constexpr auto window_width = 800u;
 	constexpr auto window_height = 600u;
 
+	// Se crea la window de sfml
 	RenderWindow window(sf::VideoMode(window_width, window_height), "Práctica de animación", sf::Style::Default, ContextSettings(32));
 
 	window.setVerticalSyncEnabled(true);
 
+	// Se crea la escena
 	Scene scene (window);
 
+	// Se ejecuta el ciclo
 	scene.run();
 
 	return 0;

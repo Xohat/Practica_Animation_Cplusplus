@@ -1,0 +1,216 @@
+\doxysection{Entity.\+h}
+\hypertarget{_entity_8h_source}{}\label{_entity_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/Entity.h@{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/Entity.h}}
+\mbox{\hyperlink{_entity_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <Light.hpp>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <Model.hpp>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <OpenGL.hpp>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <Model\_Obj.hpp>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <Render\_Node.hpp>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <btBulletDynamicsCommon.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{using\ namespace\ }glt;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity}{Entity}}\ }
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ btVector3\ \mbox{\hyperlink{class_entity_ad3c933516cb7d80b7e3bec9b96782f05}{visual\_scale}}\{0.f,\ 0.f,\ 0.f\};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ shared\_ptr<\ Model\ \ \ \ \ \ \ >\ \mbox{\hyperlink{class_entity_a5c7af397f48d113ae5af6014aa859bbd}{model}};}
+\DoxyCodeLine{00050\ \ \ \ \ shared\_ptr<\ btRigidBody\ >\ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_entity_ac8cbdbc853790d16a9efba1d04d084e5}{Entity\_type}}}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ GROUND\ =\ 0,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ PLATFORM\ =\ 1,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ PLAYER\ =\ 2,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ KEY\ =\ 3,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ DOOR\ =\ 4}
+\DoxyCodeLine{00062\ \ \ \ \ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_entity_a87cb3f2e0ecfda0e26ce13c84cf4ea90}{vertical\_platform\_collision}};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_entity_afc9c196b9ee5f1d0af085fdd4702a2a9}{key\_collision}};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_entity_a48eb4df16e355e60b623baa57433695b}{door\_collision}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_entity_ac54a02ce87f1b64c65d671b50c15ab2a}{has\_key}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ =\ 1;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_entity_ac8cbdbc853790d16a9efba1d04d084e5}{Entity\_type}}\ \mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_entity_a5d8d6378b000f13658b00becd3a98c34}{Entity}}(shared\_ptr<\ btRigidBody\ >\ given\_rigid\_body,\ shared\_ptr<\ Model\ >\ given\_model)}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}\ =\ given\_rigid\_body;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a5c7af397f48d113ae5af6014aa859bbd}{model}}\ =\ given\_model;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ given\_rigid\_body-\/>setUserPointer((\textcolor{keywordtype}{void}*)(\textcolor{keyword}{this}));}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a5029e984d66c8e394b2fbfbe0f15c3dc}{set\_type}}(\textcolor{keywordtype}{int}\ type\_number)\ }
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (type\_number)}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}}\ =\ GROUND;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}}\ =\ PLATFORM;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}}\ =\ PLAYER;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}}\ =\ KEY;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}}\ =\ DOOR;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{class_entity_ac8cbdbc853790d16a9efba1d04d084e5}{Entity\_type}}\ \mbox{\hyperlink{class_entity_a3deab7fff6ae816547b65c4ee68c401a}{get\_type}}()}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}};}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a178fd1c22551785255e3406505aa1249}{move\_vertical\_up}}\ (btVector3\ start\_position)\ }
+\DoxyCodeLine{00149\ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ btTransform\ currentTransform\ =\ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>getWorldTransform();}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ current\_y\ =\ currentTransform.getOrigin().getY();}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ target\_y\ =\ 1.f;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Variable\ para\ rastrear\ la\ dirección actual\ del\ movimiento}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ =\ (current\_y\ <\ target\_y)\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ posición actual\ es\ menor\ que\ la\ posición objetivo\ y\ la\ dirección es\ positiva\ (subiendo)}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_y\ <\ target\_y\ \&\&\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ ==\ 1)}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(0,\ 2,\ 0));}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ posición actual\ es\ mayor\ o\ igual\ que\ la\ posición objetivo\ y\ la\ dirección es\ positiva\ (subiendo)}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current\_y\ >=\ target\_y\ \&\&\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ ==\ 1)}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(0,\ 0,\ 0));\ \textcolor{comment}{//\ Detiene\ el\ movimiento\ vertical}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ =\ -\/1;\ \textcolor{comment}{//\ Cambia\ la\ dirección a\ negativa\ (bajando)}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ posición actual\ es\ mayor\ que\ la\ posición inicial\ y\ la\ dirección es\ negativa\ (bajando)}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current\_y\ >\ start\_position.getY()\ \&\&\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ ==\ -\/1)}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(0,\ -\/2,\ 0));}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ posición actual\ es\ menor\ o\ igual\ que\ la\ posición inicial\ y\ la\ dirección es\ negativa\ (bajando)}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current\_y\ <=\ start\_position.getY()\ \&\&\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ ==\ -\/1)}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(0,\ 0,\ 0));\ \textcolor{comment}{//\ Detiene\ el\ movimiento\ vertical}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a993ab3c08e5ff3b08426456157fa0180}{move\_vertical\_down}}\ (btVector3\ start\_position)}
+\DoxyCodeLine{00185\ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ btTransform\ currentTransform\ =\ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>getWorldTransform();}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ current\_y\ =\ currentTransform.getOrigin().getY();}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Variable\ para\ rastrear\ la\ dirección actual\ del\ movimiento}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ =\ (current\_y\ >\ start\_position.getY())\ ?\ -\/1\ :\ 1;}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ posición actual\ es\ mayor\ que\ la\ posición objetivo\ y\ la\ dirección es\ negativa\ (bajando)}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_y\ >\ start\_position.getY()\ \&\&\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ ==\ -\/1)}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(0,\ -\/2,\ 0));}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ posición actual\ es\ menor\ o\ igual\ que\ la\ posición objetivo\ y\ la\ dirección es\ negativa\ (bajando)}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current\_y\ <=\ start\_position.getY()\ \&\&\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ ==\ -\/1)}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(0,\ 0,\ 0));\ \textcolor{comment}{//\ Detiene\ el\ movimiento\ vertical}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ =\ 1;\ \textcolor{comment}{//\ Cambia\ la\ dirección a\ positiva\ (subiendo)}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ posición actual\ es\ menor\ que\ la\ posición inicial\ y\ la\ dirección es\ positiva\ (subiendo)}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current\_y\ <\ start\_position.getY()\ \&\&\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ ==\ 1)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(0,\ 2,\ 0));}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ posición actual\ es\ mayor\ o\ igual\ que\ la\ posición inicial\ y\ la\ dirección es\ positiva\ (subiendo)}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current\_y\ >=\ start\_position.getY()\ \&\&\ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ ==\ 1)}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(0,\ 0,\ 0));\ \textcolor{comment}{//\ Detiene\ el\ movimiento\ vertical}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a940ec2019c0c357eaaccac9e6fa3d76a}{move\_horizontal}}\ (btVector3\ start\_position)}
+\DoxyCodeLine{00220\ \ \ \ \ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ btTransform\ currentTransform\ =\ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>getWorldTransform();}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ test\_x\ =\ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>getWorldTransform().getOrigin().getX();}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ test\_y\ =\ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>getWorldTransform().getOrigin().getY();\ \ }
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ velocity\ =\ 3;}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (test\_x\ <\ start\_position.getX())}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ =\ 1;}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (test\_x\ >\ 3.f)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ =\ -\/1;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (test\_y\ <\ 4)}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(\mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ *\ velocity,\ 1,\ 0));}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>setLinearVelocity(btVector3(\mbox{\hyperlink{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}{direction}}\ *\ velocity,\ 0,\ 0));}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00245\ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a7ad17d26a015611450b51c4f00e3a9f7}{update\_visual\_position}}()\ }
+\DoxyCodeLine{00251\ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ btTransform\ physics\_transform;}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_abaac8e451a3ea2197e0282a2e9debafe}{rigid\_body}}-\/>getMotionState()-\/>getWorldTransform(physics\_transform);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ glm::mat4\ graphics\_transform;}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ physics\_transform.getOpenGLMatrix(glm::value\_ptr(graphics\_transform));}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a5c7af397f48d113ae5af6014aa859bbd}{model}}-\/>set\_transformation(graphics\_transform);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_entity_ad3c933516cb7d80b7e3bec9b96782f05}{visual\_scale}}.getX()\ !=\ 0.f)}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a5c7af397f48d113ae5af6014aa859bbd}{model}}-\/>scale(\mbox{\hyperlink{class_entity_ad3c933516cb7d80b7e3bec9b96782f05}{visual\_scale}}.getX(),\ \mbox{\hyperlink{class_entity_ad3c933516cb7d80b7e3bec9b96782f05}{visual\_scale}}.getY(),\ \mbox{\hyperlink{class_entity_ad3c933516cb7d80b7e3bec9b96782f05}{visual\_scale}}.getZ());}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_ae37d4821f2f4aea627b68b16e6808d58}{set\_visual\_scale}}\ (btVector3\ new\_visual\_scale)}
+\DoxyCodeLine{00273\ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_ad3c933516cb7d80b7e3bec9b96782f05}{visual\_scale}}\ =\ new\_visual\_scale;}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00281\ \ \ \ \ btVector3\ \mbox{\hyperlink{class_entity_a7a0325315355fb86c145f0df92837f62}{get\_visual\_scale}}\ ()}
+\DoxyCodeLine{00282\ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_ad3c933516cb7d80b7e3bec9b96782f05}{visual\_scale}};}
+\DoxyCodeLine{00284\ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \};}
+
+\end{DoxyCode}

@@ -1,34 +1,93 @@
-\hypertarget{class_player}{}\doxysection{Player Class Reference}
-\label{class_player}\index{Player@{Player}}
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
 
 
-Encargada del manejo del player.  
+Clase encargada del jugador, que en este caso es la bola debido a problemas con Box2D.  
 
 
 
 
 {\ttfamily \#include $<$Player.\+h$>$}
 
-\doxysubsection*{Public Member Functions}
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_player_a5915b1131aa6716585a1fb1616f782e2}{Player}} (b2\+World \&given\+\_\+world)
+\Hypertarget{class_player_a9c9a368b09800c9b2705111f257c6ffb}\label{class_player_a9c9a368b09800c9b2705111f257c6ffb} 
+{\bfseries Player} (\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}given\+\_\+scene)
 \item 
-void \mbox{\hyperlink{class_player_a9025c84cfd3b6ceac239a52b8bfb3387}{set\+\_\+position}} ()
+void \mbox{\hyperlink{class_player_af52a6038b14414fb616532c75c278c64}{set\+\_\+player\+\_\+body}} (shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ new\+\_\+player\+\_\+body)
+\begin{DoxyCompactList}\small\item\em Se configura el body del player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4}{update}} ()
+\begin{DoxyCompactList}\small\item\em Método update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a399abc22983e2823d948b07a1226c5f3}{render}} (Render\+Window \&renderer) override
+\begin{DoxyCompactList}\small\item\em Metodo de render. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_player_a95fa74e88bdea812dfcb292924ed72a4}{get\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_adeb7e4b08f5dba5e2aa1451f52a1bdfe}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Setter de posición. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ \mbox{\hyperlink{class_player_a22f17866c3d193ea7915eefe25277049}{get\+\_\+player\+\_\+body}} ()
+\begin{DoxyCompactList}\small\item\em Getter del body de box2D de player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
 \item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_player_aec61ad870080c459de0ae292648b0865}{get\+\_\+body}} ()
+\mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \doxylink{class_geometry}{Geometry} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
+\begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{get\+\_\+type}} () const =0
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resettea la posición de los elementos a su posición inicial guardada en la construcción de los mismos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_a1f874348e383952fb9ece548c07b6131}{set\+\_\+body}} (b2\+Body \texorpdfstring{$\ast$}{*}new\+\_\+body)
+\begin{DoxyCompactList}\small\item\em Configura cual es el body de box2D. \end{DoxyCompactList}\item 
+b2\+Body \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_geometry_a54fb20240119b2b6047233c30a5eebfa}{get\+\_\+body}} ()
+\begin{DoxyCompactList}\small\item\em Getter de body de box2D. \end{DoxyCompactList}\item 
+b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
+\begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ \mbox{\hyperlink{class_player_a7b52719c155a82f4f631a27e423ea338}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y, float radius, float density, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Body \texorpdfstring{$\ast$}{*} {\bfseries body} = nullptr
+\item 
+bool {\bfseries damage} = false
+\item 
+bool {\bfseries triggered} = false
+\item 
+bool {\bfseries player} = false
+\item 
+bool {\bfseries dead} = false
 \end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
 \begin{DoxyCompactItemize}
 \item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}}
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ {\bfseries shape}
 \item 
-b2\+Body\+Def $\ast$ \mbox{\hyperlink{class_player_aab7f1bf591a6562290a17afa26439f1f}{body\+Def}}
+\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+b2\+Vec2 {\bfseries initial\+\_\+position}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Encargada del manejo del player. 
+Clase encargada del jugador, que en este caso es la bola debido a problemas con Box2D. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -37,45 +96,124 @@ Encargada del manejo del player.
 \end{DoxyParams}
 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_player_a5915b1131aa6716585a1fb1616f782e2}\label{class_player_a5915b1131aa6716585a1fb1616f782e2}} 
-\index{Player@{Player}!Player@{Player}}
-\index{Player@{Player}!Player@{Player}}
-\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
-{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{b2\+World \&}]{given\+\_\+world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_player_aec61ad870080c459de0ae292648b0865}\label{class_player_aec61ad870080c459de0ae292648b0865}} 
-\index{Player@{Player}!get\_body@{get\_body}}
-\index{get\_body@{get\_body}!Player@{Player}}
-\doxysubsubsection{\texorpdfstring{get\_body()}{get\_body()}}
-{\footnotesize\ttfamily b2\+Body $\ast$ Player\+::get\+\_\+body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\Hypertarget{class_player_a7b52719c155a82f4f631a27e423ea338}\label{class_player_a7b52719c155a82f4f631a27e423ea338} 
+\index{Player@{Player}!create@{create}}
+\index{create@{create}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ Player\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{radius,  }\item[{float}]{density,  }\item[{\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-\mbox{\Hypertarget{class_player_a9025c84cfd3b6ceac239a52b8bfb3387}\label{class_player_a9025c84cfd3b6ceac239a52b8bfb3387}} 
+
+
+Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\+\_\+type} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_player_a22f17866c3d193ea7915eefe25277049}\label{class_player_a22f17866c3d193ea7915eefe25277049} 
+\index{Player@{Player}!get\_player\_body@{get\_player\_body}}
+\index{get\_player\_body@{get\_player\_body}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{get\_player\_body()}{get\_player\_body()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ Player\+::get\+\_\+player\+\_\+body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter del body de box2D de player. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_player_a95fa74e88bdea812dfcb292924ed72a4}\label{class_player_a95fa74e88bdea812dfcb292924ed72a4} 
+\index{Player@{Player}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Player\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtienes el tipo de la geometria. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{Geometry}}.
+
+\Hypertarget{class_player_a399abc22983e2823d948b07a1226c5f3}\label{class_player_a399abc22983e2823d948b07a1226c5f3} 
+\index{Player@{Player}!render@{render}}
+\index{render@{render}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Player\+::render (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Metodo de render. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{Geometry}}.
+
+\Hypertarget{class_player_af52a6038b14414fb616532c75c278c64}\label{class_player_af52a6038b14414fb616532c75c278c64} 
+\index{Player@{Player}!set\_player\_body@{set\_player\_body}}
+\index{set\_player\_body@{set\_player\_body}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{set\_player\_body()}{set\_player\_body()}}
+{\footnotesize\ttfamily void Player\+::set\+\_\+player\+\_\+body (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$}]{new\+\_\+player\+\_\+body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Se configura el body del player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+player\+\_\+body} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_adeb7e4b08f5dba5e2aa1451f52a1bdfe}\label{class_player_adeb7e4b08f5dba5e2aa1451f52a1bdfe} 
 \index{Player@{Player}!set\_position@{set\_position}}
 \index{set\_position@{set\_position}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}}
-{\footnotesize\ttfamily void Player\+::set\+\_\+position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Player\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{b2\+Vec2}]{new\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}\label{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}} 
-\index{Player@{Player}!body@{body}}
-\index{body@{body}!Player@{Player}}
-\doxysubsubsection{\texorpdfstring{body}{body}}
-{\footnotesize\ttfamily b2\+Body$\ast$ Player\+::body\hspace{0.3cm}{\ttfamily [private]}}
+Setter de posición. 
 
-\mbox{\Hypertarget{class_player_aab7f1bf591a6562290a17afa26439f1f}\label{class_player_aab7f1bf591a6562290a17afa26439f1f}} 
-\index{Player@{Player}!bodyDef@{bodyDef}}
-\index{bodyDef@{bodyDef}!Player@{Player}}
-\doxysubsubsection{\texorpdfstring{bodyDef}{bodyDef}}
-{\footnotesize\ttfamily b2\+Body\+Def$\ast$ Player\+::body\+Def\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4}\label{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4} 
+\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Player\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Método update en caso de necesitarlo por alguna razón. 
+
+
+
+Implements \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{Geometry}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_player_8h}{Player.\+h}}\end{DoxyCompactItemize}
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_player_8h}{Player.\+h}}\end{DoxyCompactItemize}

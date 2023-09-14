@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['scene_0',['Scene',['../class_scene.html',1,'']]]
+  ['player_0',['Player',['../class_player.html',1,'']]],
+  ['playercontroller_1',['PlayerController',['../class_player_controller.html',1,'']]]
 ];

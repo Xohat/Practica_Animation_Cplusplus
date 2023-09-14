@@ -34,7 +34,7 @@ public:
 
 	PlayerController(Player& given_player) 
 	{
-		player = given_player;
+		//player = given_player;
 		//vel = player.get_body().GetLinearVelocity();
 		force = 0;
 	}

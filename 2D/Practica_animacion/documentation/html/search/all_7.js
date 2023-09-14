@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['left_0',['left',['../class_scene.html#aad8cf65982ca19a45cdd00f1996d2116',1,'Scene']]],
-  ['listener_1',['listener',['../class_rectangle___platform.html#ae0819d1655b63266ef14ca19e076eb83',1,'Rectangle_Platform']]]
+  ['player_0',['Player',['../class_player.html',1,'']]],
+  ['player_2eh_1',['Player.h',['../_player_8h.html',1,'']]],
+  ['playercontroller_2',['PlayerController',['../class_player_controller.html',1,'']]]
 ];

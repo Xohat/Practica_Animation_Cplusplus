@@ -1,12 +1,21 @@
-// Copyright (C) 2023
-// Hecho por Arturo Vilar Carretero
-// 2023.4+
+/**
+* @file Scene.h
+* @brief Encargada del manejo de todo el ciclo de juego además de la creación de los elementos de geometry
+* @author Arturo Vilar Carretero
+*/
+
+// Copyright (c) 2023 Arturo / Xohat
+// arturovilarc@gmail.com / xohatlatte@gmail.com
+// 2023.03 - 2023.04
+
 
 #pragma once
 
 #include <Box2D/Box2D.h>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+
+#include "ContactListener.h"
 
 using namespace sf;
 using namespace std;
@@ -32,6 +41,8 @@ class Scene
 
 	float delta_time = target_time;                     // Previsión de la duración del fotograma actual
 
+	ContactListener contact_listener;
+
 	Clock timer;
 
 	float left = 0.01f;
@@ -41,33 +52,68 @@ class Scene
 
 	bool  exit = false;
 
+	/// <summary>
+	/// Variable para el movimiento en x del jugador
+	/// </summary>
+	int move_x = 0;
+	/// <summary>
+	/// Variable para el movimiento en y del jugador
+	/// </summary>
+	int move_y = 0;
+
 public:
 
-	//Constructor de Scene
+	/// <summary>
+	/// Constructor de escena
+	/// </summary>
+	/// <param name="given_window"></param>
 	Scene(const RenderWindow& given_window) : world(b2Vec2(0.0f, -10.0f))
 	{
 		window = const_cast<RenderWindow*>(&given_window);
+		world.SetContactListener(&contact_listener);
 		create_scene();
 	}
 
-	//Getter de world
+	/// <summary>
+	/// Getter de World
+	/// </summary>
+	/// <returns></returns>
 	b2World & get_world()
 	{
 		return world;
 	}
 
+	/// <summary>
+	/// Obtiene el mapa de gemotries
+	/// </summary>
+	/// <returns></returns>
+	map < string, shared_ptr< Geometry > > get_geometries() 
+	{
+		return geometries;
+	}
+
+	/// <summary>
+	/// Getter de escala de gráficos a la escena
+	/// </summary>
+	/// <returns></returns>
 	const float get_physics_to_graphics_scale() 
 	{
 		return physics_to_graphics_scale;
 	}
 
-	//Conversor de posiciones
+	/// <summary>
+	/// Conversor de posiciones
+	/// </summary>
+	/// <param name="box2d_position"></param>
+	/// <returns></returns>
 	Vector2f box2d_position_to_sfml_position(const b2Vec2& box2d_position)
 	{
 		return Vector2f(box2d_position.x * physics_to_graphics_scale, window->getSize().y - box2d_position.y * physics_to_graphics_scale);
 	}
 
-	//Bucle principal donde se procesa la escena
+	/// <summary>
+	/// Bucle principal donde se procesa la escena
+	/// </summary>
 	void run()
 	{
 		exit = false;
@@ -80,6 +126,8 @@ public:
 
 			world.Step(1.f / 60.f, 4, 4);
 
+			update();
+
 			window->clear();
 
 			render();
@@ -89,6 +137,10 @@ public:
 		} while (!exit);
 	}
 
+	/// <summary>
+	/// Se pasa por todas las geometries y se ejecuta el método update
+	/// </summary>
+	void update();
 
 private:
 
@@ -107,4 +159,8 @@ private:
 	/// </summary>
 	void process_events();
 
+	/// <summary>
+	/// Se acciona el método reset_position() de todas las geometries
+	/// </summary>
+	void reset_scene();
 };

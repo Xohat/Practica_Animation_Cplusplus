@@ -1,40 +1,125 @@
-\hypertarget{_player_8h_source}{}\doxysection{Player.\+h}
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Player.h@{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Player.h}}
 \mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (C)\ 2023}}
-\DoxyCodeLine{00002\ \textcolor{comment}{//\ Hecho\ por\ Arturo\ Vilar\ Carretero}}
-\DoxyCodeLine{00003\ \textcolor{comment}{//\ 2023.4+}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <Box2D/Box2D.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }sf;}
-\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ }
-\DoxyCodeLine{00019\ \{}
-\DoxyCodeLine{00020\ \ \ \ \ b2Body*\ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}};}
-\DoxyCodeLine{00021\ \ \ \ \ b2BodyDef*\ \mbox{\hyperlink{class_player_aab7f1bf591a6562290a17afa26439f1f}{bodyDef}};}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_circle_8h}{Circle.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <Box2D/Box2D.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{using\ namespace\ }sf;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_player_a5915b1131aa6716585a1fb1616f782e2}{Player}}(b2World\&\ given\_world)\ }
-\DoxyCodeLine{00026\ \ \ \ \ \{}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}}\ =\ given\_world.CreateBody(\mbox{\hyperlink{class_player_aab7f1bf591a6562290a17afa26439f1f}{bodyDef}});}
-\DoxyCodeLine{00028\ \ \ \ \ \}}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a9025c84cfd3b6ceac239a52b8bfb3387}{set\_position}}()\ }
-\DoxyCodeLine{00031\ \ \ \ \ \{}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}};}
-\DoxyCodeLine{00033\ \ \ \ \ \}}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ b2Body*\ \mbox{\hyperlink{class_player_aec61ad870080c459de0ae292648b0865}{get\_body}}()}
-\DoxyCodeLine{00036\ \ \ \ \ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_player_aa0bbd4ba33921c9e7ccbc0801560a712}{body}};}
-\DoxyCodeLine{00038\ \ \ \ \ \}}
-\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_geometry}{Geometry}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ shared\_ptr<\ Geometry\ >\ player\_body;}
+\DoxyCodeLine{00030\ \ \ \ \ b2Vec2\ initial\_position;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}(\mbox{\hyperlink{class_scene}{Scene}}*\ given\_scene)\ :\ \mbox{\hyperlink{class_geometry}{Geometry}}\ (*given\_scene)}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr<\ Geometry\ >\ \mbox{\hyperlink{class_player_a7b52719c155a82f4f631a27e423ea338}{create}}(b2BodyType\ body\_type,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ density,\ \mbox{\hyperlink{class_scene}{Scene}}*\ scene)}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ shared\_ptr<\ Player\ >\ circle(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_player}{Player}}(scene));}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body\ def:}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ b2BodyDef\ body\_def;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ body\_def.type\ =\ body\_type;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ body\_def.position.Set(x,\ y);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Posición inicial\ absoluta}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body:}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ circle-\/>body\ =\ circle-\/>scene-\/>get\_world().CreateBody(\&body\_def);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ shape:}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ b2CircleShape\ body\_shape;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ body\_shape.m\_radius\ =\ radius;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ fixture:}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ b2FixtureDef\ body\_fixture;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ body\_fixture.shape\ =\ \&body\_shape;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ body\_fixture.density\ =\ 0.10f;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ body\_fixture.restitution\ =\ 0.0f;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ body\_fixture.friction\ =\ 0.50f;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ uintptr\_t\ entityPtr\ =\ \textcolor{keyword}{reinterpret\_cast<}uintptr\_t\textcolor{keyword}{>}(circle.get());}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ body\_fixture.userData.pointer\ =\ entityPtr;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ circle-\/>body-\/>CreateFixture(\&body\_fixture);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ circle-\/>shape\ =\ make\_unique<sf::CircleShape>(radius\ *\ scene-\/>\mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}());}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ circle-\/>initial\_position\ =\ \{\ x\ ,\ y\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ circle;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_af52a6038b14414fb616532c75c278c64}{set\_player\_body}}(shared\_ptr<\ Geometry\ >\ new\_player\_body)}
+\DoxyCodeLine{00092\ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ player\_body\ =\ new\_player\_body;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4}{update}}()}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a399abc22983e2823d948b07a1226c5f3}{render}}(RenderWindow\&\ renderer)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00110\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coger\ el\ transform\ de\ body}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ aplicárselo\ a\ shape\ ajustándolo\ para\ SFML}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dibujar\ shape}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ b2CircleShape*\ body\_circle\ =\ \textcolor{keyword}{dynamic\_cast<}b2CircleShape*\textcolor{keyword}{>}(body-\/>GetFixtureList()-\/>GetShape());}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radius\ =\ body\_circle-\/>m\_radius\ *\ scene-\/>\mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}();}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \ center\ =\ body\_circle-\/>m\_p;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ sf::CircleShape*\ circle\ =\ \textcolor{keyword}{dynamic\_cast<}sf::CircleShape*\textcolor{keyword}{>}(shape.get());}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ b2Transform\&\ body\_transform\ =\ body-\/>GetTransform();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ circle-\/>setPosition(scene-\/>\mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\_position\_to\_sfml\_position}}(b2Mul(body\_transform,\ center))}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Vector2f(radius,\ radius));}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ circle-\/>setFillColor(Color::Cyan);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ renderer.draw(*circle);}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00136\ \ \ \ \ std::string\ \mbox{\hyperlink{class_player_a95fa74e88bdea812dfcb292924ed72a4}{get\_type}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00137\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Player\_geo"{}};}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_adeb7e4b08f5dba5e2aa1451f52a1bdfe}{set\_position}}(b2Vec2\ new\_position)\ }
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ body-\/>SetTransform(new\_position,\ 0.0f);}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ shared\_ptr<\ Geometry\ >\ \mbox{\hyperlink{class_player_a22f17866c3d193ea7915eefe25277049}{get\_player\_body}}()}
+\DoxyCodeLine{00155\ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ player\_body;}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \};}
 
 \end{DoxyCode}

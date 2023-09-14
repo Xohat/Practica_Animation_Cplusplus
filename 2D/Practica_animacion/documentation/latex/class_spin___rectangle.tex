@@ -1,0 +1,204 @@
+\doxysection{Spin\+\_\+\+Rectangle Class Reference}
+\hypertarget{class_spin___rectangle}{}\label{class_spin___rectangle}\index{Spin\_Rectangle@{Spin\_Rectangle}}
+
+
+Hija de \doxylink{class_geometry}{Geometry}, se encarga de crear rectangulos con angulación en la escena.  
+
+
+
+
+{\ttfamily \#include $<$Spin\+\_\+rectangle.\+h$>$}
+
+Inheritance diagram for Spin\+\_\+\+Rectangle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_spin___rectangle}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_spin___rectangle_a93cd465af027ee5128bf3f57e6460ac2}{Spin\+\_\+\+Rectangle}} (float given\+\_\+width, float given\+\_\+height, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}given\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em Constructor del objeto \doxylink{class_spin___rectangle}{Spin\+\_\+\+Rectangle}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_spin___rectangle_ac304153e58b50d0926123611bdfb4e45}{set\+\_\+rotation}} (float rotation)
+\begin{DoxyCompactList}\small\item\em Se configura la rotación del objeto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_spin___rectangle_a5ef4da31bdc010ff540867c42055a8a4}{update}} ()
+\begin{DoxyCompactList}\small\item\em Método update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_spin___rectangle_a411bb56fc4191bf706b2a44541541647}{get\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+\Hypertarget{class_spin___rectangle_a487574c1866d40512149524a2a449ac1}\label{class_spin___rectangle_a487574c1866d40512149524a2a449ac1} 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resetteas la posición. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_spin___rectangle_a481cbe5ca5f70c911eebc399b8fbc4e5}{render}} (Render\+Window \&renderer) override
+\begin{DoxyCompactList}\small\item\em Metodo de render. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \doxylink{class_geometry}{Geometry} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
+\begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{get\+\_\+type}} () const =0
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resettea la posición de los elementos a su posición inicial guardada en la construcción de los mismos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_a1f874348e383952fb9ece548c07b6131}{set\+\_\+body}} (b2\+Body \texorpdfstring{$\ast$}{*}new\+\_\+body)
+\begin{DoxyCompactList}\small\item\em Configura cual es el body de box2D. \end{DoxyCompactList}\item 
+b2\+Body \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_geometry_a54fb20240119b2b6047233c30a5eebfa}{get\+\_\+body}} ()
+\begin{DoxyCompactList}\small\item\em Getter de body de box2D. \end{DoxyCompactList}\item 
+b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
+\begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ \mbox{\hyperlink{class_spin___rectangle_a55adaa6eba1e6d38e16c51df88366a37}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y, float width, float height, float new\+\_\+rotation, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Body \texorpdfstring{$\ast$}{*} {\bfseries body} = nullptr
+\item 
+bool {\bfseries damage} = false
+\item 
+bool {\bfseries triggered} = false
+\item 
+bool {\bfseries player} = false
+\item 
+bool {\bfseries dead} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ {\bfseries shape}
+\item 
+\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+b2\+Vec2 {\bfseries initial\+\_\+position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hija de \doxylink{class_geometry}{Geometry}, se encarga de crear rectangulos con angulación en la escena. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_spin___rectangle_a93cd465af027ee5128bf3f57e6460ac2}\label{class_spin___rectangle_a93cd465af027ee5128bf3f57e6460ac2} 
+\index{Spin\_Rectangle@{Spin\_Rectangle}!Spin\_Rectangle@{Spin\_Rectangle}}
+\index{Spin\_Rectangle@{Spin\_Rectangle}!Spin\_Rectangle@{Spin\_Rectangle}}
+\doxysubsubsection{\texorpdfstring{Spin\_Rectangle()}{Spin\_Rectangle()}}
+{\footnotesize\ttfamily Spin\+\_\+\+Rectangle\+::\+Spin\+\_\+\+Rectangle (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+width,  }\item[{float}]{given\+\_\+height,  }\item[{\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}}]{given\+\_\+scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor del objeto \doxylink{class_spin___rectangle}{Spin\+\_\+\+Rectangle}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+\_\+width} & \\
+\hline
+{\em given\+\_\+height} & \\
+\hline
+{\em given\+\_\+scene} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_spin___rectangle_a55adaa6eba1e6d38e16c51df88366a37}\label{class_spin___rectangle_a55adaa6eba1e6d38e16c51df88366a37} 
+\index{Spin\_Rectangle@{Spin\_Rectangle}!create@{create}}
+\index{create@{create}!Spin\_Rectangle@{Spin\_Rectangle}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ Spin\+\_\+\+Rectangle\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{float}]{new\+\_\+rotation,  }\item[{\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\+\_\+type} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_spin___rectangle_a411bb56fc4191bf706b2a44541541647}\label{class_spin___rectangle_a411bb56fc4191bf706b2a44541541647} 
+\index{Spin\_Rectangle@{Spin\_Rectangle}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Spin\_Rectangle@{Spin\_Rectangle}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Spin\+\_\+\+Rectangle\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtienes el tipo de la geometria. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{Geometry}}.
+
+\Hypertarget{class_spin___rectangle_a481cbe5ca5f70c911eebc399b8fbc4e5}\label{class_spin___rectangle_a481cbe5ca5f70c911eebc399b8fbc4e5} 
+\index{Spin\_Rectangle@{Spin\_Rectangle}!render@{render}}
+\index{render@{render}!Spin\_Rectangle@{Spin\_Rectangle}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Spin\+\_\+\+Rectangle\+::render (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Metodo de render. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{Geometry}}.
+
+\Hypertarget{class_spin___rectangle_ac304153e58b50d0926123611bdfb4e45}\label{class_spin___rectangle_ac304153e58b50d0926123611bdfb4e45} 
+\index{Spin\_Rectangle@{Spin\_Rectangle}!set\_rotation@{set\_rotation}}
+\index{set\_rotation@{set\_rotation}!Spin\_Rectangle@{Spin\_Rectangle}}
+\doxysubsubsection{\texorpdfstring{set\_rotation()}{set\_rotation()}}
+{\footnotesize\ttfamily void Spin\+\_\+\+Rectangle\+::set\+\_\+rotation (\begin{DoxyParamCaption}\item[{float}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Se configura la rotación del objeto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_spin___rectangle_a5ef4da31bdc010ff540867c42055a8a4}\label{class_spin___rectangle_a5ef4da31bdc010ff540867c42055a8a4} 
+\index{Spin\_Rectangle@{Spin\_Rectangle}!update@{update}}
+\index{update@{update}!Spin\_Rectangle@{Spin\_Rectangle}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Spin\+\_\+\+Rectangle\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Método update en caso de necesitarlo por alguna razón. 
+
+
+
+Implements \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{Geometry}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_spin__rectangle_8h}{Spin\+\_\+rectangle.\+h}}\end{DoxyCompactItemize}

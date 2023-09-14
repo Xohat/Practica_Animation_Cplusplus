@@ -1,94 +1,119 @@
-\hypertarget{_scene_8h_source}{}\doxysection{Scene.\+h}
+\doxysection{Scene.\+h}
+\hypertarget{_scene_8h_source}{}\label{_scene_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Scene.h@{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Scene.h}}
 \mbox{\hyperlink{_scene_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (C)\ 2023}}
-\DoxyCodeLine{00002\ \textcolor{comment}{//\ Hecho\ por\ Arturo\ Vilar\ Carretero}}
-\DoxyCodeLine{00003\ \textcolor{comment}{//\ 2023.4+}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <Box2D/Box2D.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }sf;}
-\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{comment}{//\ Método\ para\ evitar\ la\ doble\ inclusión al\ necesitar\ la\ referencia\ a\ geometry}}
-\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geometry}{Geometry}};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_scene}{Scene}}}
-\DoxyCodeLine{00021\ \{}
-\DoxyCodeLine{00022\ \ \ \ \ map\ <\ string,\ shared\_ptr<\ Geometry\ >\ >\ \mbox{\hyperlink{class_scene_a80d8975b5cfdda593de088a73ff0b379}{geometries}};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ b2World\ \mbox{\hyperlink{class_scene_af574d8a5f24ca0e7e8c7fc905e8c4408}{world}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Referencia\ al\ mundo}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <Box2D/Box2D.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_contact_listener_8h}{ContactListener.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{using\ namespace\ }sf;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Método\ para\ evitar\ la\ doble\ inclusión al\ necesitar\ la\ referencia\ a\ geometry}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geometry}{Geometry}};}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_a9080a8b0417d5fa8cda20ea51332dc1a}{physics\_to\_graphics\_scale}}\ =\ 100.f;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Escala\ de\ físicas\ según la\ escala}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ RenderWindow*\ \mbox{\hyperlink{class_scene_a324457e96aa218ffc1fac027bd848857}{window}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ La\ referencia\ a\ la\ window\ donde\ se\ vana\ \ dibujar\ los\ objetos}}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_ac70da7b00bc6f4c4bdfb1184eaa31243}{target\_fps}}\ =\ 60.f;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cuántos\ fotogramas\ por\ segundo\ se\ busca\ conseguir}}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_aa873ab8f18943fb471f621e6fe0b9a80}{target\_time}}\ =\ 1.f\ /\ \mbox{\hyperlink{class_scene_ac70da7b00bc6f4c4bdfb1184eaa31243}{target\_fps}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Duración en\ segundos\ de\ un\ fotograma\ a\ la\ tasa\ deseada}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_scene}{Scene}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ map\ <\ string,\ shared\_ptr<\ Geometry\ >\ >\ geometries;}
 \DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_a5e511ec39f26d51aa72fb6b9924e7208}{delta\_time}}\ =\ \mbox{\hyperlink{class_scene_aa873ab8f18943fb471f621e6fe0b9a80}{target\_time}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Previsión de\ la\ duración del\ fotograma\ actual}}
+\DoxyCodeLine{00033\ \ \ \ \ b2World\ world;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Referencia\ al\ mundo}}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ Clock\ \mbox{\hyperlink{class_scene_af93d566989c3b30434c04bf29f3a576e}{timer}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ physics\_to\_graphics\_scale\ =\ 10.f;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Escala\ de\ físicas\ según la\ escala}}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_aad8cf65982ca19a45cdd00f1996d2116}{left}}\ =\ 0.01f;}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_a0c348788ee880cb2494c7fade5b11f59}{right}}\ =\ 8.00f;}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_a0b4dbb79066c50929e39570717f20bf0}{top}}\ =\ 6.00f;}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_afd369b55c26dc40d59e34d30173f23d8}{bottom}}\ =\ 0.01f;}
+\DoxyCodeLine{00037\ \ \ \ \ RenderWindow*\ window;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ La\ referencia\ a\ la\ window\ donde\ se\ van\ a\ \ dibujar\ los\ objetos}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ target\_fps\ =\ 60.f;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cuántos\ fotogramas\ por\ segundo\ se\ busca\ conseguir}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ target\_time\ =\ 1.f\ /\ target\_fps;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Duración en\ segundos\ de\ un\ fotograma\ a\ la\ tasa\ deseada}}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{float}\ delta\_time\ =\ target\_time;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Previsión de\ la\ duración del\ fotograma\ actual}}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//Constructor\ de\ Scene}}
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_scene_a5c9004480069735a5b965839eff8f0e3}{Scene}}(\textcolor{keyword}{const}\ RenderWindow\&\ given\_window)\ :\ \mbox{\hyperlink{class_scene_af574d8a5f24ca0e7e8c7fc905e8c4408}{world}}(b2Vec2(0.0f,\ -\/10.0f))}
-\DoxyCodeLine{00046\ \ \ \ \ \{}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_a324457e96aa218ffc1fac027bd848857}{window}}\ =\ \textcolor{keyword}{const\_cast<}RenderWindow*\textcolor{keyword}{>}(\&given\_window);}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_acd12a991c63eca9661d2376dc1ddfc77}{create\_scene}}();}
-\DoxyCodeLine{00049\ \ \ \ \ \}}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//Getter\ de\ world}}
-\DoxyCodeLine{00052\ \ \ \ \ b2World\ \mbox{\hyperlink{class_scene_a14369368788674ac9efe829c397bca79}{get\_world}}()}
-\DoxyCodeLine{00053\ \ \ \ \ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_scene_af574d8a5f24ca0e7e8c7fc905e8c4408}{world}};}
-\DoxyCodeLine{00055\ \ \ \ \ \}}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//Conversor\ de\ posiciones}}
-\DoxyCodeLine{00058\ \ \ \ \ Vector2f\ \mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\_position\_to\_sfml\_position}}(\textcolor{keyword}{const}\ b2Vec2\&\ box2d\_position)}
-\DoxyCodeLine{00059\ \ \ \ \ \{}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Vector2f(box2d\_position.x\ *\ \mbox{\hyperlink{class_scene_a9080a8b0417d5fa8cda20ea51332dc1a}{physics\_to\_graphics\_scale}},\ \mbox{\hyperlink{class_scene_a324457e96aa218ffc1fac027bd848857}{window}}-\/>getSize().y\ -\/\ box2d\_position.y\ *\ \mbox{\hyperlink{class_scene_a9080a8b0417d5fa8cda20ea51332dc1a}{physics\_to\_graphics\_scale}});}
-\DoxyCodeLine{00061\ \ \ \ \ \}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//Bucle\ principal\ donde\ se\ procesa\ la\ escena}}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_aef70538258ae4abfad9563523de0ece0}{run}}()}
-\DoxyCodeLine{00065\ \ \ \ \ \{}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ exit\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_acd12a991c63eca9661d2376dc1ddfc77}{create\_scene}}();}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_a58842dd71be52028f2adcb8993161963}{process\_events}}();}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_a324457e96aa218ffc1fac027bd848857}{window}}-\/>clear();}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_a4ddf2d16f371ee9533b3faf1dd5ddfb1}{render}}();}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_a324457e96aa218ffc1fac027bd848857}{window}}-\/>display();}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (!exit);}
-\DoxyCodeLine{00081\ \ \ \ \ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_contact_listener}{ContactListener}}\ contact\_listener;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ Clock\ timer;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ left\ =\ 0.01f;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ right\ =\ 8.00f;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ top\ =\ 6.00f;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{float}\ bottom\ =\ 0.01f;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ exit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ move\_x\ =\ 0;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ move\_y\ =\ 0;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_scene_a5c9004480069735a5b965839eff8f0e3}{Scene}}(\textcolor{keyword}{const}\ RenderWindow\&\ given\_window)\ :\ world(b2Vec2(0.0f,\ -\/10.0f))}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ window\ =\ \textcolor{keyword}{const\_cast<}RenderWindow*\textcolor{keyword}{>}(\&given\_window);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ world.SetContactListener(\&contact\_listener);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ create\_scene();}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ b2World\ \&\ \mbox{\hyperlink{class_scene_a0a5c66d4865df5822c0aa70d32abea5d}{get\_world}}()}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ world;}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
 \DoxyCodeLine{00085\ }
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_a4ddf2d16f371ee9533b3faf1dd5ddfb1}{render}}();}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_acd12a991c63eca9661d2376dc1ddfc77}{create\_scene}}();\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_a58842dd71be52028f2adcb8993161963}{process\_events}}();}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00090\ \ \ \ \ map\ <\ string,\ shared\_ptr<\ Geometry\ >\ >\ \mbox{\hyperlink{class_scene_ae767da7a5c823fe5cbaa76a04d067c43}{get\_geometries}}()\ }
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ geometries;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}()\ }
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ physics\_to\_graphics\_scale;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00109\ \ \ \ \ Vector2f\ \mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\_position\_to\_sfml\_position}}(\textcolor{keyword}{const}\ b2Vec2\&\ box2d\_position)}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Vector2f(box2d\_position.x\ *\ physics\_to\_graphics\_scale,\ window-\/>getSize().y\ -\/\ box2d\_position.y\ *\ physics\_to\_graphics\_scale);}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_aef70538258ae4abfad9563523de0ece0}{run}}()}
+\DoxyCodeLine{00118\ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ exit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ create\_scene();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ process\_events();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ world.Step(1.f\ /\ 60.f,\ 4,\ 4);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_scene_aa24c7e636c10e4e42650c1374b90bb80}{update}}();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ window-\/>clear();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ render();}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ window-\/>display();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (!exit);}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_aa24c7e636c10e4e42650c1374b90bb80}{update}}();}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ create\_scene();\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ process\_events();}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ reset\_scene();}
+\DoxyCodeLine{00166\ \};}
 
 \end{DoxyCode}

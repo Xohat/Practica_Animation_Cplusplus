@@ -1,0 +1,94 @@
+\doxysection{Contact\+Listener.\+h}
+\hypertarget{_contact_listener_8h_source}{}\label{_contact_listener_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/ContactListener.h@{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/ContactListener.h}}
+\mbox{\hyperlink{_contact_listener_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <btBulletDynamicsCommon.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_contact_callback}{ContactCallback}}\ :\ \textcolor{keyword}{public}\ btCollisionWorld::ContactResultCallback\ }
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ btScalar\ addSingleResult}
+\DoxyCodeLine{00026\ \ \ \ \ (}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ btManifoldPoint\&\ cp,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ btCollisionObjectWrapper*\ collision\_entity\_0\_wrapper,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ partId0,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index0,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ btCollisionObjectWrapper*\ collision\_entity\_1\_wrapper,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ partId1,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index1}
+\DoxyCodeLine{00034\ \ \ \ \ )}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obtener\ los\ objetos\ de\ colisión}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ btCollisionObject*\ entity\_0\_collision\ =\ collision\_entity\_0\_wrapper-\/>getCollisionObject();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ btCollisionObject*\ entity\_1\_collision\ =\ collision\_entity\_1\_wrapper-\/>getCollisionObject();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obtienes\ los\ user\_pointers}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ userPtr0\ =\ entity\_0\_collision-\/>getUserPointer();}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ userPtr1\ =\ entity\_1\_collision-\/>getUserPointer();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creas\ unos\ unos\ punteros\ entidad\ en\ base\ a\ un\ casteo\ a\ los\ userPtr}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity}{Entity}}*\ entity\_1\ =\ (\mbox{\hyperlink{class_entity}{Entity}}*)userPtr0;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity}{Entity}}*\ entity\_2\ =\ (\mbox{\hyperlink{class_entity}{Entity}}*)userPtr1;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Variables\ usadas\ para\ simplemente\ }}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity}{Entity}}*\ player\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity}{Entity}}*\ player\_collision\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Discierne\ cual\ es\ el\ objeto\ y\ cual\ el\ player\ gracias\ al\ type}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (entity\_1-\/>\mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}}\ ==\ Entity::Entity\_type::PLAYER)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ player\ =\ entity\_1;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ player\_collision\ =\ entity\_2;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (entity\_2-\/>\mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}}\ ==\ Entity::Entity\_type::PLAYER)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ player\ =\ entity\_2;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ player\_collision\ =\ entity\_1;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ en\ el\ choque\ hay\ un\ player}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (player\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \{\ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ revisa\ el\ tipo\ de\ la\ colisión}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (player\_collision-\/>\mbox{\hyperlink{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}{type}})}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ es\ de\ tipo\ KEY}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Entity::Entity\_type::KEY:}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>\mbox{\hyperlink{class_entity_afc9c196b9ee5f1d0af085fdd4702a2a9}{key\_collision}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ es\ de\ tipo\ PLATFORM}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Entity::Entity\_type::PLATFORM:}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>\mbox{\hyperlink{class_entity_a87cb3f2e0ecfda0e26ce13c84cf4ea90}{vertical\_platform\_collision}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ es\ de\ tipo\ DOOR}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Entity::Entity\_type::DOOR:}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>\mbox{\hyperlink{class_entity_a48eb4df16e355e60b623baa57433695b}{door\_collision}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Print\ information\ about\ the\ collision}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Collision\ detected\ between\ objects\ with\ user\ pointers:\ "{}}\ <<\ userPtr0\ <<\ \textcolor{stringliteral}{"{}\ and\ "{}}\ <<\ userPtr1\ <<\ std::endl;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Return\ 0\ to\ process\ all\ contacts}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \};}
+
+\end{DoxyCode}

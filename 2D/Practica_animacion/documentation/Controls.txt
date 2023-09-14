@@ -1,2 +1,2 @@
 A y D para movimiento
-Spacebar para saltar
+Spacebar (Mantener) para subir manualmente las plataformas

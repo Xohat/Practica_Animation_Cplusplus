@@ -1,8 +1,8 @@
-\hypertarget{class_rectangle___platform}{}\doxysection{Rectangle\+\_\+\+Platform Class Reference}
-\label{class_rectangle___platform}\index{Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysection{Rectangle\+\_\+\+Platform Class Reference}
+\hypertarget{class_rectangle___platform}{}\label{class_rectangle___platform}\index{Rectangle\_Platform@{Rectangle\_Platform}}
 
 
-Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear plataformas rectangulares en la escena.  
+Hija de \doxylink{class_geometry}{Geometry}, se encarga de crear plataformas rectangulares en la escena.  
 
 
 
@@ -15,75 +15,93 @@ Inheritance diagram for Rectangle\+\_\+\+Platform\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_rectangle___platform}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_rectangle___platform_a470d885b7c123f6172d5ff0f733e4764}{Rectangle\+\_\+\+Platform}} (float given\+\_\+width, float given\+\_\+height)
+\Hypertarget{class_rectangle___platform_aceb7ccfe3799b13cc42d810c165238fb}\label{class_rectangle___platform_aceb7ccfe3799b13cc42d810c165238fb} 
+{\bfseries Rectangle\+\_\+\+Platform} (float given\+\_\+width, float given\+\_\+height, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}given\+\_\+scene)
 \item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_rectangle___platform_a9e11c8c1cd36743bd570c7f4f315dd9b}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y)
-\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\item 
+\Hypertarget{class_rectangle___platform_a1c5e3466a62045ccac1087ff9ce27cc8}\label{class_rectangle___platform_a1c5e3466a62045ccac1087ff9ce27cc8} 
+void {\bfseries set\+\_\+triggered} ()
+\begin{DoxyCompactList}\small\item\em Acciona el movimiento por el \doxylink{class_rectangle___platform_a7957fa77fadaae57dc822324dac3216c}{update\+\_\+movement()} \end{DoxyCompactList}\item 
+b2\+Vec2 \mbox{\hyperlink{class_rectangle___platform_a2191701c371e31b5bd159ea4ed7223de}{get\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la posición del body de box2D. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rectangle___platform_a0fb8292ee48af41a444b681e267da5a1}{get\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Obtienes el tiempo que lleva la plataforma parada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rectangle___platform_a162aa9f269dc251ffa67499d7a96e805}{update}} ()
+\begin{DoxyCompactList}\small\item\em Método update para actualizar el tiempo que la plataforma esta parada para su descenso posterior. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rectangle___platform_addbd53f22ed6dd353a6122b1ff89212b}{get\+\_\+final\+\_\+y}} ()
+\begin{DoxyCompactList}\small\item\em Obtienes la y final del objeto, donde va a llegar a su máximo. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_rectangle___platform_a28bf753f68acb3bf79c655a7ce2e63a1}{get\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}{render}} (Render\+Window \&renderer) override
 \begin{DoxyCompactList}\small\item\em Metodo de render. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_rectangle___platform_a23dc9196d03d829d5dfc0bf4ae614acd}{update\+\_\+movement}} (float time\+\_\+step)
-\begin{DoxyCompactList}\small\item\em Se encarga de mover la plataforma. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+void \mbox{\hyperlink{class_rectangle___platform_a7957fa77fadaae57dc822324dac3216c}{update\+\_\+movement}} (float delta\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Se encarga de mover la plataforma hasta la posición en y definida por código. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rectangle___platform_a384566f92469bfcbe62bc9b02ec0d45c}{reset\+\_\+movement}} (float delta\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Se encarga de mover la plataforma desde la posición y definida hasta la initial\+Position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
-\begin{DoxyCompactList}\small\item\em Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \doxylink{class_geometry}{Geometry} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
 \begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{get\+\_\+type}} () const =0
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resettea la posición de los elementos a su posición inicial guardada en la construcción de los mismos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_a1f874348e383952fb9ece548c07b6131}{set\+\_\+body}} (b2\+Body \texorpdfstring{$\ast$}{*}new\+\_\+body)
+\begin{DoxyCompactList}\small\item\em Configura cual es el body de box2D. \end{DoxyCompactList}\item 
+b2\+Body \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_geometry_a54fb20240119b2b6047233c30a5eebfa}{get\+\_\+body}} ()
+\begin{DoxyCompactList}\small\item\em Getter de body de box2D. \end{DoxyCompactList}\item 
 b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
 \begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
 \begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
 \begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_contact_listener}{Contact\+Listener}} \mbox{\hyperlink{class_rectangle___platform_ae0819d1655b63266ef14ca19e076eb83}{listener}}
+static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ \mbox{\hyperlink{class_rectangle___platform_aa77272c42265b4ed8120b61a4f2e7506}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y, float width, float height, float y\+\_\+upping, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}{width}}
+b2\+Body \texorpdfstring{$\ast$}{*} {\bfseries body} = nullptr
 \item 
-float \mbox{\hyperlink{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}{height}}
+bool {\bfseries damage} = false
+\item 
+bool {\bfseries triggered} = false
+\item 
+bool {\bfseries player} = false
+\item 
+bool {\bfseries dead} = false
 \end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
-\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
 \begin{DoxyCompactItemize}
 \item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}} = NULL
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ {\bfseries shape}
 \item 
-b2\+Body\+Def $\ast$ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\+\_\+def}} = NULL
+\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
 \item 
-b2\+Fixture\+Def \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\+\_\+fixture}}
-\item 
-unique\+\_\+ptr$<$ sf\+::\+Shape $>$ \mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}
-\item 
-int \mbox{\hyperlink{class_geometry_afe13f453b638d013261bbd263fb21c71}{name\+\_\+offset}} = 0
-\item 
-\mbox{\hyperlink{class_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}
+b2\+Vec2 {\bfseries initial\+\_\+position}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear plataformas rectangulares en la escena. 
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_rectangle___platform_a470d885b7c123f6172d5ff0f733e4764}\label{class_rectangle___platform_a470d885b7c123f6172d5ff0f733e4764}} 
-\index{Rectangle\_Platform@{Rectangle\_Platform}!Rectangle\_Platform@{Rectangle\_Platform}}
-\index{Rectangle\_Platform@{Rectangle\_Platform}!Rectangle\_Platform@{Rectangle\_Platform}}
-\doxysubsubsection{\texorpdfstring{Rectangle\_Platform()}{Rectangle\_Platform()}}
-{\footnotesize\ttfamily Rectangle\+\_\+\+Platform\+::\+Rectangle\+\_\+\+Platform (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+width,  }\item[{float}]{given\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
+Hija de \doxylink{class_geometry}{Geometry}, se encarga de crear plataformas rectangulares en la escena. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_rectangle___platform_a9e11c8c1cd36743bd570c7f4f315dd9b}\label{class_rectangle___platform_a9e11c8c1cd36743bd570c7f4f315dd9b}} 
+\Hypertarget{class_rectangle___platform_aa77272c42265b4ed8120b61a4f2e7506}\label{class_rectangle___platform_aa77272c42265b4ed8120b61a4f2e7506} 
 \index{Rectangle\_Platform@{Rectangle\_Platform}!create@{create}}
 \index{create@{create}!Rectangle\_Platform@{Rectangle\_Platform}}
 \doxysubsubsection{\texorpdfstring{create()}{create()}}
-{\footnotesize\ttfamily b2\+Body $\ast$ Rectangle\+\_\+\+Platform\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ Rectangle\+\_\+\+Platform\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{float}]{y\+\_\+upping,  }\item[{\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -101,7 +119,63 @@ Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena 
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}\label{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}} 
+\Hypertarget{class_rectangle___platform_addbd53f22ed6dd353a6122b1ff89212b}\label{class_rectangle___platform_addbd53f22ed6dd353a6122b1ff89212b} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!get\_final\_y@{get\_final\_y}}
+\index{get\_final\_y@{get\_final\_y}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{get\_final\_y()}{get\_final\_y()}}
+{\footnotesize\ttfamily float Rectangle\+\_\+\+Platform\+::get\+\_\+final\+\_\+y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtienes la y final del objeto, donde va a llegar a su máximo. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_rectangle___platform_a2191701c371e31b5bd159ea4ed7223de}\label{class_rectangle___platform_a2191701c371e31b5bd159ea4ed7223de} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!get\_position@{get\_position}}
+\index{get\_position@{get\_position}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
+{\footnotesize\ttfamily b2\+Vec2 Rectangle\+\_\+\+Platform\+::get\+\_\+position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la posición del body de box2D. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_rectangle___platform_a0fb8292ee48af41a444b681e267da5a1}\label{class_rectangle___platform_a0fb8292ee48af41a444b681e267da5a1} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!get\_time@{get\_time}}
+\index{get\_time@{get\_time}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{get\_time()}{get\_time()}}
+{\footnotesize\ttfamily float Rectangle\+\_\+\+Platform\+::get\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtienes el tiempo que lleva la plataforma parada. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_rectangle___platform_a28bf753f68acb3bf79c655a7ce2e63a1}\label{class_rectangle___platform_a28bf753f68acb3bf79c655a7ce2e63a1} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Rectangle\+\_\+\+Platform\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtienes el tipo de la geometria. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{Geometry}}.
+
+\Hypertarget{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2}\label{class_rectangle___platform_ab4052a6c1e853fd14a147491bbb901a2} 
 \index{Rectangle\_Platform@{Rectangle\_Platform}!render@{render}}
 \index{render@{render}!Rectangle\_Platform@{Rectangle\_Platform}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
@@ -120,15 +194,44 @@ Metodo de render.
 
 Implements \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{Geometry}}.
 
-\mbox{\Hypertarget{class_rectangle___platform_a23dc9196d03d829d5dfc0bf4ae614acd}\label{class_rectangle___platform_a23dc9196d03d829d5dfc0bf4ae614acd}} 
+\Hypertarget{class_rectangle___platform_a384566f92469bfcbe62bc9b02ec0d45c}\label{class_rectangle___platform_a384566f92469bfcbe62bc9b02ec0d45c} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!reset\_movement@{reset\_movement}}
+\index{reset\_movement@{reset\_movement}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{reset\_movement()}{reset\_movement()}}
+{\footnotesize\ttfamily void Rectangle\+\_\+\+Platform\+::reset\+\_\+movement (\begin{DoxyParamCaption}\item[{float}]{delta\+\_\+time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Se encarga de mover la plataforma desde la posición y definida hasta la initial\+Position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rectangle___platform_a162aa9f269dc251ffa67499d7a96e805}\label{class_rectangle___platform_a162aa9f269dc251ffa67499d7a96e805} 
+\index{Rectangle\_Platform@{Rectangle\_Platform}!update@{update}}
+\index{update@{update}!Rectangle\_Platform@{Rectangle\_Platform}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Rectangle\+\_\+\+Platform\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Método update para actualizar el tiempo que la plataforma esta parada para su descenso posterior. 
+
+
+
+Implements \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{Geometry}}.
+
+\Hypertarget{class_rectangle___platform_a7957fa77fadaae57dc822324dac3216c}\label{class_rectangle___platform_a7957fa77fadaae57dc822324dac3216c} 
 \index{Rectangle\_Platform@{Rectangle\_Platform}!update\_movement@{update\_movement}}
 \index{update\_movement@{update\_movement}!Rectangle\_Platform@{Rectangle\_Platform}}
 \doxysubsubsection{\texorpdfstring{update\_movement()}{update\_movement()}}
-{\footnotesize\ttfamily void Rectangle\+\_\+\+Platform\+::update\+\_\+movement (\begin{DoxyParamCaption}\item[{float}]{time\+\_\+step }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Rectangle\+\_\+\+Platform\+::update\+\_\+movement (\begin{DoxyParamCaption}\item[{float}]{delta\+\_\+time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Se encarga de mover la plataforma. 
+Se encarga de mover la plataforma hasta la posición en y definida por código. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -137,27 +240,6 @@ Se encarga de mover la plataforma.
 \end{DoxyParams}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}\label{class_rectangle___platform_a7a93a599d45c094ecc45c41c2978941e}} 
-\index{Rectangle\_Platform@{Rectangle\_Platform}!height@{height}}
-\index{height@{height}!Rectangle\_Platform@{Rectangle\_Platform}}
-\doxysubsubsection{\texorpdfstring{height}{height}}
-{\footnotesize\ttfamily float Rectangle\+\_\+\+Platform\+::height\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_rectangle___platform_ae0819d1655b63266ef14ca19e076eb83}\label{class_rectangle___platform_ae0819d1655b63266ef14ca19e076eb83}} 
-\index{Rectangle\_Platform@{Rectangle\_Platform}!listener@{listener}}
-\index{listener@{listener}!Rectangle\_Platform@{Rectangle\_Platform}}
-\doxysubsubsection{\texorpdfstring{listener}{listener}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_contact_listener}{Contact\+Listener}} Rectangle\+\_\+\+Platform\+::listener\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}\label{class_rectangle___platform_ab20dbd2a3b28a3330c1a1851949c949d}} 
-\index{Rectangle\_Platform@{Rectangle\_Platform}!width@{width}}
-\index{width@{width}!Rectangle\_Platform@{Rectangle\_Platform}}
-\doxysubsubsection{\texorpdfstring{width}{width}}
-{\footnotesize\ttfamily float Rectangle\+\_\+\+Platform\+::width\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_rectangle__platform_8h}{Rectangle\+\_\+platform.\+h}}\end{DoxyCompactItemize}
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_rectangle__platform_8h}{Rectangle\+\_\+platform.\+h}}\end{DoxyCompactItemize}

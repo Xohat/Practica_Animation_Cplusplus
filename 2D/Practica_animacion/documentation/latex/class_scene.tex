@@ -1,5 +1,5 @@
-\hypertarget{class_scene}{}\doxysection{Scene Class Reference}
-\label{class_scene}\index{Scene@{Scene}}
+\doxysection{Scene Class Reference}
+\hypertarget{class_scene}{}\label{class_scene}\index{Scene@{Scene}}
 
 
 Encargada del manejo de toda la escena.  
@@ -9,60 +9,32 @@ Encargada del manejo de toda la escena.
 
 {\ttfamily \#include $<$Scene.\+h$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_scene_a5c9004480069735a5b965839eff8f0e3}{Scene}} (const Render\+Window \&given\+\_\+window)
-\item 
-b2\+World \mbox{\hyperlink{class_scene_a14369368788674ac9efe829c397bca79}{get\+\_\+world}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor de escena. \end{DoxyCompactList}\item 
+b2\+World \& \mbox{\hyperlink{class_scene_a0a5c66d4865df5822c0aa70d32abea5d}{get\+\_\+world}} ()
+\begin{DoxyCompactList}\small\item\em Getter de World. \end{DoxyCompactList}\item 
+map$<$ string, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ $>$ \mbox{\hyperlink{class_scene_ae767da7a5c823fe5cbaa76a04d067c43}{get\+\_\+geometries}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el mapa de gemotries. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\+\_\+physics\+\_\+to\+\_\+graphics\+\_\+scale}} ()
+\begin{DoxyCompactList}\small\item\em Getter de escala de gráficos a la escena. \end{DoxyCompactList}\item 
 Vector2f \mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\+\_\+position\+\_\+to\+\_\+sfml\+\_\+position}} (const b2\+Vec2 \&box2d\+\_\+position)
-\item 
-void \mbox{\hyperlink{class_scene_aef70538258ae4abfad9563523de0ece0}{run}} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{class_scene_a4ddf2d16f371ee9533b3faf1dd5ddfb1}{render}} ()
-\begin{DoxyCompactList}\small\item\em Activa el método render de todos los objetos de padre geometry. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_acd12a991c63eca9661d2376dc1ddfc77}{create\+\_\+scene}} ()
-\begin{DoxyCompactList}\small\item\em Acciona todo el método create de los elementos del map de Geometries. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_a58842dd71be52028f2adcb8993161963}{process\+\_\+events}} ()
-\begin{DoxyCompactList}\small\item\em Procesa el ciclo de la escena y los eventos de teclado. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-map$<$ string, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ $>$ \mbox{\hyperlink{class_scene_a80d8975b5cfdda593de088a73ff0b379}{geometries}}
-\item 
-b2\+World \mbox{\hyperlink{class_scene_af574d8a5f24ca0e7e8c7fc905e8c4408}{world}}
-\item 
-float \mbox{\hyperlink{class_scene_a9080a8b0417d5fa8cda20ea51332dc1a}{physics\+\_\+to\+\_\+graphics\+\_\+scale}} = 100.f
-\item 
-Render\+Window $\ast$ \mbox{\hyperlink{class_scene_a324457e96aa218ffc1fac027bd848857}{window}}
-\item 
-const float \mbox{\hyperlink{class_scene_ac70da7b00bc6f4c4bdfb1184eaa31243}{target\+\_\+fps}} = 60.f
-\item 
-const float \mbox{\hyperlink{class_scene_aa873ab8f18943fb471f621e6fe0b9a80}{target\+\_\+time}} = 1.f / \mbox{\hyperlink{class_scene_ac70da7b00bc6f4c4bdfb1184eaa31243}{target\+\_\+fps}}
-\item 
-float \mbox{\hyperlink{class_scene_a5e511ec39f26d51aa72fb6b9924e7208}{delta\+\_\+time}} = \mbox{\hyperlink{class_scene_aa873ab8f18943fb471f621e6fe0b9a80}{target\+\_\+time}}
-\item 
-Clock \mbox{\hyperlink{class_scene_af93d566989c3b30434c04bf29f3a576e}{timer}}
-\item 
-float \mbox{\hyperlink{class_scene_aad8cf65982ca19a45cdd00f1996d2116}{left}} = 0.\+01f
-\item 
-float \mbox{\hyperlink{class_scene_a0c348788ee880cb2494c7fade5b11f59}{right}} = 8.\+00f
-\item 
-float \mbox{\hyperlink{class_scene_a0b4dbb79066c50929e39570717f20bf0}{top}} = 6.\+00f
-\item 
-float \mbox{\hyperlink{class_scene_afd369b55c26dc40d59e34d30173f23d8}{bottom}} = 0.\+01f
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Conversor de posiciones. \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_aef70538258ae4abfad9563523de0ece0}\label{class_scene_aef70538258ae4abfad9563523de0ece0} 
+void {\bfseries run} ()
+\begin{DoxyCompactList}\small\item\em Bucle principal donde se procesa la escena. \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_aa24c7e636c10e4e42650c1374b90bb80}\label{class_scene_aa24c7e636c10e4e42650c1374b90bb80} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Se pasa por todas las geometries y se ejecuta el método update. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Encargada del manejo de toda la escena. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_scene_a5c9004480069735a5b965839eff8f0e3}\label{class_scene_a5c9004480069735a5b965839eff8f0e3}} 
+\Hypertarget{class_scene_a5c9004480069735a5b965839eff8f0e3}\label{class_scene_a5c9004480069735a5b965839eff8f0e3} 
 \index{Scene@{Scene}!Scene@{Scene}}
 \index{Scene@{Scene}!Scene@{Scene}}
 \doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
@@ -70,133 +42,76 @@ Encargada del manejo de toda la escena.
 
 
 
+Constructor de escena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}\label{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}} 
+\Hypertarget{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}\label{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6} 
 \index{Scene@{Scene}!box2d\_position\_to\_sfml\_position@{box2d\_position\_to\_sfml\_position}}
 \index{box2d\_position\_to\_sfml\_position@{box2d\_position\_to\_sfml\_position}!Scene@{Scene}}
 \doxysubsubsection{\texorpdfstring{box2d\_position\_to\_sfml\_position()}{box2d\_position\_to\_sfml\_position()}}
 {\footnotesize\ttfamily Vector2f Scene\+::box2d\+\_\+position\+\_\+to\+\_\+sfml\+\_\+position (\begin{DoxyParamCaption}\item[{const b2\+Vec2 \&}]{box2d\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{class_scene_acd12a991c63eca9661d2376dc1ddfc77}\label{class_scene_acd12a991c63eca9661d2376dc1ddfc77}} 
-\index{Scene@{Scene}!create\_scene@{create\_scene}}
-\index{create\_scene@{create\_scene}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{create\_scene()}{create\_scene()}}
-{\footnotesize\ttfamily void Scene\+::create\+\_\+scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+Conversor de posiciones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box2d\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_scene_ae767da7a5c823fe5cbaa76a04d067c43}\label{class_scene_ae767da7a5c823fe5cbaa76a04d067c43} 
+\index{Scene@{Scene}!get\_geometries@{get\_geometries}}
+\index{get\_geometries@{get\_geometries}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_geometries()}{get\_geometries()}}
+{\footnotesize\ttfamily map$<$ string, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ $>$ Scene\+::get\+\_\+geometries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Acciona todo el método create de los elementos del map de Geometries. 
+Obtiene el mapa de gemotries. 
 
-\mbox{\Hypertarget{class_scene_a14369368788674ac9efe829c397bca79}\label{class_scene_a14369368788674ac9efe829c397bca79}} 
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}\label{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4} 
+\index{Scene@{Scene}!get\_physics\_to\_graphics\_scale@{get\_physics\_to\_graphics\_scale}}
+\index{get\_physics\_to\_graphics\_scale@{get\_physics\_to\_graphics\_scale}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_physics\_to\_graphics\_scale()}{get\_physics\_to\_graphics\_scale()}}
+{\footnotesize\ttfamily const float Scene\+::get\+\_\+physics\+\_\+to\+\_\+graphics\+\_\+scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter de escala de gráficos a la escena. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_scene_a0a5c66d4865df5822c0aa70d32abea5d}\label{class_scene_a0a5c66d4865df5822c0aa70d32abea5d} 
 \index{Scene@{Scene}!get\_world@{get\_world}}
 \index{get\_world@{get\_world}!Scene@{Scene}}
 \doxysubsubsection{\texorpdfstring{get\_world()}{get\_world()}}
-{\footnotesize\ttfamily b2\+World Scene\+::get\+\_\+world (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-\mbox{\Hypertarget{class_scene_a58842dd71be52028f2adcb8993161963}\label{class_scene_a58842dd71be52028f2adcb8993161963}} 
-\index{Scene@{Scene}!process\_events@{process\_events}}
-\index{process\_events@{process\_events}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{process\_events()}{process\_events()}}
-{\footnotesize\ttfamily void Scene\+::process\+\_\+events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily b2\+World \& Scene\+::get\+\_\+world (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Procesa el ciclo de la escena y los eventos de teclado. 
+Getter de World. 
 
-\mbox{\Hypertarget{class_scene_a4ddf2d16f371ee9533b3faf1dd5ddfb1}\label{class_scene_a4ddf2d16f371ee9533b3faf1dd5ddfb1}} 
-\index{Scene@{Scene}!render@{render}}
-\index{render@{render}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{render()}{render()}}
-{\footnotesize\ttfamily void Scene\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\begin{DoxyReturn}{Returns}
 
-
-
-Activa el método render de todos los objetos de padre geometry. 
-
-\mbox{\Hypertarget{class_scene_aef70538258ae4abfad9563523de0ece0}\label{class_scene_aef70538258ae4abfad9563523de0ece0}} 
-\index{Scene@{Scene}!run@{run}}
-\index{run@{run}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily void Scene\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_scene_afd369b55c26dc40d59e34d30173f23d8}\label{class_scene_afd369b55c26dc40d59e34d30173f23d8}} 
-\index{Scene@{Scene}!bottom@{bottom}}
-\index{bottom@{bottom}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{bottom}{bottom}}
-{\footnotesize\ttfamily float Scene\+::bottom = 0.\+01f\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_a5e511ec39f26d51aa72fb6b9924e7208}\label{class_scene_a5e511ec39f26d51aa72fb6b9924e7208}} 
-\index{Scene@{Scene}!delta\_time@{delta\_time}}
-\index{delta\_time@{delta\_time}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{delta\_time}{delta\_time}}
-{\footnotesize\ttfamily float Scene\+::delta\+\_\+time = \mbox{\hyperlink{class_scene_aa873ab8f18943fb471f621e6fe0b9a80}{target\+\_\+time}}\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_a80d8975b5cfdda593de088a73ff0b379}\label{class_scene_a80d8975b5cfdda593de088a73ff0b379}} 
-\index{Scene@{Scene}!geometries@{geometries}}
-\index{geometries@{geometries}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{geometries}{geometries}}
-{\footnotesize\ttfamily map$<$ string, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ $>$ Scene\+::geometries\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_aad8cf65982ca19a45cdd00f1996d2116}\label{class_scene_aad8cf65982ca19a45cdd00f1996d2116}} 
-\index{Scene@{Scene}!left@{left}}
-\index{left@{left}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{left}{left}}
-{\footnotesize\ttfamily float Scene\+::left = 0.\+01f\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_a9080a8b0417d5fa8cda20ea51332dc1a}\label{class_scene_a9080a8b0417d5fa8cda20ea51332dc1a}} 
-\index{Scene@{Scene}!physics\_to\_graphics\_scale@{physics\_to\_graphics\_scale}}
-\index{physics\_to\_graphics\_scale@{physics\_to\_graphics\_scale}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{physics\_to\_graphics\_scale}{physics\_to\_graphics\_scale}}
-{\footnotesize\ttfamily float Scene\+::physics\+\_\+to\+\_\+graphics\+\_\+scale = 100.f\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_a0c348788ee880cb2494c7fade5b11f59}\label{class_scene_a0c348788ee880cb2494c7fade5b11f59}} 
-\index{Scene@{Scene}!right@{right}}
-\index{right@{right}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{right}{right}}
-{\footnotesize\ttfamily float Scene\+::right = 8.\+00f\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_ac70da7b00bc6f4c4bdfb1184eaa31243}\label{class_scene_ac70da7b00bc6f4c4bdfb1184eaa31243}} 
-\index{Scene@{Scene}!target\_fps@{target\_fps}}
-\index{target\_fps@{target\_fps}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{target\_fps}{target\_fps}}
-{\footnotesize\ttfamily const float Scene\+::target\+\_\+fps = 60.f\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_aa873ab8f18943fb471f621e6fe0b9a80}\label{class_scene_aa873ab8f18943fb471f621e6fe0b9a80}} 
-\index{Scene@{Scene}!target\_time@{target\_time}}
-\index{target\_time@{target\_time}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{target\_time}{target\_time}}
-{\footnotesize\ttfamily const float Scene\+::target\+\_\+time = 1.f / \mbox{\hyperlink{class_scene_ac70da7b00bc6f4c4bdfb1184eaa31243}{target\+\_\+fps}}\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_af93d566989c3b30434c04bf29f3a576e}\label{class_scene_af93d566989c3b30434c04bf29f3a576e}} 
-\index{Scene@{Scene}!timer@{timer}}
-\index{timer@{timer}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{timer}{timer}}
-{\footnotesize\ttfamily Clock Scene\+::timer\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_a0b4dbb79066c50929e39570717f20bf0}\label{class_scene_a0b4dbb79066c50929e39570717f20bf0}} 
-\index{Scene@{Scene}!top@{top}}
-\index{top@{top}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{top}{top}}
-{\footnotesize\ttfamily float Scene\+::top = 6.\+00f\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_a324457e96aa218ffc1fac027bd848857}\label{class_scene_a324457e96aa218ffc1fac027bd848857}} 
-\index{Scene@{Scene}!window@{window}}
-\index{window@{window}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{window}{window}}
-{\footnotesize\ttfamily Render\+Window$\ast$ Scene\+::window\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_scene_af574d8a5f24ca0e7e8c7fc905e8c4408}\label{class_scene_af574d8a5f24ca0e7e8c7fc905e8c4408}} 
-\index{Scene@{Scene}!world@{world}}
-\index{world@{world}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{world}{world}}
-{\footnotesize\ttfamily b2\+World Scene\+::world\hspace{0.3cm}{\ttfamily [private]}}
-
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_scene_8h}{Scene.\+h}}\item 
-\mbox{\hyperlink{_scene_8cpp}{Scene.\+cpp}}\end{DoxyCompactItemize}
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_scene_8h}{Scene.\+h}}\item 
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/Scene.\+cpp\end{DoxyCompactItemize}

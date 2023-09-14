@@ -1,86 +1,101 @@
-\hypertarget{_circle_8h_source}{}\doxysection{Circle.\+h}
+\doxysection{Circle.\+h}
+\hypertarget{_circle_8h_source}{}\label{_circle_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Circle.h@{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Circle.h}}
 \mbox{\hyperlink{_circle_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{//}}
-\DoxyCodeLine{00002\ \textcolor{comment}{//\ Este\ código\ es\ de\ dominio\ público.}}
-\DoxyCodeLine{00003\ \textcolor{comment}{//\ Copyright\ (C)\ 2023}}
-\DoxyCodeLine{00004\ \textcolor{comment}{//\ Hecho\ por\ Arturo\ Vilar\ Carretero}}
-\DoxyCodeLine{00005\ \textcolor{comment}{//\ 2023.4+}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_circle}{Circle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_geometry}{Geometry}}}
-\DoxyCodeLine{00015\ \{}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_circle_a47644132ec8bec0f3a4e8d0e15bcd5d3}{radius}};}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_circle_a7bf1052c9c934d0cc5c2d5e4b4db6e94}{density}};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//KINEMATIC}}
-\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_circle_a3568f253ad41d563f38575cb7b1f9c69}{Circle}}(\textcolor{keywordtype}{float}\ given\_radius,\ \textcolor{keywordtype}{float}\ given\_density)\ :\ \mbox{\hyperlink{class_geometry}{Geometry}}(*\mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}})\ \ \ }
-\DoxyCodeLine{00023\ \ \ \ \ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_circle_a47644132ec8bec0f3a4e8d0e15bcd5d3}{radius}}\ =\ given\_radius;}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_circle_a7bf1052c9c934d0cc5c2d5e4b4db6e94}{density}}\ =\ given\_density;}
-\DoxyCodeLine{00026\ \ \ \ \ \}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00035\ \ \ \ \ b2Body*\ \mbox{\hyperlink{class_circle_a512b0009e45f6583155a2197baf94b28}{create}}(b2BodyType\ body\_type,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)}
-\DoxyCodeLine{00036\ \ \ \ \ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body\ def:}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\_def}}-\/>type\ =\ body\_type;}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\_def}}-\/>position.Set(0.f,\ 0.f);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Posición inicial\ absoluta}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_circle}{Circle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_geometry}{Geometry}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ b2Vec2\ initial\_position;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//KINEMATIC}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_circle}{Circle}}(\mbox{\hyperlink{class_scene}{Scene}}\ *given\_scene)\ :\ \mbox{\hyperlink{class_geometry}{Geometry}}(*given\_scene)}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr<\ Geometry\ >\ \mbox{\hyperlink{class_circle_a662cf2034745db7faa9cb5e4b773aaff}{create}}(b2BodyType\ body\_type,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ density,\ \mbox{\hyperlink{class_scene}{Scene}}\ *scene)}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ shared\_ptr<\ Circle\ >\ circle(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_circle}{Circle}}\ (scene));}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body:}}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ b2Body*\ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}\ =\ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}-\/>\mbox{\hyperlink{class_scene_a14369368788674ac9efe829c397bca79}{get\_world}}().CreateBody(\mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\_def}});}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ shape:}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body\ def:}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ b2BodyDef\ body\_def;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ body\_def.type\ =\ body\_type;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ body\_def.position.Set(x,\ y);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Posición inicial\ absoluta}}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ b2CircleShape\ body\_shape;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body:}}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ body\_shape.m\_radius\ =\ \mbox{\hyperlink{class_circle_a47644132ec8bec0f3a4e8d0e15bcd5d3}{radius}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ circle-\/>body\ =\ circle-\/>scene-\/>get\_world().CreateBody(\&body\_def);}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ fixture:}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ shape:}}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ b2FixtureDef\ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ b2CircleShape\ body\_shape;}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.shape\ =\ \&body\_shape;}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.density\ =\ 0.10f;}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.restitution\ =\ 0.75f;}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.friction\ =\ 0.50f;}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.isSensor\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ body\_shape.m\_radius\ =\ radius;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ fixture:}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ b2FixtureDef\ body\_fixture;}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::string\ userData\_name\ =\ \textcolor{stringliteral}{"{}player"{}};}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}}.userData\ =\ userData\_name.c\_str();}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>CreateFixture(\&\mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\_fixture}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ body\_fixture.shape\ =\ \&body\_shape;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ body\_fixture.density\ =\ 0.10f;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ body\_fixture.restitution\ =\ 0.0f;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ body\_fixture.friction\ =\ 0.50f;}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}};}
-\DoxyCodeLine{00068\ \ \ \ \ \}}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_circle_a848b197b8019441a78ec17a15633468a}{render}}(RenderWindow\&\ renderer)\textcolor{keyword}{\ override}}
-\DoxyCodeLine{00075\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coger\ el\ transform\ de\ body}}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ aplicárselo\ a\ shape\ ajustándolo\ para\ SFML}}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dibujar\ shape}}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ b2CircleShape*\ body\_circle\ =\ \textcolor{keyword}{dynamic\_cast<}b2CircleShape*\textcolor{keyword}{>}(\mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>GetFixtureList()-\/>GetShape());}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ center\ =\ body\_circle-\/>m\_p;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ circle-\/>body-\/>CreateFixture(\&body\_fixture);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ circle-\/>shape\ =\ make\_unique<sf::CircleShape>(radius\ *\ scene-\/>\mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}());}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ circle-\/>initial\_position\ =\ \{\ x\ ,\ y\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ uintptr\_t\ entityPtr\ =\ \textcolor{keyword}{reinterpret\_cast<}uintptr\_t\textcolor{keyword}{>}(circle.get());}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ circle;}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_circle_aa978eeba0712d29dfae842733bf6c2c7}{update}}()}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
 \DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ sf::CircleShape*\ circle\ =\ \textcolor{keyword}{dynamic\_cast<}sf::CircleShape*\textcolor{keyword}{>}(\mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}.get());}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
 \DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ b2Transform\&\ body\_transform\ =\ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}}-\/>GetTransform();}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ circle-\/>setPosition(\mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}-\/>\mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\_position\_to\_sfml\_position}}(b2Mul(body\_transform,\ center))}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Vector2f(\mbox{\hyperlink{class_circle_a47644132ec8bec0f3a4e8d0e15bcd5d3}{radius}},\ \mbox{\hyperlink{class_circle_a47644132ec8bec0f3a4e8d0e15bcd5d3}{radius}}));}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ circle-\/>setFillColor(Color::Magenta);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ renderer.draw(*circle);\ \ \ \ \ }
-\DoxyCodeLine{00094\ \ \ \ \ \}}
-\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00089\ \ \ \ \ std::string\ \mbox{\hyperlink{class_circle_a65a09df8b90711439960942e200aba20}{get\_type}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00090\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Circle\_geo"{}};}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_circle_a848b197b8019441a78ec17a15633468a}{render}}(RenderWindow\&\ renderer)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00099\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coger\ el\ transform\ de\ body}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ aplicárselo\ a\ shape\ ajustándolo\ para\ SFML}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dibujar\ shape}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ b2CircleShape*\ body\_circle\ =\ \textcolor{keyword}{dynamic\_cast<}b2CircleShape*\textcolor{keyword}{>}(body-\/>GetFixtureList()-\/>GetShape());}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radius\ =\ body\_circle-\/>m\_radius\ *\ scene-\/>\mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}();}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \ center\ =\ body\_circle-\/>m\_p;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ sf::CircleShape*\ circle\ =\ \textcolor{keyword}{dynamic\_cast<}sf::CircleShape*\textcolor{keyword}{>}(shape.get());}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ b2Transform\&\ body\_transform\ =\ body-\/>GetTransform();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ circle-\/>setPosition(scene-\/>\mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\_position\_to\_sfml\_position}}(b2Mul(body\_transform,\ center))}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Vector2f(radius,\ radius));}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ circle-\/>setFillColor(Color::Magenta);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ renderer.draw(*circle);\ \ \ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \};}
 
 \end{DoxyCode}

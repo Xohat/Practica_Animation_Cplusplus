@@ -1,0 +1,208 @@
+\doxysection{Entity Class Reference}
+\hypertarget{class_entity}{}\label{class_entity}\index{Entity@{Entity}}
+
+
+Clase encargada de ser la clase padre de todos los elementos visuales y físicos de la escena, al almacenar los tipos por el constructor.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_entity_ac8cbdbc853790d16a9efba1d04d084e5}\label{class_entity_ac8cbdbc853790d16a9efba1d04d084e5} 
+enum \mbox{\hyperlink{class_entity_ac8cbdbc853790d16a9efba1d04d084e5}{Entity\+\_\+type}} \{ \newline
+{\bfseries GROUND} = 0
+, {\bfseries PLATFORM} = 1
+, {\bfseries PLAYER} = 2
+, {\bfseries KEY} = 3
+, \newline
+{\bfseries DOOR} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Enum para la definición de tipos de la plataforma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a5d8d6378b000f13658b00becd3a98c34}{Entity}} (shared\+\_\+ptr$<$ bt\+Rigid\+Body $>$ given\+\_\+rigid\+\_\+body, shared\+\_\+ptr$<$ Model $>$ given\+\_\+model)
+\begin{DoxyCompactList}\small\item\em Constructor de entidad. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a5029e984d66c8e394b2fbfbe0f15c3dc}{set\+\_\+type}} (int type\+\_\+number)
+\begin{DoxyCompactList}\small\item\em Settea el tipo del objeto, para asi pdoer hacer uso de los mismos en colisiones. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_ac8cbdbc853790d16a9efba1d04d084e5}{Entity\+\_\+type}} \mbox{\hyperlink{class_entity_a3deab7fff6ae816547b65c4ee68c401a}{get\+\_\+type}} ()
+\begin{DoxyCompactList}\small\item\em Obitiene el tipo del objeto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a178fd1c22551785255e3406505aa1249}{move\+\_\+vertical\+\_\+up}} (bt\+Vector3 start\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Mueve la plataforma vertical hacia arriba. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a993ab3c08e5ff3b08426456157fa0180}{move\+\_\+vertical\+\_\+down}} (bt\+Vector3 start\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Mueve la plataforma vertical hacia abajo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a940ec2019c0c357eaaccac9e6fa3d76a}{move\+\_\+horizontal}} (bt\+Vector3 start\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Mueve la plataforma horizontal hacia abajo. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_a7ad17d26a015611450b51c4f00e3a9f7}\label{class_entity_a7ad17d26a015611450b51c4f00e3a9f7} 
+void {\bfseries update\+\_\+visual\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Axcctualiza la posición visual en base a las físicas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_ae37d4821f2f4aea627b68b16e6808d58}{set\+\_\+visual\+\_\+scale}} (bt\+Vector3 new\+\_\+visual\+\_\+scale)
+\begin{DoxyCompactList}\small\item\em Configura la escala visual. \end{DoxyCompactList}\item 
+bt\+Vector3 \mbox{\hyperlink{class_entity_a7a0325315355fb86c145f0df92837f62}{get\+\_\+visual\+\_\+scale}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la escala visual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_entity_ad3c933516cb7d80b7e3bec9b96782f05}\label{class_entity_ad3c933516cb7d80b7e3bec9b96782f05} 
+bt\+Vector3 {\bfseries visual\+\_\+scale} \{0.f, 0.f, 0.f\}
+\begin{DoxyCompactList}\small\item\em Escala visual. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_a5c7af397f48d113ae5af6014aa859bbd}\label{class_entity_a5c7af397f48d113ae5af6014aa859bbd} 
+shared\+\_\+ptr$<$ Model $>$ {\bfseries model}
+\begin{DoxyCompactList}\small\item\em Referencia a un modelo. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_abaac8e451a3ea2197e0282a2e9debafe}\label{class_entity_abaac8e451a3ea2197e0282a2e9debafe} 
+shared\+\_\+ptr$<$ bt\+Rigid\+Body $>$ {\bfseries rigid\+\_\+body}
+\begin{DoxyCompactList}\small\item\em Referencia a un rigidbody. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_a87cb3f2e0ecfda0e26ce13c84cf4ea90}\label{class_entity_a87cb3f2e0ecfda0e26ce13c84cf4ea90} 
+bool {\bfseries vertical\+\_\+platform\+\_\+collision}
+\begin{DoxyCompactList}\small\item\em Bool para la colisión. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_afc9c196b9ee5f1d0af085fdd4702a2a9}\label{class_entity_afc9c196b9ee5f1d0af085fdd4702a2a9} 
+bool {\bfseries key\+\_\+collision}
+\begin{DoxyCompactList}\small\item\em Bool para la colisión. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_a48eb4df16e355e60b623baa57433695b}\label{class_entity_a48eb4df16e355e60b623baa57433695b} 
+bool {\bfseries door\+\_\+collision}
+\begin{DoxyCompactList}\small\item\em Bool para la colisión. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_ac54a02ce87f1b64c65d671b50c15ab2a}\label{class_entity_ac54a02ce87f1b64c65d671b50c15ab2a} 
+bool {\bfseries has\+\_\+key}
+\begin{DoxyCompactList}\small\item\em Variable clave para poder romper la puerta. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_a8b23bd918644de44e25a7f08ed55d1e2}\label{class_entity_a8b23bd918644de44e25a7f08ed55d1e2} 
+int {\bfseries direction} = 1
+\begin{DoxyCompactList}\small\item\em Usado para el movimiento de la plataforma vertical. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_a0c9381e260e2ed07e1cd680e411a15a1}\label{class_entity_a0c9381e260e2ed07e1cd680e411a15a1} 
+\mbox{\hyperlink{class_entity_ac8cbdbc853790d16a9efba1d04d084e5}{Entity\+\_\+type}} {\bfseries type}
+\begin{DoxyCompactList}\small\item\em Tipo del objeto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de ser la clase padre de todos los elementos visuales y físicos de la escena, al almacenar los tipos por el constructor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_entity_a5d8d6378b000f13658b00becd3a98c34}\label{class_entity_a5d8d6378b000f13658b00becd3a98c34} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ bt\+Rigid\+Body $>$}]{given\+\_\+rigid\+\_\+body,  }\item[{shared\+\_\+ptr$<$ Model $>$}]{given\+\_\+model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de entidad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+\_\+rigid\+\_\+body} & \\
+\hline
+{\em given\+\_\+model} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_entity_a3deab7fff6ae816547b65c4ee68c401a}\label{class_entity_a3deab7fff6ae816547b65c4ee68c401a} 
+\index{Entity@{Entity}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity_ac8cbdbc853790d16a9efba1d04d084e5}{Entity\+\_\+type}} Entity\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obitiene el tipo del objeto. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_entity_a7a0325315355fb86c145f0df92837f62}\label{class_entity_a7a0325315355fb86c145f0df92837f62} 
+\index{Entity@{Entity}!get\_visual\_scale@{get\_visual\_scale}}
+\index{get\_visual\_scale@{get\_visual\_scale}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{get\_visual\_scale()}{get\_visual\_scale()}}
+{\footnotesize\ttfamily bt\+Vector3 Entity\+::get\+\_\+visual\+\_\+scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la escala visual. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_entity_a940ec2019c0c357eaaccac9e6fa3d76a}\label{class_entity_a940ec2019c0c357eaaccac9e6fa3d76a} 
+\index{Entity@{Entity}!move\_horizontal@{move\_horizontal}}
+\index{move\_horizontal@{move\_horizontal}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{move\_horizontal()}{move\_horizontal()}}
+{\footnotesize\ttfamily void Entity\+::move\+\_\+horizontal (\begin{DoxyParamCaption}\item[{bt\+Vector3}]{start\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mueve la plataforma horizontal hacia abajo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_a993ab3c08e5ff3b08426456157fa0180}\label{class_entity_a993ab3c08e5ff3b08426456157fa0180} 
+\index{Entity@{Entity}!move\_vertical\_down@{move\_vertical\_down}}
+\index{move\_vertical\_down@{move\_vertical\_down}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{move\_vertical\_down()}{move\_vertical\_down()}}
+{\footnotesize\ttfamily void Entity\+::move\+\_\+vertical\+\_\+down (\begin{DoxyParamCaption}\item[{bt\+Vector3}]{start\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mueve la plataforma vertical hacia abajo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_a178fd1c22551785255e3406505aa1249}\label{class_entity_a178fd1c22551785255e3406505aa1249} 
+\index{Entity@{Entity}!move\_vertical\_up@{move\_vertical\_up}}
+\index{move\_vertical\_up@{move\_vertical\_up}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{move\_vertical\_up()}{move\_vertical\_up()}}
+{\footnotesize\ttfamily void Entity\+::move\+\_\+vertical\+\_\+up (\begin{DoxyParamCaption}\item[{bt\+Vector3}]{start\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mueve la plataforma vertical hacia arriba. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_a5029e984d66c8e394b2fbfbe0f15c3dc}\label{class_entity_a5029e984d66c8e394b2fbfbe0f15c3dc} 
+\index{Entity@{Entity}!set\_type@{set\_type}}
+\index{set\_type@{set\_type}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{set\_type()}{set\_type()}}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+type (\begin{DoxyParamCaption}\item[{int}]{type\+\_\+number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Settea el tipo del objeto, para asi pdoer hacer uso de los mismos en colisiones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type\+\_\+number} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_ae37d4821f2f4aea627b68b16e6808d58}\label{class_entity_ae37d4821f2f4aea627b68b16e6808d58} 
+\index{Entity@{Entity}!set\_visual\_scale@{set\_visual\_scale}}
+\index{set\_visual\_scale@{set\_visual\_scale}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{set\_visual\_scale()}{set\_visual\_scale()}}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+visual\+\_\+scale (\begin{DoxyParamCaption}\item[{bt\+Vector3}]{new\+\_\+visual\+\_\+scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Configura la escala visual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+visual\+\_\+scale} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/3\+D/3\+D/\+Practica\+\_\+2\+\_\+\+Anim\+\_\+3\+D/code/\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+\doxysection{Visual\+\_\+builder.\+h}
+\hypertarget{_visual__builder_8h_source}{}\label{_visual__builder_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/Visual\_builder.h@{F:/Github/Practica\_Animation\_Cplusplus/3D/3D/Practica\_2\_Anim\_3D/code/Visual\_builder.h}}
+\mbox{\hyperlink{_visual__builder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rigid_body___builder_8h}{RigidBody\_Builder.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <Light.hpp>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <Model.hpp>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <OpenGL.hpp>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <Model\_Obj.hpp>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <Render\_Node.hpp>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <btBulletDynamicsCommon.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}Physics\_world.h"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00031\ \textcolor{keyword}{using\ namespace\ }glt;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_visual__buidler}{Visual\_buidler}}\ }
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr\ <\ Model\ >\ \mbox{\hyperlink{class_visual__buidler_a9d5485d7c349c041a0fa8b888d37a4c9}{circle\_model}}}
+\DoxyCodeLine{00049\ \ \ \ \ (}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ shared\_ptr<\ Render\_Node\ >\ scene,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::string\ model\_path,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::string\ model\_name}
+\DoxyCodeLine{00053\ \ \ \ \ )\ }
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ shared\_ptr<\ Model\ >\ model\ (\textcolor{keyword}{new}\ Model\_Obj(model\_path));}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ scene-\/>add(model\_name,\ model);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ model;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr\ <\ Model\ >\ \mbox{\hyperlink{class_visual__buidler_a1502d6a9925603570da857a039477b7e}{cube\_model}}}
+\DoxyCodeLine{00071\ \ \ \ \ (}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ shared\_ptr<\ Render\_Node\ >\ scene,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ std::string\ model\_path,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ std::string\ model\_name,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ btVector3\ scale}
+\DoxyCodeLine{00076\ \ \ \ \ )}
+\DoxyCodeLine{00077\ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ shared\_ptr<\ Model\ >\ model(\textcolor{keyword}{new}\ Model\_Obj(model\_path));}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ scene-\/>add(model\_name,\ model);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ model;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \};}
+
+\end{DoxyCode}

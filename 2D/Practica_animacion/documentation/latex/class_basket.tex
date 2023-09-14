@@ -1,8 +1,8 @@
-\hypertarget{class_basket}{}\doxysection{Basket Class Reference}
-\label{class_basket}\index{Basket@{Basket}}
+\doxysection{Basket Class Reference}
+\hypertarget{class_basket}{}\label{class_basket}\index{Basket@{Basket}}
 
 
-Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear el basket de 45 grados en la escena.  
+Hija de \doxylink{class_geometry}{Geometry}, se encarga de crear el basket de 45 grados en la escena Un basket son basicamente dos spin\+\_\+rectangles con una diferencia de 45 grados entre ellos.  
 
 
 
@@ -15,71 +15,85 @@ Inheritance diagram for Basket\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_basket}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_basket_ace72b9fd3b7091153b6fe79d08739b1d}{Basket}} (float given\+\_\+width, float given\+\_\+height)
+\Hypertarget{class_basket_a9d257f383b0226833289d67e190af3a8}\label{class_basket_a9d257f383b0226833289d67e190af3a8} 
+{\bfseries Basket} (float given\+\_\+width, float given\+\_\+height, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}given\+\_\+scene)
 \item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_basket_aa2f599f577382b7208ef0980501d23c7}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y)
-\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_basket_a91567d60fe2b56d1fae4f8bbade6c995}{set\+Rotation}} (float rotation)
+\begin{DoxyCompactList}\small\item\em Se configura la rotación de lso rectángulos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_basket_a7f658f1ed64485269f24030b965e1e18}{update}} ()
+\begin{DoxyCompactList}\small\item\em Método update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_basket_acdb4a267aacefdb0d45c98e24bb3720f}{get\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+\Hypertarget{class_basket_af3c81edbe58cae5a7739b4d1c5ee5a94}\label{class_basket_af3c81edbe58cae5a7739b4d1c5ee5a94} 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resetteas la posición. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_basket_a58b0da4b32a2709fb909237927ea39d3}{render}} (Render\+Window \&renderer) override
-\begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactList}\small\item\em Renderizas el objeto, método override ya que se define en \doxylink{_geometry_8h}{Geometry.\+h}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
-\begin{DoxyCompactList}\small\item\em Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \doxylink{class_geometry}{Geometry} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
 \begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{get\+\_\+type}} () const =0
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resettea la posición de los elementos a su posición inicial guardada en la construcción de los mismos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_a1f874348e383952fb9ece548c07b6131}{set\+\_\+body}} (b2\+Body \texorpdfstring{$\ast$}{*}new\+\_\+body)
+\begin{DoxyCompactList}\small\item\em Configura cual es el body de box2D. \end{DoxyCompactList}\item 
+b2\+Body \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_geometry_a54fb20240119b2b6047233c30a5eebfa}{get\+\_\+body}} ()
+\begin{DoxyCompactList}\small\item\em Getter de body de box2D. \end{DoxyCompactList}\item 
 b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
 \begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
 \begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
 \begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{class_basket_a720898156860d0a110e725f31fe511c8}{width}}
+static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ \mbox{\hyperlink{class_basket_afdea07ad6a7ddf1a03244cd204105ef4}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y, float width, float height, float new\+\_\+rotation, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{class_basket_a410d1fef05a13857c38f2363406f31a0}{height}}
+b2\+Body \texorpdfstring{$\ast$}{*} {\bfseries body} = nullptr
+\item 
+bool {\bfseries damage} = false
+\item 
+bool {\bfseries triggered} = false
+\item 
+bool {\bfseries player} = false
+\item 
+bool {\bfseries dead} = false
 \end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
-\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
 \begin{DoxyCompactItemize}
 \item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}} = NULL
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ {\bfseries shape}
 \item 
-b2\+Body\+Def $\ast$ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\+\_\+def}} = NULL
+\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
 \item 
-b2\+Fixture\+Def \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\+\_\+fixture}}
-\item 
-unique\+\_\+ptr$<$ sf\+::\+Shape $>$ \mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}
-\item 
-int \mbox{\hyperlink{class_geometry_afe13f453b638d013261bbd263fb21c71}{name\+\_\+offset}} = 0
-\item 
-\mbox{\hyperlink{class_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}
+b2\+Vec2 {\bfseries initial\+\_\+position}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear el basket de 45 grados en la escena. 
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_basket_ace72b9fd3b7091153b6fe79d08739b1d}\label{class_basket_ace72b9fd3b7091153b6fe79d08739b1d}} 
-\index{Basket@{Basket}!Basket@{Basket}}
-\index{Basket@{Basket}!Basket@{Basket}}
-\doxysubsubsection{\texorpdfstring{Basket()}{Basket()}}
-{\footnotesize\ttfamily Basket\+::\+Basket (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+width,  }\item[{float}]{given\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
+Hija de \doxylink{class_geometry}{Geometry}, se encarga de crear el basket de 45 grados en la escena Un basket son basicamente dos spin\+\_\+rectangles con una diferencia de 45 grados entre ellos. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_basket_aa2f599f577382b7208ef0980501d23c7}\label{class_basket_aa2f599f577382b7208ef0980501d23c7}} 
+\Hypertarget{class_basket_afdea07ad6a7ddf1a03244cd204105ef4}\label{class_basket_afdea07ad6a7ddf1a03244cd204105ef4} 
 \index{Basket@{Basket}!create@{create}}
 \index{create@{create}!Basket@{Basket}}
 \doxysubsubsection{\texorpdfstring{create()}{create()}}
-{\footnotesize\ttfamily b2\+Body $\ast$ Basket\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ Basket\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{float}]{new\+\_\+rotation,  }\item[{\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -97,7 +111,24 @@ Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena 
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_basket_a58b0da4b32a2709fb909237927ea39d3}\label{class_basket_a58b0da4b32a2709fb909237927ea39d3}} 
+\Hypertarget{class_basket_acdb4a267aacefdb0d45c98e24bb3720f}\label{class_basket_acdb4a267aacefdb0d45c98e24bb3720f} 
+\index{Basket@{Basket}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Basket@{Basket}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Basket\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtienes el tipo de la geometria. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{Geometry}}.
+
+\Hypertarget{class_basket_a58b0da4b32a2709fb909237927ea39d3}\label{class_basket_a58b0da4b32a2709fb909237927ea39d3} 
 \index{Basket@{Basket}!render@{render}}
 \index{render@{render}!Basket@{Basket}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
@@ -105,7 +136,7 @@ Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena 
 
 
 
-Metodo virtual de render para todos los hijos. 
+Renderizas el objeto, método override ya que se define en \doxylink{_geometry_8h}{Geometry.\+h}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -116,23 +147,37 @@ Metodo virtual de render para todos los hijos.
 
 Implements \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{Geometry}}.
 
+\Hypertarget{class_basket_a91567d60fe2b56d1fae4f8bbade6c995}\label{class_basket_a91567d60fe2b56d1fae4f8bbade6c995} 
+\index{Basket@{Basket}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!Basket@{Basket}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily void Basket\+::set\+Rotation (\begin{DoxyParamCaption}\item[{float}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_basket_a410d1fef05a13857c38f2363406f31a0}\label{class_basket_a410d1fef05a13857c38f2363406f31a0}} 
-\index{Basket@{Basket}!height@{height}}
-\index{height@{height}!Basket@{Basket}}
-\doxysubsubsection{\texorpdfstring{height}{height}}
-{\footnotesize\ttfamily float Basket\+::height\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_basket_a720898156860d0a110e725f31fe511c8}\label{class_basket_a720898156860d0a110e725f31fe511c8}} 
-\index{Basket@{Basket}!width@{width}}
-\index{width@{width}!Basket@{Basket}}
-\doxysubsubsection{\texorpdfstring{width}{width}}
-{\footnotesize\ttfamily float Basket\+::width\hspace{0.3cm}{\ttfamily [private]}}
+Se configura la rotación de lso rectángulos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_basket_a7f658f1ed64485269f24030b965e1e18}\label{class_basket_a7f658f1ed64485269f24030b965e1e18} 
+\index{Basket@{Basket}!update@{update}}
+\index{update@{update}!Basket@{Basket}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Basket\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Método update en caso de necesitarlo por alguna razón. 
+
+
+
+Implements \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{Geometry}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_basket_8h}{Basket.\+h}}\end{DoxyCompactItemize}
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_basket_8h}{Basket.\+h}}\end{DoxyCompactItemize}

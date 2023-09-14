@@ -1,0 +1,14 @@
+Anotaciones
+
+CONTROLES:
+Los controles son A D para el movimiento en el eje X, el movimiento esta basado en fuerzas por lo que se 
+debe mantener el botón de la dirección un poco para ver efecto. Adicionalmente, el espacio sirve para saltar
+Debido a la dificultad de la escena he permitido el salto consecutivo, aunque dependiendo de como seas 
+puede ser un impedimento o una ayuda.
+
+WALKTHROUGH:
+La llave es la esfera tras el muro, que es la puerta
+Para llegar a ella tienes que subirte a la plataforma vertical, evitando 
+que la plataforma horizontal te tire por lo que se necesita 
+precisión. Tras obtener la llave al chocar con la puerta la romperas 
+y ya esta.

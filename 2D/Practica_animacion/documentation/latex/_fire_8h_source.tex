@@ -1,0 +1,99 @@
+\doxysection{Fire.\+h}
+\hypertarget{_fire_8h_source}{}\label{_fire_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Fire.h@{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Fire.h}}
+\mbox{\hyperlink{_fire_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fire}{Fire}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_geometry}{Geometry}}\ }
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ width;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ height;}
+\DoxyCodeLine{00022\ \ \ \ \ Color\ color;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//STATIC}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_fire}{Fire}}(\textcolor{keywordtype}{float}\ given\_width,\ \textcolor{keywordtype}{float}\ given\_height,\ \mbox{\hyperlink{class_scene}{Scene}}*\ given\_scene)\ :\ \mbox{\hyperlink{class_geometry}{Geometry}}(*given\_scene)}
+\DoxyCodeLine{00028\ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ width\ =\ given\_width;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ height\ =\ given\_height;}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr<\ Geometry\ >\ \mbox{\hyperlink{class_fire_ad0c451d1aadd71c7a06abdefa8e829cb}{create}}(b2BodyType\ body\_type,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \mbox{\hyperlink{class_scene}{Scene}}*\ scene)}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ shared\_ptr<\ Fire\ >\ rectangle(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_fire}{Fire}}(width,\ height,\ scene));}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body\ def:}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ b2BodyDef\ body\_def;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ body\_def.type\ =\ body\_type;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ body\_def.position.Set(x,\ y);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Posición inicial\ absoluta}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body:}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ rectangle-\/>body\ =\ rectangle-\/>scene-\/>get\_world().CreateBody(\&body\_def);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ shape:}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ b2PolygonShape\ body\_shape;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ body\_shape.SetAsBox(width,\ 0);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ fixture:}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ b2FixtureDef\ body\_fixture;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ body\_fixture.shape\ =\ \&body\_shape;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ body\_fixture.density\ =\ 1.00f;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ body\_fixture.restitution\ =\ 0.50f;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ body\_fixture.friction\ =\ 0.50f;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ rectangle-\/>body-\/>CreateFixture(\&body\_fixture);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ rectangle-\/>shape\ =\ make\_unique<sf::RectangleShape>(Vector2f(width\ *\ scene-\/>\mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}(),\ height\ *\ scene-\/>\mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}()));}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ rectangle-\/>initial\_position\ =\ \{\ x\ ,\ y\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ uintptr\_t\ entityPtr\ =\ \textcolor{keyword}{reinterpret\_cast<}uintptr\_t\textcolor{keyword}{>}(rectangle.get());}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rectangle;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fire_a561d4b6f691b9350dfbe83782e4152a2}{update}}()}
+\DoxyCodeLine{00084\ \ \ \ \ \{}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ std::string\ \mbox{\hyperlink{class_fire_a8df9aa83e4b4722b6bc8af67c544d344}{get\_type}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00093\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Fire\_geo"{}};}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fire_a022df8929c98a56d66b21682d0b3207b}{render}}(RenderWindow\&\ renderer)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00102\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coger\ el\ transform\ de\ body}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ aplicárselo\ a\ shape\ ajustándolo\ para\ SFML}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dibujar\ shape}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ b2PolygonShape*\ body\_rectangle\ =\ \textcolor{keyword}{dynamic\_cast<}b2PolygonShape*\textcolor{keyword}{>}(body-\/>GetFixtureList()-\/>GetShape());}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ sf::RectangleShape*\ rectangle\ =\ \textcolor{keyword}{dynamic\_cast<}sf::RectangleShape*\textcolor{keyword}{>}(shape.get());}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ b2Transform\&\ body\_transform\ =\ body-\/>GetTransform();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ rectangle-\/>setPosition(scene-\/>\mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\_position\_to\_sfml\_position}}(body\_transform.p));}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ rectangle-\/>setFillColor(Color::Yellow);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ renderer.draw(*rectangle);}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \};}
+
+\end{DoxyCode}

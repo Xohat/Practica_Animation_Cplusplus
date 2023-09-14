@@ -1,0 +1,114 @@
+\doxysection{Collision\+\_\+sensor.\+h}
+\hypertarget{_collision__sensor_8h_source}{}\label{_collision__sensor_8h_source}\index{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Collision\_sensor.h@{F:/Github/Practica\_Animation\_Cplusplus/2D/Practica\_animacion/code/Collision\_sensor.h}}
+\mbox{\hyperlink{_collision__sensor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#}\textcolor{comment}{//include\ "{}Geometry.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rectangle__platform_8h}{Rectangle\_platform.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_collision___sensor}{Collision\_Sensor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_geometry}{Geometry}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ width;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ height;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_rectangle___platform}{Rectangle\_Platform}}*\ platform\_to\_move;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_collision___sensor_a8f174734bfcd4da09404fb376ade9bc8}{Collision\_Sensor}}(\textcolor{keywordtype}{float}\ given\_width,\ \textcolor{keywordtype}{float}\ given\_height,\ \mbox{\hyperlink{class_scene}{Scene}}*\ given\_scene)\ :\ \mbox{\hyperlink{class_geometry}{Geometry}}(*given\_scene)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ width\ =\ given\_width;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ height\ =\ given\_height;}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision___sensor_ac8826f4886ec47e4ad7dae473276fb56}{set\_platform}}(\mbox{\hyperlink{class_rectangle___platform}{Rectangle\_Platform}}*\ new\_platform)}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ platform\_to\_move\ =\ new\_platform;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{static}\ shared\_ptr<\ Geometry\ >\ \mbox{\hyperlink{class_collision___sensor_a9c76d02a07b202534cf59151efcdb8a9}{create}}(b2BodyType\ body\_type,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \mbox{\hyperlink{class_scene}{Scene}}*\ scene)}
+\DoxyCodeLine{00059\ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ shared\_ptr<\ Collision\_Sensor\ >\ rectangle(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_collision___sensor}{Collision\_Sensor}}(width,\ height,\ scene));}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body\ def:}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ b2BodyDef\ body\_def;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ body\_def.type\ =\ body\_type;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ body\_def.position.Set(x,\ y);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Posición inicial\ absoluta}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ el\ body:}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ rectangle-\/>body\ =\ rectangle-\/>scene-\/>get\_world().CreateBody(\&body\_def);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ shape:}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ b2PolygonShape\ body\_shape;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ body\_shape.SetAsBox(width,\ 0);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ añande\ una\ fixture:}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ b2FixtureDef\ body\_fixture;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ body\_fixture.shape\ =\ \&body\_shape;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ body\_fixture.density\ =\ 1.00f;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ body\_fixture.restitution\ =\ 0.50f;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ body\_fixture.friction\ =\ 0.50f;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ body\_fixture.isSensor\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ uintptr\_t\ entityPtr\ =\ \textcolor{keyword}{reinterpret\_cast<}uintptr\_t\textcolor{keyword}{>}(rectangle.get());}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ body\_fixture.userData.pointer\ =\ entityPtr;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//b2FixtureUserData\ fixtureUserData;}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//fixtureUserData.pointer\ =\ reinterpret\_cast<uintptr\_t>(new\ std::string("{}up\_platform"{}));}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//body\_fixture.userData\ =\ fixtureUserData;}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ rectangle-\/>body-\/>CreateFixture(\&body\_fixture);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ rectangle-\/>shape\ =\ make\_unique<sf::RectangleShape>(Vector2f(width\ *\ scene-\/>\mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}(),\ height\ *\ scene-\/>\mbox{\hyperlink{class_scene_ab21e0fcadab4e85ed0d0365be1cec5a4}{get\_physics\_to\_graphics\_scale}}()));}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ rectangle-\/>initial\_position\ =\ \{\ x\ ,\ y\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rectangle;}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision___sensor_ae35e126ec17faacfdd71275ae5ac56c1}{update}}()}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ std::string\ \mbox{\hyperlink{class_collision___sensor_a737bae1d484f25e8af5b64ba4d5f6643}{get\_type}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00118\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Collision\_sensor\_geo"{}};}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_collision___sensor_ab31aa5dda96897e96ac59db382a367ed}{render}}(RenderWindow\&\ renderer)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00127\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coger\ el\ transform\ de\ body}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ aplicárselo\ a\ shape\ ajustándolo\ para\ SFML}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dibujar\ shape}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ b2PolygonShape*\ body\_rectangle\ =\ \textcolor{keyword}{dynamic\_cast<}b2PolygonShape*\textcolor{keyword}{>}(body-\/>GetFixtureList()-\/>GetShape());}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ sf::RectangleShape*\ rectangle\ =\ \textcolor{keyword}{dynamic\_cast<}sf::RectangleShape*\textcolor{keyword}{>}(shape.get());}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ b2Transform\&\ body\_transform\ =\ body-\/>GetTransform();}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ rectangle-\/>setPosition(scene-\/>\mbox{\hyperlink{class_scene_adc7c2ad8685937659a9ac9fb461dc0c6}{box2d\_position\_to\_sfml\_position}}(body\_transform.p));}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ rectangle-\/>setFillColor(Color::Red);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ renderer.draw(*rectangle);}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \};}
+
+\end{DoxyCode}

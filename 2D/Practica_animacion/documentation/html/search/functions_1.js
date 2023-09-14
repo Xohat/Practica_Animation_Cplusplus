@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['circle_0',['Circle',['../class_circle.html#a3568f253ad41d563f38575cb7b1f9c69',1,'Circle']]],
-  ['create_1',['create',['../class_basket.html#aa2f599f577382b7208ef0980501d23c7',1,'Basket::create()'],['../class_circle.html#a512b0009e45f6583155a2197baf94b28',1,'Circle::create()'],['../class_rectangle.html#a678c967f9d2e612980f49f7397628ff4',1,'Rectangle::create()'],['../class_rectangle___platform.html#a9e11c8c1cd36743bd570c7f4f315dd9b',1,'Rectangle_Platform::create()']]],
-  ['create_5fscene_2',['create_scene',['../class_scene.html#acd12a991c63eca9661d2376dc1ddfc77',1,'Scene']]]
+  ['collision_5fsensor_0',['Collision_Sensor',['../class_collision___sensor.html#a8f174734bfcd4da09404fb376ade9bc8',1,'Collision_Sensor']]],
+  ['create_1',['create',['../class_basket.html#afdea07ad6a7ddf1a03244cd204105ef4',1,'Basket::create()'],['../class_circle.html#a662cf2034745db7faa9cb5e4b773aaff',1,'Circle::create()'],['../class_collision___sensor.html#a9c76d02a07b202534cf59151efcdb8a9',1,'Collision_Sensor::create()'],['../class_fire.html#ad0c451d1aadd71c7a06abdefa8e829cb',1,'Fire::create()'],['../class_player.html#a7b52719c155a82f4f631a27e423ea338',1,'Player::create()'],['../class_rectangle.html#aa628656804377f2c90eb84b9e0361a6a',1,'Rectangle::create()'],['../class_rectangle___platform.html#aa77272c42265b4ed8120b61a4f2e7506',1,'Rectangle_Platform::create()'],['../class_spin___rectangle.html#a55adaa6eba1e6d38e16c51df88366a37',1,'Spin_Rectangle::create()']]]
 ];

@@ -1,5 +1,5 @@
-\hypertarget{class_player_controller}{}\doxysection{Player\+Controller Class Reference}
-\label{class_player_controller}\index{PlayerController@{PlayerController}}
+\doxysection{Player\+Controller Class Reference}
+\hypertarget{class_player_controller}{}\label{class_player_controller}\index{PlayerController@{PlayerController}}
 
 
 Encargada del movimiento del player.  
@@ -9,33 +9,14 @@ Encargada del movimiento del player.
 
 {\ttfamily \#include $<$Player\+Controller.\+h$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_player_controller_a57e95cb161a5cfbb1ad1f17a4e20b8e8}{Player\+Controller}} (\mbox{\hyperlink{class_player}{Player}} \&given\+\_\+player)
+\Hypertarget{class_player_controller_a57e95cb161a5cfbb1ad1f17a4e20b8e8}\label{class_player_controller_a57e95cb161a5cfbb1ad1f17a4e20b8e8} 
+{\bfseries Player\+Controller} (\mbox{\hyperlink{class_player}{Player}} \&given\+\_\+player)
 \item 
 void \mbox{\hyperlink{class_player_controller_a22d011ca53dd49d66ab70632a1adfe4d}{move}} ()
 \begin{DoxyCompactList}\small\item\em Se encarga del movimiento en los ejes en base al move\+State proporcionado. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Types}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{class_player_controller_ac16487285e74e253d2af9a208fc8a681}{\+\_\+move\+State}} \{ \mbox{\hyperlink{class_player_controller_ac16487285e74e253d2af9a208fc8a681ab8123bcd150fcbac7dfcf19a25ee5fc7}{MS\+\_\+\+STOP}}
-, \mbox{\hyperlink{class_player_controller_ac16487285e74e253d2af9a208fc8a681af954fe5849a8a85119faecf2e6629a90}{MS\+\_\+\+LEFT}}
-, \mbox{\hyperlink{class_player_controller_ac16487285e74e253d2af9a208fc8a681a4a2261db2bc107e0eed9554372494e59}{MS\+\_\+\+RIGHT}}
-, \mbox{\hyperlink{class_player_controller_ac16487285e74e253d2af9a208fc8a681a92993f1e0886c8c014d84406de008dde}{MS\+\_\+\+JUMP}}
- \}
-\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{class_player}{Player}} \mbox{\hyperlink{class_player_controller_a01b6bbf3dea5e2ad01da19f0950b9094}{player}}
-\item 
-float \mbox{\hyperlink{class_player_controller_ade3ad65ab75e336a6589ab2a2fcde0bc}{force}}
-\item 
-b2\+Vec2 \mbox{\hyperlink{class_player_controller_a419390d19fbeb7c4c048093570f77b6d}{vel}}
-\item 
-\mbox{\hyperlink{class_player_controller_ac16487285e74e253d2af9a208fc8a681}{\+\_\+move\+State}} \mbox{\hyperlink{class_player_controller_a4e9a2273baadd1aee31828a5b278a8b5}{move\+State}}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -48,44 +29,8 @@ Encargada del movimiento del player.
 \end{DoxyParams}
 
 
-\doxysubsection{Member Enumeration Documentation}
-\mbox{\Hypertarget{class_player_controller_ac16487285e74e253d2af9a208fc8a681}\label{class_player_controller_ac16487285e74e253d2af9a208fc8a681}} 
-\index{PlayerController@{PlayerController}!\_moveState@{\_moveState}}
-\index{\_moveState@{\_moveState}!PlayerController@{PlayerController}}
-\doxysubsubsection{\texorpdfstring{\_moveState}{\_moveState}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{class_player_controller_ac16487285e74e253d2af9a208fc8a681}{Player\+Controller\+::\+\_\+move\+State}}\hspace{0.3cm}{\ttfamily [private]}}
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MS\_STOP@{MS\_STOP}!PlayerController@{PlayerController}}\index{PlayerController@{PlayerController}!MS\_STOP@{MS\_STOP}}}\mbox{\Hypertarget{class_player_controller_ac16487285e74e253d2af9a208fc8a681ab8123bcd150fcbac7dfcf19a25ee5fc7}\label{class_player_controller_ac16487285e74e253d2af9a208fc8a681ab8123bcd150fcbac7dfcf19a25ee5fc7}} 
-MS\+\_\+\+STOP&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MS\_LEFT@{MS\_LEFT}!PlayerController@{PlayerController}}\index{PlayerController@{PlayerController}!MS\_LEFT@{MS\_LEFT}}}\mbox{\Hypertarget{class_player_controller_ac16487285e74e253d2af9a208fc8a681af954fe5849a8a85119faecf2e6629a90}\label{class_player_controller_ac16487285e74e253d2af9a208fc8a681af954fe5849a8a85119faecf2e6629a90}} 
-MS\+\_\+\+LEFT&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MS\_RIGHT@{MS\_RIGHT}!PlayerController@{PlayerController}}\index{PlayerController@{PlayerController}!MS\_RIGHT@{MS\_RIGHT}}}\mbox{\Hypertarget{class_player_controller_ac16487285e74e253d2af9a208fc8a681a4a2261db2bc107e0eed9554372494e59}\label{class_player_controller_ac16487285e74e253d2af9a208fc8a681a4a2261db2bc107e0eed9554372494e59}} 
-MS\+\_\+\+RIGHT&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MS\_JUMP@{MS\_JUMP}!PlayerController@{PlayerController}}\index{PlayerController@{PlayerController}!MS\_JUMP@{MS\_JUMP}}}\mbox{\Hypertarget{class_player_controller_ac16487285e74e253d2af9a208fc8a681a92993f1e0886c8c014d84406de008dde}\label{class_player_controller_ac16487285e74e253d2af9a208fc8a681a92993f1e0886c8c014d84406de008dde}} 
-MS\+\_\+\+JUMP&\\
-\hline
-
-\end{DoxyEnumFields}
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_player_controller_a57e95cb161a5cfbb1ad1f17a4e20b8e8}\label{class_player_controller_a57e95cb161a5cfbb1ad1f17a4e20b8e8}} 
-\index{PlayerController@{PlayerController}!PlayerController@{PlayerController}}
-\index{PlayerController@{PlayerController}!PlayerController@{PlayerController}}
-\doxysubsubsection{\texorpdfstring{PlayerController()}{PlayerController()}}
-{\footnotesize\ttfamily Player\+Controller\+::\+Player\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{given\+\_\+player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_player_controller_a22d011ca53dd49d66ab70632a1adfe4d}\label{class_player_controller_a22d011ca53dd49d66ab70632a1adfe4d}} 
+\Hypertarget{class_player_controller_a22d011ca53dd49d66ab70632a1adfe4d}\label{class_player_controller_a22d011ca53dd49d66ab70632a1adfe4d} 
 \index{PlayerController@{PlayerController}!move@{move}}
 \index{move@{move}!PlayerController@{PlayerController}}
 \doxysubsubsection{\texorpdfstring{move()}{move()}}
@@ -102,33 +47,6 @@ Se encarga del movimiento en los ejes en base al move\+State proporcionado.
 \end{DoxyParams}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_player_controller_ade3ad65ab75e336a6589ab2a2fcde0bc}\label{class_player_controller_ade3ad65ab75e336a6589ab2a2fcde0bc}} 
-\index{PlayerController@{PlayerController}!force@{force}}
-\index{force@{force}!PlayerController@{PlayerController}}
-\doxysubsubsection{\texorpdfstring{force}{force}}
-{\footnotesize\ttfamily float Player\+Controller\+::force\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_player_controller_a4e9a2273baadd1aee31828a5b278a8b5}\label{class_player_controller_a4e9a2273baadd1aee31828a5b278a8b5}} 
-\index{PlayerController@{PlayerController}!moveState@{moveState}}
-\index{moveState@{moveState}!PlayerController@{PlayerController}}
-\doxysubsubsection{\texorpdfstring{moveState}{moveState}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_player_controller_ac16487285e74e253d2af9a208fc8a681}{\+\_\+move\+State}} Player\+Controller\+::move\+State\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_player_controller_a01b6bbf3dea5e2ad01da19f0950b9094}\label{class_player_controller_a01b6bbf3dea5e2ad01da19f0950b9094}} 
-\index{PlayerController@{PlayerController}!player@{player}}
-\index{player@{player}!PlayerController@{PlayerController}}
-\doxysubsubsection{\texorpdfstring{player}{player}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_player}{Player}} Player\+Controller\+::player\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_player_controller_a419390d19fbeb7c4c048093570f77b6d}\label{class_player_controller_a419390d19fbeb7c4c048093570f77b6d}} 
-\index{PlayerController@{PlayerController}!vel@{vel}}
-\index{vel@{vel}!PlayerController@{PlayerController}}
-\doxysubsubsection{\texorpdfstring{vel}{vel}}
-{\footnotesize\ttfamily b2\+Vec2 Player\+Controller\+::vel\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_player_controller_8h}{Player\+Controller.\+h}}\end{DoxyCompactItemize}
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/Player\+Controller.\+h\end{DoxyCompactItemize}

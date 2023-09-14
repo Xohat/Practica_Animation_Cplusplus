@@ -1,8 +1,8 @@
-\hypertarget{class_circle}{}\doxysection{Circle Class Reference}
-\label{class_circle}\index{Circle@{Circle}}
+\doxysection{Circle Class Reference}
+\hypertarget{class_circle}{}\label{class_circle}\index{Circle@{Circle}}
 
 
-Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear circulos en la escena.  
+Hija de \doxylink{class_geometry}{Geometry}, se encarga de crear circulos en la escena.  
 
 
 
@@ -15,71 +15,77 @@ Inheritance diagram for Circle\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_circle}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_circle_a3568f253ad41d563f38575cb7b1f9c69}{Circle}} (float given\+\_\+radius, float given\+\_\+density)
-\item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_circle_a512b0009e45f6583155a2197baf94b28}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y)
-\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_circle_aa978eeba0712d29dfae842733bf6c2c7}{update}} ()
+\begin{DoxyCompactList}\small\item\em Método update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_circle_a65a09df8b90711439960942e200aba20}{get\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Resetteas la posición. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_circle_a848b197b8019441a78ec17a15633468a}{render}} (Render\+Window \&renderer) override
-\begin{DoxyCompactList}\small\item\em Metodo de render. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactList}\small\item\em Renderizas el objeto, método override ya que se define en \doxylink{_geometry_8h}{Geometry.\+h}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_geometry_a42437d0403ceceb440a3c888d3d0b9e2}{Geometry}} (\mbox{\hyperlink{class_scene}{Scene}} \&given\+\_\+scene)
-\begin{DoxyCompactList}\small\item\em Lo unico que necesita \mbox{\hyperlink{class_geometry}{Geometry}} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Lo unico que necesita \doxylink{class_geometry}{Geometry} es una escena para que luego los objetos puedan pintarse correctamente. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{render}} (Render\+Window \&renderer)=0
 \begin{DoxyCompactList}\small\item\em Metodo virtual de render para todos los hijos. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Método virtual update en caso de necesitarlo por alguna razón. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{get\+\_\+type}} () const =0
+\begin{DoxyCompactList}\small\item\em Obtienes el tipo de la geometria. \end{DoxyCompactList}\item 
+void {\bfseries reset\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Resettea la posición de los elementos a su posición inicial guardada en la construcción de los mismos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_geometry_a1f874348e383952fb9ece548c07b6131}{set\+\_\+body}} (b2\+Body \texorpdfstring{$\ast$}{*}new\+\_\+body)
+\begin{DoxyCompactList}\small\item\em Configura cual es el body de box2D. \end{DoxyCompactList}\item 
+b2\+Body \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_geometry_a54fb20240119b2b6047233c30a5eebfa}{get\+\_\+body}} ()
+\begin{DoxyCompactList}\small\item\em Getter de body de box2D. \end{DoxyCompactList}\item 
 b2\+Vec2 \mbox{\hyperlink{class_geometry_abf795148b678bca9bfde1f5669d5125f}{get\+\_\+position}} ()
 \begin{DoxyCompactList}\small\item\em Getter de position. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_geometry_ae872b163b1c8f9e86e25af73a2a91f53}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position)
 \begin{DoxyCompactList}\small\item\em Setter de position sin angulo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_geometry_ab540a160bfeb081e06c5f2a615957c3f}{set\+\_\+position}} (b2\+Vec2 new\+\_\+position, float angle)
 \begin{DoxyCompactList}\small\item\em Setter de position con angulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{class_circle_a47644132ec8bec0f3a4e8d0e15bcd5d3}{radius}}
+static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ \mbox{\hyperlink{class_circle_a662cf2034745db7faa9cb5e4b773aaff}{create}} (b2\+Body\+Type body\+\_\+type, float x, float y, float radius, float density, \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena despues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{class_circle_a7bf1052c9c934d0cc5c2d5e4b4db6e94}{density}}
+b2\+Body \texorpdfstring{$\ast$}{*} {\bfseries body} = nullptr
+\item 
+bool {\bfseries damage} = false
+\item 
+bool {\bfseries triggered} = false
+\item 
+bool {\bfseries player} = false
+\item 
+bool {\bfseries dead} = false
 \end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
-\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_geometry}{Geometry}}}
 \begin{DoxyCompactItemize}
 \item 
-b2\+Body $\ast$ \mbox{\hyperlink{class_geometry_a49f2312ec8148f9cf65ec207ad681942}{body}} = NULL
+unique\+\_\+ptr$<$ sf\+::\+Shape $>$ {\bfseries shape}
 \item 
-b2\+Body\+Def $\ast$ \mbox{\hyperlink{class_geometry_ae3a09b207f9cfa82413075629e0fc9a8}{body\+\_\+def}} = NULL
+\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
 \item 
-b2\+Fixture\+Def \mbox{\hyperlink{class_geometry_a19ceadf39989dea991cf599b4ba45ab3}{body\+\_\+fixture}}
-\item 
-unique\+\_\+ptr$<$ sf\+::\+Shape $>$ \mbox{\hyperlink{class_geometry_a84f067eddc61f4380f7761d560afb958}{shape}}
-\item 
-int \mbox{\hyperlink{class_geometry_afe13f453b638d013261bbd263fb21c71}{name\+\_\+offset}} = 0
-\item 
-\mbox{\hyperlink{class_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_geometry_a56d15d98f4be1a91d4221978f3476d62}{scene}}
+b2\+Vec2 {\bfseries initial\+\_\+position}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Hija de \mbox{\hyperlink{class_geometry}{Geometry}}, se encarga de crear circulos en la escena. 
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_circle_a3568f253ad41d563f38575cb7b1f9c69}\label{class_circle_a3568f253ad41d563f38575cb7b1f9c69}} 
-\index{Circle@{Circle}!Circle@{Circle}}
-\index{Circle@{Circle}!Circle@{Circle}}
-\doxysubsubsection{\texorpdfstring{Circle()}{Circle()}}
-{\footnotesize\ttfamily Circle\+::\+Circle (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+radius,  }\item[{float}]{given\+\_\+density }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
+Hija de \doxylink{class_geometry}{Geometry}, se encarga de crear circulos en la escena. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_circle_a512b0009e45f6583155a2197baf94b28}\label{class_circle_a512b0009e45f6583155a2197baf94b28}} 
+\Hypertarget{class_circle_a662cf2034745db7faa9cb5e4b773aaff}\label{class_circle_a662cf2034745db7faa9cb5e4b773aaff} 
 \index{Circle@{Circle}!create@{create}}
 \index{create@{create}!Circle@{Circle}}
 \doxysubsubsection{\texorpdfstring{create()}{create()}}
-{\footnotesize\ttfamily b2\+Body $\ast$ Circle\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily static shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry}{Geometry}} $>$ Circle\+::create (\begin{DoxyParamCaption}\item[{b2\+Body\+Type}]{body\+\_\+type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{radius,  }\item[{float}]{density,  }\item[{\mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -97,7 +103,21 @@ Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena 
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_circle_a848b197b8019441a78ec17a15633468a}\label{class_circle_a848b197b8019441a78ec17a15633468a}} 
+\Hypertarget{class_circle_a65a09df8b90711439960942e200aba20}\label{class_circle_a65a09df8b90711439960942e200aba20} 
+\index{Circle@{Circle}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Circle\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Resetteas la posición. 
+
+
+
+Implements \mbox{\hyperlink{class_geometry_a25eaf5ba321723492562892c3d5d0df1}{Geometry}}.
+
+\Hypertarget{class_circle_a848b197b8019441a78ec17a15633468a}\label{class_circle_a848b197b8019441a78ec17a15633468a} 
 \index{Circle@{Circle}!render@{render}}
 \index{render@{render}!Circle@{Circle}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
@@ -105,7 +125,7 @@ Se crea el objeto y se devuelve la referencia para meterlo en el mapa de escena 
 
 
 
-Metodo de render. 
+Renderizas el objeto, método override ya que se define en \doxylink{_geometry_8h}{Geometry.\+h}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -116,23 +136,22 @@ Metodo de render.
 
 Implements \mbox{\hyperlink{class_geometry_a0e8b573107bd44845fb681029ac3cb16}{Geometry}}.
 
+\Hypertarget{class_circle_aa978eeba0712d29dfae842733bf6c2c7}\label{class_circle_aa978eeba0712d29dfae842733bf6c2c7} 
+\index{Circle@{Circle}!update@{update}}
+\index{update@{update}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Circle\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_circle_a7bf1052c9c934d0cc5c2d5e4b4db6e94}\label{class_circle_a7bf1052c9c934d0cc5c2d5e4b4db6e94}} 
-\index{Circle@{Circle}!density@{density}}
-\index{density@{density}!Circle@{Circle}}
-\doxysubsubsection{\texorpdfstring{density}{density}}
-{\footnotesize\ttfamily float Circle\+::density\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_circle_a47644132ec8bec0f3a4e8d0e15bcd5d3}\label{class_circle_a47644132ec8bec0f3a4e8d0e15bcd5d3}} 
-\index{Circle@{Circle}!radius@{radius}}
-\index{radius@{radius}!Circle@{Circle}}
-\doxysubsubsection{\texorpdfstring{radius}{radius}}
-{\footnotesize\ttfamily float Circle\+::radius\hspace{0.3cm}{\ttfamily [private]}}
+Método update en caso de necesitarlo por alguna razón. 
+
+
+
+Implements \mbox{\hyperlink{class_geometry_a92fab86ccfaf75ce6f37ef02819f80a3}{Geometry}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_circle_8h}{Circle.\+h}}\end{DoxyCompactItemize}
+F\+:/\+Github/\+Practica\+\_\+\+Animation\+\_\+\+Cplusplus/2\+D/\+Practica\+\_\+animacion/code/\mbox{\hyperlink{_circle_8h}{Circle.\+h}}\end{DoxyCompactItemize}

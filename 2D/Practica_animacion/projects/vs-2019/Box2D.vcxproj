@@ -86,19 +86,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\code\ContactListener.cpp" />
     <ClCompile Include="..\..\code\main.cpp" />
     <ClCompile Include="..\..\code\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\Basket.h" />
     <ClInclude Include="..\..\code\Circle.h" />
+    <ClInclude Include="..\..\code\Collision_sensor.h" />
     <ClInclude Include="..\..\code\ContactListener.h" />
+    <ClInclude Include="..\..\code\Fire.h" />
     <ClInclude Include="..\..\code\Geometry.h" />
+    <ClInclude Include="..\..\code\Joints.h" />
     <ClInclude Include="..\..\code\Player.h" />
-    <ClInclude Include="..\..\code\PlayerController.h" />
     <ClInclude Include="..\..\code\Rectangle.h" />
     <ClInclude Include="..\..\code\Rectangle_platform.h" />
     <ClInclude Include="..\..\code\Scene.h" />
+    <ClInclude Include="..\..\code\Spin_rectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
